@@ -89,19 +89,12 @@ public class DataHolder {
         medicalHistories.add(new MedicalHistory("3", "80/127", 95, 115, "38.0", "Abc.tab xyz Syrup", LocalDateTime.now().plusHours(93), p5));
 
 
-        doctors.get(1).getPatients().add(p1);
-        doctors.get(2).getPatients().add(p2);
-        doctors.get(2).getPatients().add(p3);
-        doctors.get(5).getPatients().add(p4);
-        doctors.get(3).getPatients().add(p5);
-        doctors.get(3).getPatients().add(p1);
-
-
-
-        patients.get(1).getFamilyDoctors().add(d1);
-        patients.get(2).getFamilyDoctors().add(d4);
-        patients.get(4).getFamilyDoctors().add(d5);
-        patients.get(4).getFamilyDoctors().add(d2);
+        doctors.get(1).follow(p1);
+        doctors.get(2).follow(p2);
+        doctors.get(2).follow(p3);
+        doctors.get(5).follow(p4);
+        doctors.get(3).follow(p5);
+        doctors.get(3).follow(p1);
 
     }
 }

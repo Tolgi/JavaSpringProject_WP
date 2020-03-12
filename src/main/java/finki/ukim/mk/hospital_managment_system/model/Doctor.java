@@ -20,4 +20,14 @@ public class Doctor {
 
     private Specialization specialization;
     private List<Patient> patients;
+
+    public void follow(Patient patient){
+        this.patients.add(patient);
+        patient.getFamilyDoctors().add(this);
+    }
+
+    public void unfollow(Patient patient){
+        this.patients.remove(patient);
+        patient.getFamilyDoctors().remove(this);
+    }
 }
