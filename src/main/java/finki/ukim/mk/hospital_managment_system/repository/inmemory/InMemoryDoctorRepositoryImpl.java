@@ -5,7 +5,9 @@ import finki.ukim.mk.hospital_managment_system.model.Doctor;
 import finki.ukim.mk.hospital_managment_system.repository.DoctorRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Repository
 public class InMemoryDoctorRepositoryImpl implements DoctorRepository {
@@ -28,4 +30,25 @@ public class InMemoryDoctorRepositoryImpl implements DoctorRepository {
     public void deleteById(String doctorId) {
         this.findById(doctorId).ifPresent(doctor -> DataHolder.doctors.remove(doctor));
     }
+
+    @Override
+    public List<Doctor> findAll() {
+        return DataHolder.doctors;
+    }
+
+    @Override
+    public List<Doctor> searchDoctorsBySpecialization(String term) {
+        return DataHolder.doctors.stream()
+                .filter(doctor -> doctor.getSpecialization().getName().equals(term))
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<Doctor> searchDoctorsByName(String term) {
+        return DataHolder.doctors.stream()
+                .filter(doctor -> doctor.getName().equals(term))
+                .collect(Collectors.toList());
+    }
+
+
 }

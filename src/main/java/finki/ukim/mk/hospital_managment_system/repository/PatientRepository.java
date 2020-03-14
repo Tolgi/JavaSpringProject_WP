@@ -10,6 +10,7 @@ public interface PatientRepository {
 
     Patient save(Patient patient);
 
+
     void deleteById(String patientId);
 
 }

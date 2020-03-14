@@ -21,6 +21,7 @@ public class DataHolder {
     public static List<Appointment> appointments = new ArrayList<>();
     public static List<Specialization> specializations = new ArrayList<>();
     public static List<MedicalHistory> medicalHistories = new ArrayList<>();
+    public static List<Term> termList = new ArrayList<>();
 
     @PostConstruct
     public void init(){
@@ -95,6 +96,16 @@ public class DataHolder {
         doctors.get(5).follow(p4);
         doctors.get(3).follow(p5);
         doctors.get(3).follow(p1);
+
+        Term term1 = new Term("1", LocalDate.of(2020, 4,10), LocalTime.of(14,00), "false", d1);
+        Term term2 = new Term("2", LocalDate.of(2020, 4,10), LocalTime.of(11,00), "true", d1);
+        Term term3 = new Term("3", LocalDate.of(2020, 4,10), LocalTime.of(10,00), "false", d1);
+        Term term4 = new Term("4", LocalDate.of(2020, 4,10), LocalTime.of(15,00), "false", d1);
+
+        termList.add(term1);
+        termList.add(term2);
+        termList.add(term3);
+        termList.add(term4);
 
     }
 }
