@@ -12,11 +12,18 @@ import java.time.LocalTime;
 @Data
 public class Term {
 
-   private String id;
+   private Long id;
    private LocalDate date;
    private LocalTime timeOfAdmission;
    private String status;
 
    private Doctor doctor;
+
+   public void createTerm(LocalDate date, LocalTime timeOfAdmission, String status, Doctor doctor){
+      this.date = date;
+      this.timeOfAdmission = timeOfAdmission;
+      this.status = status;
+      this.doctor = doctor;
+   }
 
 }

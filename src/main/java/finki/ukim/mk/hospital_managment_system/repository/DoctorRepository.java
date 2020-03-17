@@ -7,11 +7,11 @@ import java.util.Optional;
 
 public interface DoctorRepository {
 
-    Optional<Doctor> findById(String doctorId);
+    Optional<Doctor> findById(Long doctorId);
 
     Doctor save(Doctor doctor);
 
-    void deleteById(String doctorId);
+    void deleteById(Long doctorId);
 
     List<Doctor> findAll();
 

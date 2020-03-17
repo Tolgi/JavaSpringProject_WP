@@ -7,9 +7,9 @@ import java.util.List;
 
 public interface PatientService {
 
-    Patient createPatient(String name, String gender, String email, String address, Integer age, String contactNo, LocalDateTime creationDate, String [] doctorsList);
+    Patient createPatient(String name, Long ssn, String gender, String email, String address, Integer age, String contactNo, LocalDateTime creationDate, String [] doctorsList);
 
-    void deleteById(String patientId);
+    void deleteById(Long patientId);
 
     List<Patient> findAll();
 

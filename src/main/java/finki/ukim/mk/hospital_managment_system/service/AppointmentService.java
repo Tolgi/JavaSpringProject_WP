@@ -9,13 +9,13 @@ import java.util.List;
 
 public interface AppointmentService {
 
-    AppointmentService createAppointment(Integer consultancyFees, String status, LocalDate date, LocalTime time, LocalDateTime creationDate, String patientId, String doctorId);
+    Appointment createAppointment(Integer consultancyFees, String status, LocalDate date, LocalTime time, LocalDateTime creationDate, Long patientId, Long doctorId);
 
-    void deleteById(String appointmentId);
+    void deleteById(Long appointmentId);
 
     List<Appointment> findAll();
 
-    List<Appointment> findAllByPatientId(String patientId);
+    List<Appointment> findAllByPatientId(Long patientId);
 
-    List<Appointment> findAllByDoctorId(String doctorId);
+    List<Appointment> findAllByDoctorId(Long doctorId);
 }

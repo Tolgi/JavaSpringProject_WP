@@ -10,13 +10,13 @@ public interface TermService {
 
     Term createTerm(LocalDate date, LocalTime time, String status, String doctorId);
 
-    void deleteById(String termId);
+    void deleteById(Long termId);
 
     List<Term> findAll();
 
-    List<Term> findAllByDoctorId(String doctorId);
+    List<Term> findAllByDoctorId(Long doctorId);
 
     List<Term> findAllByStatus(String status);
 
-    List<Term> findAllByDoctorIdAndByStatus(String doctorId, String status);
+    List<Term> findAllByDoctorIdAndByStatus(Long doctorId, String status);
 }

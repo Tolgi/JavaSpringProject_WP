@@ -1,8 +1,6 @@
 package finki.ukim.mk.hospital_managment_system.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -13,7 +11,7 @@ import java.time.LocalTime;
 @Data
 public class Appointment {
 
-    private String id;
+    private Long id;
     private Integer consultancyFees;
     private String status;
     private LocalDate date;
@@ -24,5 +22,16 @@ public class Appointment {
 
     private Patient patient;
     private Doctor doctor;
+
+    public void createAppointment(Integer consultancyFees, String status, LocalDate date, LocalTime time, LocalDateTime creationDate, Patient patient, Doctor doctor){
+        this.consultancyFees = consultancyFees;
+        this.status = status;
+        this.date = date;
+        this.time = time;
+        this.creationDate = creationDate;
+        this.patient = patient;
+        this.doctor = doctor;
+    }
+
 
 }

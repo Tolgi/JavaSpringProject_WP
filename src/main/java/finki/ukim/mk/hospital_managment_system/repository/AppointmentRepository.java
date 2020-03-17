@@ -7,9 +7,9 @@ import java.util.Optional;
 
 public interface AppointmentRepository {
 
-    Optional<Appointment> findById(String appointmentId);
+    Optional<Appointment> findById(Long appointmentId);
 
     Appointment save(Appointment appointment);
 
-    void deleteById(String appointmentId);
+    void deleteById(Long appointmentId);
 }

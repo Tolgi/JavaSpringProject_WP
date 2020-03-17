@@ -9,7 +9,7 @@ public interface SpecializationService {
 
     Specialization createSpecialization(String name, LocalDateTime creationDate);
 
-    void deleteById(String specializationId);
+    void deleteById(Long specializationId);
 
     List<Specialization> findAll();
 }

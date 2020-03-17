@@ -6,11 +6,10 @@ import java.util.Optional;
 
 public interface PatientRepository {
 
-    Optional<Patient> findById(String patientId);
+    Optional<Patient> findById(Long patientId);
 
     Patient save(Patient patient);
 
-
-    void deleteById(String patientId);
+    void deleteById(Long patientId);
 
 }

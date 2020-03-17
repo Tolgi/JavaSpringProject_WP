@@ -7,12 +7,12 @@ import java.util.Optional;
 
 public interface TermRepository {
 
-    Optional<Term> findById(String termId);
+    Optional<Term> findById(Long termId);
 
     Term save(Term term);
 
-    void deleteById(String termId);
+    void deleteById(Long termId);
 
-    List<Term> searchByDoctorIdAndStatus(String doctorId, String status);
+    List<Term> searchByDoctorIdAndStatus(Long doctorId, String status);
 
 }

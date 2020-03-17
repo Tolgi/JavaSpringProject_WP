@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @AllArgsConstructor
@@ -11,7 +12,7 @@ import java.util.List;
 @Data
 public class Doctor {
 
-    private String id;
+    private Long id;
     private String name;
     private String address;
     private Integer consultancyFees;
@@ -29,5 +30,15 @@ public class Doctor {
     public void unfollow(Patient patient){
         this.patients.remove(patient);
         patient.getFamilyDoctors().remove(this);
+    }
+
+    public void createDoctor(String name, String address, Integer consultancyFees, String contactNo, String email, Specialization specialization){
+        this.name = name;
+        this.address = address;
+        this.consultancyFees = consultancyFees;
+        this.contactNo = contactNo;
+        this.email = email;
+        this.specialization = specialization;
+        patients = new ArrayList<>();
     }
 }

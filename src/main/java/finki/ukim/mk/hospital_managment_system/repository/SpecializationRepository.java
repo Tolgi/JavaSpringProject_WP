@@ -8,12 +8,12 @@ import java.util.Optional;
 
 public interface SpecializationRepository {
 
-    Optional<Specialization> findById(String specializationId);
+    Optional<Specialization> findById(Long specializationId);
 
     Specialization save(Specialization specialization);
 
     List<Specialization> findAll();
 
-    void deleteById(String id);
+    void deleteById(Long id);
 
 }

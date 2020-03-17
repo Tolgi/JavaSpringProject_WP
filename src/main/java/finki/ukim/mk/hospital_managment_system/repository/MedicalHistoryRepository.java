@@ -8,7 +8,7 @@ public interface MedicalHistoryRepository {
 
     MedicalHistory save(MedicalHistory medicalHistory);
 
-    Optional<MedicalHistory> findById(String medicalHistoryId);
+    Optional<MedicalHistory> findById(Long medicalHistoryId);
 
-    void deleteById(String medicalHistoryId);
+    void deleteById(Long medicalHistoryId);
 }

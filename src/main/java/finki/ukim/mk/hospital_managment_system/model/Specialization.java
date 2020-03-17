@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @Data
 public class Specialization {
 
-    private String id;
+    private Long id;
     private String name;
     private LocalDateTime creationTime;
 }

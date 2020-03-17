@@ -11,7 +11,7 @@ public interface MedicalHistoryService {
 
     void deleteById(String medicalHistoryId);
 
-    List<MedicalHistory> findAllByPatientId(String patientId);
+    List<MedicalHistory> findAllByPatientId(Long patientId);
 
 
 }

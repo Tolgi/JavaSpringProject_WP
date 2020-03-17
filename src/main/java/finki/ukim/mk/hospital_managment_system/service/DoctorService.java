@@ -9,9 +9,9 @@ public interface DoctorService {
 
     Doctor createDoctor(String name, String address, Integer consultancyFees, String contactNo, String email, String specializationId, String [] patientsList);
 
-    void deleteById(String id);
+    void deleteById(Long id);
 
-    List<Doctor> findAllBySpecializationId(String specializationId);
+    List<Doctor> findAllBySpecializationId(Long specializationId);
 
     List<Patient> findAllPatients();
 

@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @Data
 public class MedicalHistory {
 
-    private String id;
+    private Long id;
     private String bloodPressure;
     private Integer weight;
     private Integer bloodSugar;
@@ -20,5 +20,15 @@ public class MedicalHistory {
     private LocalDateTime visitDate;
 
     private Patient patient;
+
+    public void createMedicalHistory(String bloodPressure, Integer weight, Integer bloodSugar, String bodyTemperature, String medicalPrescription, LocalDateTime visitDate, Patient patient){
+        this.bloodPressure = bloodPressure;
+        this.weight = weight;
+        this.bloodSugar = bloodSugar;
+        this.bodyTemperature = bodyTemperature;
+        this.medicalPrescription = medicalPrescription;
+        this.visitDate = visitDate;
+        this.patient = patient;
+    }
 
 }
