@@ -4,16 +4,21 @@ import finki.ukim.mk.hospital_managment_system.model.Doctor;
 import finki.ukim.mk.hospital_managment_system.model.Patient;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface DoctorService {
 
-    Doctor createDoctor(String name, String address, Integer consultancyFees, String contactNo, String email, String specializationId, String [] patientsList);
+    Doctor createDoctor(String name, String address, Integer consultancyFees, String contactNo, String email, Long specializationId);
 
     void deleteById(Long id);
 
-    List<Doctor> findAllBySpecializationId(Long specializationId);
+    List<Doctor> findAllBySpecializationName(String specializationName);
 
-    List<Patient> findAllPatients();
+    List<Patient> findPatientsByDoctorId(Long doctorId);
+
+    List<Doctor> searchAllByName(String name);
 
     List<Doctor> findAll();
+
+    Optional<Doctor> findById(Long doctorId);
 }

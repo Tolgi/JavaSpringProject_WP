@@ -11,7 +11,7 @@ import java.util.Optional;
 public class InMemoryAppointmentRepositoryImpl implements AppointmentRepository {
 
     @Override
-    public Optional<Appointment> findById(String appointmentId) {
+    public Optional<Appointment> findById(Long appointmentId) {
         return DataHolder.appointments.stream()
                 .filter(appointment -> appointment.getId().equals(appointmentId))
                 .findFirst();
@@ -25,7 +25,7 @@ public class InMemoryAppointmentRepositoryImpl implements AppointmentRepository 
     }
 
     @Override
-    public void deleteById(String appointmentId) {
+    public void deleteById(Long appointmentId) {
         this.findById(appointmentId).ifPresent(appointment -> DataHolder.appointments.remove(appointment));
     }
 }

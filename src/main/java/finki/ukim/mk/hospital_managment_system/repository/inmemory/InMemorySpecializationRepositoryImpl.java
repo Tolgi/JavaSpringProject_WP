@@ -12,7 +12,7 @@ import java.util.Optional;
 public class InMemorySpecializationRepositoryImpl implements SpecializationRepository {
 
     @Override
-    public Optional<Specialization> findById(String specializationId) {
+    public Optional<Specialization> findById(Long specializationId) {
         return DataHolder.specializations.stream()
                 .filter(specialization -> specialization.getId().equals(specializationId))
                 .findFirst();
@@ -31,7 +31,7 @@ public class InMemorySpecializationRepositoryImpl implements SpecializationRepos
     }
 
     @Override
-    public void deleteById(String id) {
+    public void deleteById(Long id) {
         this.findById(id).ifPresent(specialization -> DataHolder.specializations.remove(specialization));
     }
 }

@@ -11,7 +11,7 @@ import java.util.Optional;
 public class InMemoryPatientRepositoryImpl implements PatientRepository {
 
     @Override
-    public Optional<Patient> findById(String patientId) {
+    public Optional<Patient> findById(Long patientId) {
         return DataHolder.patients.stream()
                 .filter(patient -> patient.getId().equals(patientId))
                 .findFirst();
@@ -25,7 +25,7 @@ public class InMemoryPatientRepositoryImpl implements PatientRepository {
     }
 
     @Override
-    public void deleteById(String patientId) {
+    public void deleteById(Long patientId) {
         this.findById(patientId).ifPresent(patient -> DataHolder.patients.remove(patient));
     }
 }

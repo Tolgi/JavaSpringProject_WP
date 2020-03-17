@@ -3,6 +3,7 @@ package finki.ukim.mk.hospital_managment_system.repository;
 import finki.ukim.mk.hospital_managment_system.model.Appointment;
 import sun.security.krb5.internal.APOptions;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface AppointmentRepository {
@@ -12,4 +13,10 @@ public interface AppointmentRepository {
     Appointment save(Appointment appointment);
 
     void deleteById(Long appointmentId);
+
+    List<Appointment> findAllByPatientId(Long patientId);
+
+    List<Appointment> findAllByDoctorId(Long doctorId);
+
+    List<Appointment> findAll();
 }

@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 public class InMemoryTermRepositoryImpl implements TermRepository {
 
     @Override
-    public Optional<Term> findById(String termId) {
+    public Optional<Term> findById(Long termId) {
         return DataHolder.termList.stream()
                 .filter(term -> term.getId().equals(termId))
                 .findFirst();
@@ -27,12 +27,12 @@ public class InMemoryTermRepositoryImpl implements TermRepository {
     }
 
     @Override
-    public void deleteById(String termId) {
+    public void deleteById(Long termId) {
         findById(termId).ifPresent(term -> DataHolder.termList.remove(term));
     }
 
     @Override
-    public List<Term> searchByDoctorIdAndStatus(String doctorId, String status) {
+    public List<Term> searchByDoctorIdAndStatus(Long doctorId, String status) {
         return DataHolder.termList.stream()
                 .filter(term -> term.getDoctor().getId().equals(doctorId) && term.getStatus().equals(status))
                 .collect(Collectors.toList());

@@ -7,9 +7,9 @@ import java.util.List;
 
 public interface MedicalHistoryService {
 
-    MedicalHistory createMedicalHistory(String bloodPressure, Integer weight, Integer bloodSugar, String bodyTemperature, String medicalPerscription, LocalDateTime visitDate, String patientId);
+    MedicalHistory createMedicalHistory(String bloodPressure, Integer weight, Integer bloodSugar, String bodyTemperature, String medicalPerscription, LocalDateTime visitDate, Long patientId);
 
-    void deleteById(String medicalHistoryId);
+    void deleteById(Long medicalHistoryId);
 
     List<MedicalHistory> findAllByPatientId(Long patientId);
 

@@ -18,14 +18,14 @@ public class InMemoryMedicalHistoryRepositoryImpl implements MedicalHistoryRepos
     }
 
     @Override
-    public Optional<MedicalHistory> findById(String medicalHistoryId) {
+    public Optional<MedicalHistory> findById(Long medicalHistoryId) {
         return DataHolder.medicalHistories.stream()
                 .filter(medicalHistory -> medicalHistory.getId().equals(medicalHistoryId))
                 .findFirst();
     }
 
     @Override
-    public void deleteById(String medicalHistoryId) {
+    public void deleteById(Long medicalHistoryId) {
         this.findById(medicalHistoryId).ifPresent(medicalHistory -> DataHolder.medicalHistories.remove(medicalHistory));
     }
 }

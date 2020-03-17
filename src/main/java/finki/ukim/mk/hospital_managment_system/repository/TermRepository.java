@@ -15,4 +15,10 @@ public interface TermRepository {
 
     List<Term> searchByDoctorIdAndStatus(Long doctorId, String status);
 
+    List<Term> searchByStatus(String status);
+
+    List<Term> searchByDoctorId(Long doctorId);
+
+    List<Term> findAll();
+
 }

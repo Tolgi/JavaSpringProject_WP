@@ -14,4 +14,9 @@ public class Specialization {
     private Long id;
     private String name;
     private LocalDateTime creationTime;
+
+    public void createSpecialization(String name, LocalDateTime creationTime){
+        this.name = name;
+        this.creationTime = creationTime;
+    }
 }

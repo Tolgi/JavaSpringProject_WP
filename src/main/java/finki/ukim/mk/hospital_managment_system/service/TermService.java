@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface TermService {
 
-    Term createTerm(LocalDate date, LocalTime time, String status, String doctorId);
+    Term createTerm(LocalDate date, LocalTime time, String status, Long doctorId);
 
     void deleteById(Long termId);
 

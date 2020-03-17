@@ -3,6 +3,7 @@ package finki.ukim.mk.hospital_managment_system.repository.jpa;
 import finki.ukim.mk.hospital_managment_system.model.Appointment;
 import finki.ukim.mk.hospital_managment_system.repository.AppointmentRepository;
 
+import java.util.List;
 import java.util.Optional;
 
 public class AppointmentRepositoryImpl implements AppointmentRepository {
@@ -27,5 +28,20 @@ public class AppointmentRepositoryImpl implements AppointmentRepository {
     @Override
     public void deleteById(Long appointmentId) {
         jpaAppointmentRepository.deleteById(appointmentId);
+    }
+
+    @Override
+    public List<Appointment> findAllByPatientId(Long patientId) {
+        return jpaAppointmentRepository.findAppointmentsByPatient_Id(patientId);
+    }
+
+    @Override
+    public List<Appointment> findAllByDoctorId(Long doctorId) {
+        return jpaAppointmentRepository.findAppointmentsByDoctor_Id(doctorId);
+    }
+
+    @Override
+    public List<Appointment> findAll() {
+        return jpaAppointmentRepository.findAll();
     }
 }

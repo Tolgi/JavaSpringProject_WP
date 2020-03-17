@@ -3,6 +3,7 @@ package finki.ukim.mk.hospital_managment_system.repository.jpa;
 import finki.ukim.mk.hospital_managment_system.model.Patient;
 import finki.ukim.mk.hospital_managment_system.repository.PatientRepository;
 
+import java.util.List;
 import java.util.Optional;
 
 public class PatientRepositoryImpl implements PatientRepository {
@@ -12,8 +13,6 @@ public class PatientRepositoryImpl implements PatientRepository {
     public PatientRepositoryImpl(JpaPatientRepository jpaPatientRepository) {
         this.jpaPatientRepository = jpaPatientRepository;
     }
-
-
 
     @Override
     public Optional<Patient> findById(Long patientId) {
@@ -29,4 +28,11 @@ public class PatientRepositoryImpl implements PatientRepository {
     public void deleteById(Long patientId) {
         jpaPatientRepository.deleteById(patientId);
     }
+
+    @Override
+    public List<Patient> findAll() {
+        return jpaPatientRepository.findAll();
+    }
+
+
 }

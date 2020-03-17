@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 public class InMemoryDoctorRepositoryImpl implements DoctorRepository {
 
     @Override
-    public Optional<Doctor> findById(String doctorId) {
+    public Optional<Doctor> findById(Long doctorId) {
         return DataHolder.doctors.stream()
                 .filter(doctor -> doctor.getId().equals(doctorId))
                 .findFirst();
@@ -27,7 +27,7 @@ public class InMemoryDoctorRepositoryImpl implements DoctorRepository {
     }
 
     @Override
-    public void deleteById(String doctorId) {
+    public void deleteById(Long doctorId) {
         this.findById(doctorId).ifPresent(doctor -> DataHolder.doctors.remove(doctor));
     }
 
