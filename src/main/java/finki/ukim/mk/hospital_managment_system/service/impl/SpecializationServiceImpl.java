@@ -3,10 +3,12 @@ package finki.ukim.mk.hospital_managment_system.service.impl;
 import finki.ukim.mk.hospital_managment_system.model.Specialization;
 import finki.ukim.mk.hospital_managment_system.repository.SpecializationRepository;
 import finki.ukim.mk.hospital_managment_system.service.SpecializationService;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
+@Service
 public class SpecializationServiceImpl implements SpecializationService {
 
     private final SpecializationRepository specializationRepository;

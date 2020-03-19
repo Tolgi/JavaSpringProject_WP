@@ -9,12 +9,14 @@ import finki.ukim.mk.hospital_managment_system.repository.AppointmentRepository;
 import finki.ukim.mk.hospital_managment_system.repository.DoctorRepository;
 import finki.ukim.mk.hospital_managment_system.repository.PatientRepository;
 import finki.ukim.mk.hospital_managment_system.service.AppointmentService;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.List;
 
+@Service
 public class AppointmentServiceImpl implements AppointmentService {
 
     private final AppointmentRepository appointmentRepository;

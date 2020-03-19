@@ -1,11 +1,14 @@
-package finki.ukim.mk.hospital_managment_system.repository.jpa;
+package finki.ukim.mk.hospital_managment_system.repository.impl;
 
 import finki.ukim.mk.hospital_managment_system.model.Specialization;
 import finki.ukim.mk.hospital_managment_system.repository.SpecializationRepository;
+import finki.ukim.mk.hospital_managment_system.repository.jpa.JpaSpecializationRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
 
+@Repository
 public class SpecializationRepositoryImpl implements SpecializationRepository {
 
     private final JpaSpecializationRepository jpaSpecializationRepository;

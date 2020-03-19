@@ -1,11 +1,14 @@
-package finki.ukim.mk.hospital_managment_system.repository.jpa;
+package finki.ukim.mk.hospital_managment_system.repository.impl;
 
 import finki.ukim.mk.hospital_managment_system.model.Doctor;
 import finki.ukim.mk.hospital_managment_system.repository.DoctorRepository;
+import finki.ukim.mk.hospital_managment_system.repository.jpa.JpaDoctorRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
 
+@Repository
 public class DoctorRepositoryImpl implements DoctorRepository {
 
     private final JpaDoctorRepository jpaDoctorRepository;

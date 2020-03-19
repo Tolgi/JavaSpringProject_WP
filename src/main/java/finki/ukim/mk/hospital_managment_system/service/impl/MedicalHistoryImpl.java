@@ -6,10 +6,12 @@ import finki.ukim.mk.hospital_managment_system.model.Patient;
 import finki.ukim.mk.hospital_managment_system.repository.MedicalHistoryRepository;
 import finki.ukim.mk.hospital_managment_system.repository.PatientRepository;
 import finki.ukim.mk.hospital_managment_system.service.MedicalHistoryService;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
+@Service
 public class MedicalHistoryImpl implements MedicalHistoryService {
 
     private final MedicalHistoryRepository medicalHistoryRepository;

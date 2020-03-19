@@ -4,13 +4,18 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
+
+@Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 public class MedicalHistory {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String bloodPressure;
     private Integer weight;
@@ -19,6 +24,7 @@ public class MedicalHistory {
     private String medicalPrescription;
     private LocalDateTime visitDate;
 
+    @ManyToOne
     private Patient patient;
 
     public void createMedicalHistory(String bloodPressure, Integer weight, Integer bloodSugar, String bodyTemperature, String medicalPrescription, LocalDateTime visitDate, Patient patient){

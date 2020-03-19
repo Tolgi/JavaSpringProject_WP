@@ -4,16 +4,19 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-
+@Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 public class Patient {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private Long ssn;
@@ -25,6 +28,7 @@ public class Patient {
 
     private LocalDateTime creationDate;
 
+    @ManyToMany(mappedBy = "patients")
     private List<Doctor> familyDoctors;
 
     public void createPatient(String name, Long ssn, String gender, String email, String address, Integer age, String contactNo, LocalDateTime creationDate){

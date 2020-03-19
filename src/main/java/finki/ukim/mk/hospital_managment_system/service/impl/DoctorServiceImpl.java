@@ -9,10 +9,12 @@ import finki.ukim.mk.hospital_managment_system.repository.DoctorRepository;
 import finki.ukim.mk.hospital_managment_system.repository.PatientRepository;
 import finki.ukim.mk.hospital_managment_system.repository.SpecializationRepository;
 import finki.ukim.mk.hospital_managment_system.service.DoctorService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class DoctorServiceImpl implements DoctorService {
 
     private final DoctorRepository doctorRepository;

@@ -6,11 +6,13 @@ import finki.ukim.mk.hospital_managment_system.model.Term;
 import finki.ukim.mk.hospital_managment_system.repository.DoctorRepository;
 import finki.ukim.mk.hospital_managment_system.repository.TermRepository;
 import finki.ukim.mk.hospital_managment_system.service.TermService;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
 
+@Service
 public class TermServiceImpl implements TermService {
 
     private final TermRepository termRepository;
