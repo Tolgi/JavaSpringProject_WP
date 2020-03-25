@@ -3,6 +3,8 @@ package finki.ukim.mk.hospital_managment_system.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -22,6 +24,7 @@ public class Term {
    private String status;
 
    @ManyToOne
+   @OnDelete(action = OnDeleteAction.CASCADE)
    private Doctor doctor;
 
    public void createTerm(LocalDate date, LocalTime timeOfAdmission, String status, Doctor doctor){

@@ -1,0 +1,89 @@
+POST http://localhost:8080/api/patient
+Content-Type: application/x-www-form-urlencoded
+
+name=Michael Curry&ssn=2510978495212&gender=male&email=michaelcurry@gmail.com&address=New York, New York&age=42&contactNo=721-987-234&creationDate=2019-10-20T10:55:52&doctorId=1
+
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 201, "Response status is not 201");
+  client.assert(response.headers.valueOf("Location")!= null, "Invalid Location");
+  client.assert(response.body.hasOwnProperty("slotId"), 'Can not find the slotId');
+  client.global.set("newSlotUrl", response.headers.valueOf("Location"));
+  client.global.set("slotId", response.body["slotId"]);
+});
+%}
+
+
+###
+POST http://localhost:8080/api/patient
+Content-Type: application/x-www-form-urlencoded
+
+name=Carson Cuppic&ssn=11020978495212&gender=male&email=carsoncc@gmail.com&address=Hyannis, Masachusets&age=31&contactNo=723-475-001&creationDate=2020-02-25T18:25:52&doctorId=2
+
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 201, "Response status is not 201");
+  client.assert(response.headers.valueOf("Location")!= null, "Invalid Location");
+  client.assert(response.body.hasOwnProperty("slotId"), 'Can not find the slotId');
+  client.global.set("newSlotUrl", response.headers.valueOf("Location"));
+  client.global.set("slotId", response.body["slotId"]);
+});
+%}
+
+
+###
+POST http://localhost:8080/api/patient
+Content-Type: application/x-www-form-urlencoded
+
+name=VIktorija Stojanova&ssn=2912997475027&gender=female&email=viktorija@gmail.com&address=Hyannis, Masachusets&age=31&contactNo=723-475-001&creationDate=2020-02-25T18:25:52&doctorId=2
+
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 201, "Response status is not 201");
+  client.assert(response.headers.valueOf("Location")!= null, "Invalid Location");
+  client.assert(response.body.hasOwnProperty("slotId"), 'Can not find the slotId');
+  client.global.set("newSlotUrl", response.headers.valueOf("Location"));
+  client.global.set("slotId", response.body["slotId"]);
+});
+%}
+
+
+###
+POST http://localhost:8080/api/medicalHistory
+Content-Type: application/x-www-form-urlencoded
+
+bloodPressure=80/120&weight=85&bloodSugar=120&bodyTemperature=37.2&medicalPrescription=Abc.tab xyz Syrup&visitDate=2020-02-25T18:25:52&patientId=12
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 201, "Response status is not 201");
+  client.assert(response.headers.valueOf("Location")!= null, "Invalid Location");
+  client.assert(response.body.hasOwnProperty("slotId"), 'Can not find the slotId');
+  client.global.set("newSlotUrl", response.headers.valueOf("Location"));
+  client.global.set("slotId", response.body["slotId"]);
+});
+%}
+
+
+###
+DELETE http://localhost:8080/api/patient/4
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+
+###
+GET http://localhost:8080/api/patient
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+
+###

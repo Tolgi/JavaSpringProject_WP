@@ -39,11 +39,11 @@ public class DoctorRepositoryImpl implements DoctorRepository {
 
     @Override
     public List<Doctor> searchDoctorsBySpecialization(String term) {
-        return jpaDoctorRepository.findDoctorsBySpecialization(term);
+        return jpaDoctorRepository.findDoctorsBySpecialization_Name(term);
     }
 
     @Override
     public List<Doctor> searchDoctorsByName(String term) {
-        return jpaDoctorRepository.findDoctorsByName(term);
+        return jpaDoctorRepository.findDoctorsByNameContains(term);
     }
 }

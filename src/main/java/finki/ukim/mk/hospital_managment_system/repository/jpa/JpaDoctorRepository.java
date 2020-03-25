@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface JpaDoctorRepository extends JpaRepository<Doctor, Long> {
 
-    List<Doctor> findDoctorsBySpecialization(String specialization);
-    List<Doctor> findDoctorsByName(String name);
+    List<Doctor> findDoctorsBySpecialization_Name(String specialization);
+    List<Doctor> findDoctorsByNameContains(String name);
 
 }

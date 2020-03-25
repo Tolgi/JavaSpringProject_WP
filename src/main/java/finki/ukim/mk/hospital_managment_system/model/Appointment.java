@@ -1,6 +1,8 @@
 package finki.ukim.mk.hospital_managment_system.model;
 
 import lombok.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.time.LocalDate;

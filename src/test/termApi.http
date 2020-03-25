@@ -1,0 +1,53 @@
+POST http://localhost:8080/api/term
+Content-Type: application/x-www-form-urlencoded
+
+date=2020-03-30&time=11:50&status=busy&doctorId=1
+
+> {%
+client.test("Request executed successfully", function() {
+client.assert(response.status === 201, "Response status is not 201");
+client.assert(response.headers.valueOf("Location")!= null, "Invalid Location");
+client.assert(response.body.hasOwnProperty("slotId"), 'Can not find the slotId');
+client.global.set("newSlotUrl", response.headers.valueOf("Location"));
+client.global.set("slotId", response.body["slotId"]);
+});
+%}
+
+
+###
+GET http://localhost:8080/api/term?doctorId=2
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+
+###
+GET http://localhost:8080/api/term?status=busy
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+
+###
+GET http://localhost:8080/api/term/1/free
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+
+###
+DELETE http://localhost:8080/api/term/2
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+
+###

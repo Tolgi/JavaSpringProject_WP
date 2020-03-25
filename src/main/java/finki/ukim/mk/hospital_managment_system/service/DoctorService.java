@@ -20,5 +20,5 @@ public interface DoctorService {
 
     List<Doctor> findAll();
 
-    Optional<Doctor> findById(Long doctorId);
+    Doctor findById(Long doctorId);
 }

@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface PatientService {
 
-    Patient createPatient(String name, Long ssn, String gender, String email, String address, Integer age, String contactNo, LocalDateTime creationDate);
+    Patient createPatient(String name, Long ssn, String gender, String email, String address, Integer age, String contactNo, LocalDateTime creationDate, Long doctorId);
 
     void deleteById(Long patientId);
 

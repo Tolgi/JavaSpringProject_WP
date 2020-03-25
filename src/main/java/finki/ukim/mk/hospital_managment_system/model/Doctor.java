@@ -3,8 +3,11 @@ package finki.ukim.mk.hospital_managment_system.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,6 +27,7 @@ public class Doctor {
     private String email;
 
     @ManyToOne
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private Specialization specialization;
 
     @ManyToMany(fetch = FetchType.EAGER)

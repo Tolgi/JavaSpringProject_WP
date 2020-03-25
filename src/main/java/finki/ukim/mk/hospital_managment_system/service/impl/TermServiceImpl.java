@@ -1,5 +1,6 @@
 package finki.ukim.mk.hospital_managment_system.service.impl;
 
+import finki.ukim.mk.hospital_managment_system.exceptions.ScheduledTerm;
 import finki.ukim.mk.hospital_managment_system.exceptions.InvalidDoctorId;
 import finki.ukim.mk.hospital_managment_system.model.Doctor;
 import finki.ukim.mk.hospital_managment_system.model.Term;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TermServiceImpl implements TermService {
@@ -28,6 +30,14 @@ public class TermServiceImpl implements TermService {
         Term term = new Term();
         Doctor doctor = doctorRepository.findById(doctorId).orElseThrow(InvalidDoctorId::new);
         term.createTerm(date, time, status, doctor);
+
+
+        Optional<Term>termOptional = findAllByDoctorId(doctor.getId()).stream().filter(term1 -> term1.getDate().equals(term.getDate()) &&
+                                                                                        term1.getTimeOfAdmission().equals(term.getTimeOfAdmission())).findAny();
+        if(termOptional.isPresent()){
+            throw new ScheduledTerm();
+        }
+
         termRepository.save(term);
         return term;
     }

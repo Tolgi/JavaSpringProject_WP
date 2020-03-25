@@ -1,0 +1,150 @@
+
+POST http://localhost:8080/api/doctor
+Content-Type: application/x-www-form-urlencoded
+
+name=Philip C. Hoffman&address=UChicago Medicine&consultancyFees=750&contactNo=773-702-8222&email=philipch@gmail.com&specializationId=1
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 201, "Response status is not 201");
+  client.assert(response.headers.valueOf("Location")!= null, "Invalid Location");
+  client.assert(response.body.hasOwnProperty("slotId"), 'Can not find the slotId');
+  client.global.set("newSlotUrl", response.headers.valueOf("Location"));
+  client.global.set("slotId", response.body["slotId"]);
+});
+%}
+
+
+###
+POST http://localhost:8080/api/doctor
+Content-Type: application/x-www-form-urlencoded
+
+name=John.R.Lurain&address=Northwestern Memorial&consultancyFees=750&contactNo=773-702-8222&email=jhon_rl@gmail.com&specializationId=2
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 201, "Response status is not 201");
+  client.assert(response.headers.valueOf("Location")!= null, "Invalid Location");
+  client.assert(response.body.hasOwnProperty("slotId"), 'Can not find the slotId');
+  client.global.set("newSlotUrl", response.headers.valueOf("Location"));
+  client.global.set("slotId", response.body["slotId"]);
+});
+%}
+
+
+###
+POST http://localhost:8080/api/doctor
+Content-Type: application/x-www-form-urlencoded
+
+name=David Crandall&address=Advocate Good Shepherd Hospital&consultancyFees=450&contactNo=847-382-7330&email=davidc@gmail.com&specializationId=2
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 201, "Response status is not 201");
+  client.assert(response.headers.valueOf("Location")!= null, "Invalid Location");
+  client.assert(response.body.hasOwnProperty("slotId"), 'Can not find the slotId');
+  client.global.set("newSlotUrl", response.headers.valueOf("Location"));
+  client.global.set("slotId", response.body["slotId"]);
+});
+%}
+
+
+###
+POST http://localhost:8080/api/doctor
+Content-Type: application/x-www-form-urlencoded
+
+name=Michael A. Brusca&address=Palos Hospital&consultancyFees=570&contactNo=708-873-7775&email=michaelab@gmail.com&specializationId=1
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 201, "Response status is not 201");
+  client.assert(response.headers.valueOf("Location")!= null, "Invalid Location");
+  client.assert(response.body.hasOwnProperty("slotId"), 'Can not find the slotId');
+  client.global.set("newSlotUrl", response.headers.valueOf("Location"));
+  client.global.set("slotId", response.body["slotId"]);
+});
+%}
+
+
+###
+POST http://localhost:8080/api/doctor
+Content-Type: application/x-www-form-urlencoded
+
+name=Gloria Kim&address=Advocate Good Samaritan Hospital, Downers Grove&consultancyFees=600&contactNo=630-968-2144&email=kim@gmail.com&specializationId=1
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 201, "Response status is not 201");
+  client.assert(response.headers.valueOf("Location")!= null, "Invalid Location");
+  client.assert(response.body.hasOwnProperty("slotId"), 'Can not find the slotId');
+  client.global.set("newSlotUrl", response.headers.valueOf("Location"));
+  client.global.set("slotId", response.body["slotId"]);
+});
+%}
+
+
+###
+
+GET http://localhost:8080/api/doctor?specializationName=Gynecologist
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+
+###
+GET http://localhost:8080/api/doctor?doctorId=3
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+
+###
+GET http://localhost:8080/api/doctor/search/M
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+
+###
+GET http://localhost:8080/api/doctor
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+
+###
+GET http://localhost:8080/api/doctor?doctorId=1
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+
+###
+DELETE http://localhost:8080/api/doctor/1
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+
+###
+GET http://localhost:8080/api/doctor/1/patients
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+
+###

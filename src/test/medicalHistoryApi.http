@@ -1,0 +1,27 @@
+POST http://localhost:8080/api/medicalHistory
+Content-Type: application/x-www-form-urlencoded
+
+bloodPressure=80/120&weight=85&bloodSugar=120&bodyTemperature=37.2&medicalPrescription=Abc.tab xyz Syrup&visitDate=2020-02-25T18:25:52&patientId=2
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 201, "Response status is not 201");
+  client.assert(response.headers.valueOf("Location")!= null, "Invalid Location");
+  client.assert(response.body.hasOwnProperty("slotId"), 'Can not find the slotId');
+  client.global.set("newSlotUrl", response.headers.valueOf("Location"));
+  client.global.set("slotId", response.body["slotId"]);
+});
+%}
+
+
+###
+GET http://localhost:8080/api/medicalHistory?patientId=2
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+
+###
+

@@ -1,8 +1,13 @@
 package finki.ukim.mk.hospital_managment_system.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -28,7 +33,10 @@ public class Patient {
 
     private LocalDateTime creationDate;
 
-    @ManyToMany(mappedBy = "patients")
+
+    @JsonIgnore
+    @ManyToMany(fetch = FetchType.EAGER, mappedBy = "patients")
+   // @NotFound(action = NotFoundAction.IGNORE)
     private List<Doctor> familyDoctors;
 
     public void createPatient(String name, Long ssn, String gender, String email, String address, Integer age, String contactNo, LocalDateTime creationDate){

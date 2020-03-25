@@ -64,7 +64,7 @@ public class DoctorServiceImpl implements DoctorService {
     }
 
     @Override
-    public Optional<Doctor> findById(Long doctorId) {
-        return doctorRepository.findById(doctorId);
+    public Doctor findById(Long doctorId) {
+        return doctorRepository.findById(doctorId).orElseThrow(InvalidDoctorId::new);
     }
 }

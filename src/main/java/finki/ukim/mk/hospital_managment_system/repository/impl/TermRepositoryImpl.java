@@ -39,12 +39,12 @@ public class TermRepositoryImpl implements TermRepository {
 
     @Override
     public List<Term> searchByStatus(String status) {
-        return jpaTermRepository.findTermsByStatus(status);
+        return jpaTermRepository.findTermsByStatusLike(status);
     }
 
     @Override
     public List<Term> searchByDoctorId(Long doctorId) {
-        return jpaTermRepository.findTermsByDoctor_Id(doctorId);
+        return jpaTermRepository.findTermsByDoctor(doctorId);
     }
 
     @Override
