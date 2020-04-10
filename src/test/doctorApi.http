@@ -36,7 +36,7 @@ client.test("Request executed successfully", function() {
 POST http://localhost:8080/api/doctor
 Content-Type: application/x-www-form-urlencoded
 
-name=David Crandall&address=Advocate Good Shepherd Hospital&consultancyFees=450&contactNo=847-382-7330&email=davidc@gmail.com&specializationId=2
+name=David Crandall&address=Advocate Good Shepherd Hospital&consultancyFees=450&contactNo=847-382-7330&email=davidc@gmail.com&specializationId=1
 
 > {%
 client.test("Request executed successfully", function() {
@@ -53,7 +53,7 @@ client.test("Request executed successfully", function() {
 POST http://localhost:8080/api/doctor
 Content-Type: application/x-www-form-urlencoded
 
-name=Michael A. Brusca&address=Palos Hospital&consultancyFees=570&contactNo=708-873-7775&email=michaelab@gmail.com&specializationId=1
+name=Michael A. Brusca&address=Palos Hospital&consultancyFees=570&contactNo=708-873-7775&email=michaelab@gmail.com&specializationId=4
 
 > {%
 client.test("Request executed successfully", function() {
@@ -140,6 +140,15 @@ client.test("Request executed successfully", function() {
 
 ###
 GET http://localhost:8080/api/doctor/1/patients
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+
+###
+DELETE http://localhost:8080/api/doctor/2
 
 > {%
 client.test("Request executed successfully", function() {

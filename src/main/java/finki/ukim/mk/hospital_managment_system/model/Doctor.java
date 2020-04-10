@@ -1,13 +1,11 @@
 package finki.ukim.mk.hospital_managment_system.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.*;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,16 +17,27 @@ public class Doctor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "doctor_id")
     private Long id;
+
+    @Column(name = "doctor_name")
     private String name;
+
+    @Column(name = "doctor_address")
     private String address;
+
+    @Column(name = "doctor_fees")
     private Integer consultancyFees;
+
+    @Column(name = "doctor_number")
     private String contactNo;
+
+    @Column(name = "doctor_email")
     private String email;
 
     @ManyToOne
-    @OnDelete(action = OnDeleteAction.CASCADE)
     private Specialization specialization;
+
 
     @ManyToMany(fetch = FetchType.EAGER)
     private List<Patient> patients;

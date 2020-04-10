@@ -2,12 +2,15 @@ package finki.ukim.mk.hospital_managment_system.service.impl;
 
 import finki.ukim.mk.hospital_managment_system.exceptions.InvalidDoctorId;
 import finki.ukim.mk.hospital_managment_system.exceptions.InvalidSpecializationId;
+import finki.ukim.mk.hospital_managment_system.model.Appointment;
 import finki.ukim.mk.hospital_managment_system.model.Doctor;
 import finki.ukim.mk.hospital_managment_system.model.Patient;
 import finki.ukim.mk.hospital_managment_system.model.Specialization;
+import finki.ukim.mk.hospital_managment_system.repository.AppointmentRepository;
 import finki.ukim.mk.hospital_managment_system.repository.DoctorRepository;
 import finki.ukim.mk.hospital_managment_system.repository.PatientRepository;
 import finki.ukim.mk.hospital_managment_system.repository.SpecializationRepository;
+import finki.ukim.mk.hospital_managment_system.service.AppointmentService;
 import finki.ukim.mk.hospital_managment_system.service.DoctorService;
 import org.springframework.stereotype.Service;
 
@@ -20,11 +23,13 @@ public class DoctorServiceImpl implements DoctorService {
     private final DoctorRepository doctorRepository;
     private final PatientRepository patientRepository;
     private final SpecializationRepository specializationRepository;
+    private final AppointmentService appointmentService;
 
-    public DoctorServiceImpl(DoctorRepository doctorRepository, PatientRepository patientRepository, SpecializationRepository specializationRepository) {
+    public DoctorServiceImpl(DoctorRepository doctorRepository, PatientRepository patientRepository, SpecializationRepository specializationRepository, AppointmentService appointmentService) {
         this.doctorRepository = doctorRepository;
         this.patientRepository = patientRepository;
         this.specializationRepository = specializationRepository;
+        this.appointmentService = appointmentService;
     }
 
     @Override
@@ -39,6 +44,9 @@ public class DoctorServiceImpl implements DoctorService {
 
     @Override
     public void deleteById(Long id) {
+        List<Appointment> appointments = appointmentService.findAllByDoctorId(id);
+        appointments.forEach(appointment -> appointment.setDoctor(null));
+        appointmentService.saveAll(appointments);
         doctorRepository.deleteById(id);
     }
 
@@ -66,5 +74,10 @@ public class DoctorServiceImpl implements DoctorService {
     @Override
     public Doctor findById(Long doctorId) {
         return doctorRepository.findById(doctorId).orElseThrow(InvalidDoctorId::new);
+    }
+
+    @Override
+    public List<Doctor> findAllBySpecializationId(Long specializationId) {
+        return doctorRepository.findAllBySpecializationId(specializationId);
     }
 }

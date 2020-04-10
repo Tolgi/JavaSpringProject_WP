@@ -15,6 +15,8 @@ public interface AppointmentService {
 
     List<Appointment> findAll();
 
+    List<Appointment> saveAll(List<Appointment> appointments);
+
     List<Appointment> findAllByPatientId(Long patientId);
 
     List<Appointment> findAllByDoctorId(Long doctorId);

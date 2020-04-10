@@ -40,4 +40,9 @@ public class MedicalHistoryImpl implements MedicalHistoryService {
     public List<MedicalHistory> findAllByPatientId(Long patientId) {
         return medicalHistoryRepository.findAllByPatientId(patientId);
     }
+
+    @Override
+    public List<MedicalHistory> saveAll(List<MedicalHistory> medicalHistories) {
+        return medicalHistoryRepository.saveAll(medicalHistories);
+    }
 }

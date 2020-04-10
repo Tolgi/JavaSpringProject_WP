@@ -13,5 +13,6 @@ public interface MedicalHistoryService {
 
     List<MedicalHistory> findAllByPatientId(Long patientId);
 
+    List<MedicalHistory> saveAll(List<MedicalHistory> medicalHistories);
 
 }

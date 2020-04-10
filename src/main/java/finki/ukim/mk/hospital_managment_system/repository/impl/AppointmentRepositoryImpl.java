@@ -29,6 +29,11 @@ public class AppointmentRepositoryImpl implements AppointmentRepository {
     }
 
     @Override
+    public List<Appointment> saveAll(List<Appointment> appointments) {
+        return jpaAppointmentRepository.saveAll(appointments);
+    }
+
+    @Override
     public void deleteById(Long appointmentId) {
         jpaAppointmentRepository.deleteById(appointmentId);
     }
@@ -47,4 +52,5 @@ public class AppointmentRepositoryImpl implements AppointmentRepository {
     public List<Appointment> findAll() {
         return jpaAppointmentRepository.findAll();
     }
+
 }

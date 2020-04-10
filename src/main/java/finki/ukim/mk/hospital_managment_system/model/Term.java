@@ -1,5 +1,6 @@
 package finki.ukim.mk.hospital_managment_system.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,9 +19,14 @@ public class Term {
 
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)
+   @Column(name = "term_id")
    private Long id;
+
+   @Column(name = "term_date")
    private LocalDate date;
    private LocalTime timeOfAdmission;
+
+   @Column(name = "term_status")
    private String status;
 
    @ManyToOne

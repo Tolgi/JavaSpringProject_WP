@@ -75,6 +75,11 @@ public class AppointmentServiceImpl implements AppointmentService {
     }
 
     @Override
+    public List<Appointment> saveAll(List<Appointment> appointments) {
+        return appointmentRepository.saveAll(appointments);
+    }
+
+    @Override
     public List<Appointment> findAllByPatientId(Long patientId) {
         return appointmentRepository.findAllByPatientId(patientId);
     }

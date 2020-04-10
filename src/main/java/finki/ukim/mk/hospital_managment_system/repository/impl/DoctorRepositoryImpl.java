@@ -33,6 +33,11 @@ public class DoctorRepositoryImpl implements DoctorRepository {
     }
 
     @Override
+    public void deleteAll(List<Doctor> doctors) {
+        jpaDoctorRepository.deleteAll();
+    }
+
+    @Override
     public List<Doctor> findAll() {
         return jpaDoctorRepository.findAll();
     }
@@ -45,5 +50,10 @@ public class DoctorRepositoryImpl implements DoctorRepository {
     @Override
     public List<Doctor> searchDoctorsByName(String term) {
         return jpaDoctorRepository.findDoctorsByNameContains(term);
+    }
+
+    @Override
+    public List<Doctor> findAllBySpecializationId(Long specializationId) {
+        return jpaDoctorRepository.findAllBySpecializationId(specializationId);
     }
 }

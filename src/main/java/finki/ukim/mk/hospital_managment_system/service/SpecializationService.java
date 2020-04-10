@@ -12,4 +12,8 @@ public interface SpecializationService {
     void deleteById(Long specializationId);
 
     List<Specialization> findAll();
+
+    Specialization editSpecialization(Long id, String name);
+
+    Specialization findById(Long id);
 }

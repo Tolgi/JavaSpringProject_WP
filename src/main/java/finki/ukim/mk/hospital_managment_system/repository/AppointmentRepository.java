@@ -12,6 +12,8 @@ public interface AppointmentRepository {
 
     Appointment save(Appointment appointment);
 
+    List<Appointment> saveAll(List<Appointment> appointments);
+
     void deleteById(Long appointmentId);
 
     List<Appointment> findAllByPatientId(Long patientId);
@@ -19,4 +21,5 @@ public interface AppointmentRepository {
     List<Appointment> findAllByDoctorId(Long doctorId);
 
     List<Appointment> findAll();
+
 }

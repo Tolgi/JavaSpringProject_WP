@@ -36,4 +36,9 @@ public class MedicalHistoryRepositoryImpl implements MedicalHistoryRepository {
     public List<MedicalHistory> findAllByPatientId(Long patientId) {
         return jpaMedicalHistoryRepository.findMedicalHistoriesByPatient_Id(patientId);
     }
+
+    @Override
+    public List<MedicalHistory> saveAll(List<MedicalHistory> medicalHistories) {
+        return jpaMedicalHistoryRepository.saveAll(medicalHistories);
+    }
 }

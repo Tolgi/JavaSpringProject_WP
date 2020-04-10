@@ -14,4 +14,6 @@ public interface MedicalHistoryRepository {
     void deleteById(Long medicalHistoryId);
 
     List<MedicalHistory> findAllByPatientId(Long patientId);
+
+    List<MedicalHistory> saveAll(List<MedicalHistory> medicalHistories);
 }

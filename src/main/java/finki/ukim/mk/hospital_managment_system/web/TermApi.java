@@ -11,6 +11,7 @@ import java.time.LocalTime;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping(path = "/api/term", produces = MimeTypeUtils.APPLICATION_JSON_VALUE)
 public class TermApi {
 

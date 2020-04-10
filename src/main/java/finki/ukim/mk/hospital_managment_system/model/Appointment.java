@@ -1,5 +1,6 @@
 package finki.ukim.mk.hospital_managment_system.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
@@ -17,19 +18,32 @@ public class Appointment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "appointment_id")
     private Long id;
+
+    @Column(name = "appointment_fees")
     private Integer consultancyFees;
+
+    @Column(name = "appointment_status")
     private String status;
+
+    @Column(name = "appointment_date")
     private LocalDate date;
 
-    @Column(name = "from_time")
+    @Column(name = "appointment_time")
     private LocalTime time;
 
 
     private LocalDateTime creationDate;
 
+    private String doctorName;
+
+    private Long patientSsn;
+
+
     @ManyToOne
     private Patient patient;
+
 
     @ManyToOne
     private Doctor doctor;
@@ -42,6 +56,8 @@ public class Appointment {
         this.creationDate = creationDate;
         this.patient = patient;
         this.doctor = doctor;
+        this.doctorName = doctor.getName();
+        this.patientSsn = patient.getSsn();
     }
 
 

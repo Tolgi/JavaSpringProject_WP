@@ -77,7 +77,16 @@ client.test("Request executed successfully", function() {
 %}
 
 ###
-DELETE http://localhost:8080/api/specialization/2
+GET http://localhost:8080/api/specialization/1
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+
+###
+DELETE http://localhost:8080/api/specialization/
 
 > {%
 client.test("Request executed successfully", function() {

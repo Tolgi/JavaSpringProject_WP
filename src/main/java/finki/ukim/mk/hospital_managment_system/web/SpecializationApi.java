@@ -9,6 +9,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/api/specialization")
 public class SpecializationApi {
 
@@ -18,6 +19,10 @@ public class SpecializationApi {
         this.specializationService = specializationService;
     }
 
+    @GetMapping("/{specializationId}")
+    public Specialization getSpecialization(@PathVariable Long specializationId) {
+        return specializationService.findById(specializationId);
+    }
 
     @PostMapping
     public Specialization createSpecialization(@RequestParam String name,
@@ -34,5 +39,11 @@ public class SpecializationApi {
     @DeleteMapping("/{specializationId}")
     public void deleteSpecialization(@PathVariable Long specializationId){
         specializationService.deleteById(specializationId);
+    }
+
+    @PatchMapping("/edit/{specializationId}")
+    public Specialization editSpecialization(@PathVariable Long specializationId, @RequestParam String name){
+        Specialization specialization = specializationService.editSpecialization(specializationId, name);
+        return specialization;
     }
 }
