@@ -1,12 +1,10 @@
 import React from 'react';
-import logo from '../../logo.svg';
 import './App.css';
-import Nav from '../Nav/nav.js';
-import Specialization from "../Specialization/specializations";
 import Home from "../Home/home";
 import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
-import SpecializationEdit from "../Specialization/SpecializationEdit/specializationEdit";
 import Header from "../Header/header";
+import Specialization from "../Specialization/specializations";
+import Doctor from "../Doctor/doctors";
 
 function App() {
   return (
@@ -17,7 +15,7 @@ function App() {
                   <Switch>
                       <Route path="/" exact component={Home}/>
                       <Route path="/specialization" component={Specialization}/>
-                      <Route path="/specialization/edit/:specializationId" component={SpecializationEdit}/>
+                      <Route path="/doctor" component={Doctor}/>
                   </Switch>
               </div>
           </div>

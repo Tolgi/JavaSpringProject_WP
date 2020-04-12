@@ -80,4 +80,20 @@ public class DoctorServiceImpl implements DoctorService {
     public List<Doctor> findAllBySpecializationId(Long specializationId) {
         return doctorRepository.findAllBySpecializationId(specializationId);
     }
+
+    @Override
+    public Doctor editDoctor(Long doctorId, String name, String address, Integer consultancyFees, String contactNo, String email, Long specializationId) {
+        Doctor doctor = doctorRepository.findById(doctorId).orElseThrow(InvalidDoctorId::new);
+        Specialization specialization = specializationRepository.findById(specializationId).orElseThrow(InvalidSpecializationId::new);
+        doctor.setName(name);
+        doctor.setAddress(address);
+        doctor.setConsultancyFees(consultancyFees);
+        doctor.setContactNo(contactNo);
+        doctor.setEmail(email);
+        doctor.setSpecialization(specialization);
+        doctorRepository.save(doctor);
+        return doctor;
+    }
+
+
 }

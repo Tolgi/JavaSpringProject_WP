@@ -3,7 +3,7 @@ import { Route, useHistory} from 'react-router-dom';
 import SpecializationService from "../../repository/axiosSpecializationRepository";
 import SpecializationList from "./SpecializationList/specializationList";
 import SpecializationEdit from "./SpecializationEdit/specializationEdit";
-import SpecializationDelete from "./SpecializationDelete/deleteSpecialization";
+
 
 
 
@@ -45,23 +45,32 @@ const Specialization = ({match}) => {
         })
     };
 
-    const deleteSpecialization = (specializationId) => {
-        SpecializationService.deleteSpecialization(specializationId).then(() => {
-            const nextState = specializations.map((item) => {
-              return item.id !== specializationId;
-            });
 
-            setSpecializations(nextState);
-        })
+    const deleteSpecialization = (specializationId) => {
+        setSpecializations(specializations.filter(specializaion => specializaion.id !== specializationId));
+        SpecializationService.deleteSpecialization(specializationId);
     };
+
+
+    const addSpecialization = (specializationName) => {
+        SpecializationService.addSpecialization(specializationName).then((response) => {
+            const newSpecialization = response.data;
+
+            const nextState = [...specializations, newSpecialization];
+            setSpecializations(nextState);
+        });
+    };
+
+
+
 
 
     return (
 
         <div>
             <h2 className= "col-md-10 font-weight-bold " >Doctor Specializations</h2>
-            <Route path={`${match.path}/list`} exact render={(props) => <SpecializationList  onDelete={deleteSpecialization} specializations={specializations}/>}/>
-            <Route path={`${match.path}/edit/:id`} exact render={(props) => <SpecializationEdit onEdit={editSpecialization} {...props} />}/>
+            <Route path={`${match.path}/list`} exact render={(props) => <SpecializationList onAdd={addSpecialization} onDelete={deleteSpecialization} specializations={specializations}/>}/>
+            <Route path={`${match.path}/edit/:id`} exact render={(props) => <SpecializationEdit  onEdit={editSpecialization} {...props} />}/>
         </div>
 
 

@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import '../specialization.css';
 
@@ -12,13 +12,13 @@ const SingleSpecialization = (props) => {
             <td>{props.specialization.creationTime}</td>
             <td>
                 <Link to={`/specialization/edit/${props.specialization.id}`}>
-                    <button className="btn btn-primary a-btn-slide-text">
+                    <button className="speciButton btn btn-primary a-btn-slide-text">
                         <span className="glyphicon glyphicon-remove" aria-hidden="true"></span>
                         <span><strong>Edit</strong></span>
                     </button>
                 </Link>
 
-                <button onClick={()=>props.onDelete(props.specialization.id)} className="btn btn-primary a-btn-slide-text">
+                <button onClick={()=>props.onDelete(props.specialization.id)} className="speciButton btn btn-primary a-btn-slide-text">
                         <span className="glyphicon glyphicon-remove" aria-hidden="true"></span>
                         <span><strong>Delete</strong></span>
                 </button>

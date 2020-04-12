@@ -82,3 +82,20 @@ div.content {
     float: none;
   }
 }
+
+
+#editbtn {
+  background-color: #bda8d8;
+  position: relative;
+  right: 270px;
+}
+
+#editForm{
+  position: relative;
+  left: 150px;
+}
+
+label{
+  position: relative;
+  right: 450px;
+}

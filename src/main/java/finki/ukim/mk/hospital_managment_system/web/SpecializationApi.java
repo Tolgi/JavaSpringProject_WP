@@ -25,9 +25,8 @@ public class SpecializationApi {
     }
 
     @PostMapping
-    public Specialization createSpecialization(@RequestParam String name,
-                                               @RequestParam  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime creationDate){
-        Specialization specialization = specializationService.createSpecialization(name, creationDate);
+    public Specialization createSpecialization(@RequestParam String name){
+        Specialization specialization = specializationService.createSpecialization(name);
         return specialization;
     }
 

@@ -13,6 +13,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping(path = "/api/doctor", produces = MimeTypeUtils.APPLICATION_JSON_VALUE)
 public class DoctorApi {
 
@@ -68,4 +69,16 @@ public class DoctorApi {
     }
 
 
+    @PatchMapping("/edit/{doctorId}")
+    public Doctor editDoctor(@PathVariable Long doctorId,
+                               @RequestParam String name,
+                               @RequestParam String address,
+                               @RequestParam Integer consultancyFees,
+                               @RequestParam String contactNo,
+                               @RequestParam String email,
+                               @RequestParam Long specializationId){
+
+        Doctor doctor =  doctorService.editDoctor(doctorId, name, address, consultancyFees, contactNo, email, specializationId);
+        return doctor;
+    }
 }

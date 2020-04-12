@@ -2,7 +2,7 @@
 POST http://localhost:8080/api/doctor
 Content-Type: application/x-www-form-urlencoded
 
-name=Philip C. Hoffman&address=UChicago Medicine&consultancyFees=750&contactNo=773-702-8222&email=philipch@gmail.com&specializationId=1
+name=Philip C. Hoffman&address=UChicago Medicine&consultancyFees=750&contactNo=773-702-8222&email=philipch@gmail.com&specializationId=2
 
 > {%
 client.test("Request executed successfully", function() {
@@ -19,7 +19,7 @@ client.test("Request executed successfully", function() {
 POST http://localhost:8080/api/doctor
 Content-Type: application/x-www-form-urlencoded
 
-name=John.R.Lurain&address=Northwestern Memorial&consultancyFees=750&contactNo=773-702-8222&email=jhon_rl@gmail.com&specializationId=2
+name=John.R.Lurain&address=Northwestern Memorial&consultancyFees=750&contactNo=773-702-8222&email=jhon_rl@gmail.com&specializationId=3
 
 > {%
 client.test("Request executed successfully", function() {
@@ -36,7 +36,7 @@ client.test("Request executed successfully", function() {
 POST http://localhost:8080/api/doctor
 Content-Type: application/x-www-form-urlencoded
 
-name=David Crandall&address=Advocate Good Shepherd Hospital&consultancyFees=450&contactNo=847-382-7330&email=davidc@gmail.com&specializationId=1
+name=David Crandall&address=Advocate Good Shepherd Hospital&consultancyFees=450&contactNo=847-382-7330&email=davidc@gmail.com&specializationId=4
 
 > {%
 client.test("Request executed successfully", function() {
@@ -53,7 +53,7 @@ client.test("Request executed successfully", function() {
 POST http://localhost:8080/api/doctor
 Content-Type: application/x-www-form-urlencoded
 
-name=Michael A. Brusca&address=Palos Hospital&consultancyFees=570&contactNo=708-873-7775&email=michaelab@gmail.com&specializationId=4
+name=Michael A. Brusca&address=Palos Hospital&consultancyFees=570&contactNo=708-873-7775&email=michaelab@gmail.com&specializationId=3
 
 > {%
 client.test("Request executed successfully", function() {
@@ -155,5 +155,22 @@ client.test("Request executed successfully", function() {
   client.assert(response.status === 200, "Response status is not 200");
 });
 %}
+
+###
+PATCH http://localhost:8080/api/doctor/edit/1
+Content-Type: application/x-www-form-urlencoded
+
+name=Philippppp C. Hoffman&address=UChicago Medicine&consultancyFees=750&contactNo=773-702-8222&email=philipch@gmail.com&specializationId=2
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 201, "Response status is not 201");
+  client.assert(response.headers.valueOf("Location")!= null, "Invalid Location");
+  client.assert(response.body.hasOwnProperty("slotId"), 'Can not find the slotId');
+  client.global.set("newSlotUrl", response.headers.valueOf("Location"));
+  client.global.set("slotId", response.body["slotId"]);
+});
+%}
+
 
 ###

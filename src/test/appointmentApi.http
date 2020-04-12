@@ -18,7 +18,7 @@ client.test("Request executed successfully", function() {
 POST http://localhost:8080/api/appointment
 Content-Type: application/x-www-form-urlencoded
 
-patientId=2&consultancyFees=500&status=true&creationDate=2019-10-31T01:30:00&doctorId=2&termId=2
+patientId=2&consultancyFees=500&status=true&creationDate=2019-10-31T01:30:00&doctorId=3&termId=2
 
 > {%
 client.test("Request executed successfully", function() {
@@ -32,7 +32,7 @@ client.test("Request executed successfully", function() {
 
 
 ###
-DELETE http://localhost:8080/api/appointment/2
+DELETE http://localhost:8080/api/appointment/1
 
 > {%
 client.test("Request executed successfully", function() {

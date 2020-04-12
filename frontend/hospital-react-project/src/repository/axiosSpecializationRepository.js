@@ -11,12 +11,11 @@ const SpecializationService = {
         return axios.get("/api/specialization/" + id);
     },
 
-    addSpecialization: (specialization) => {
-        const data = {
-            ...specialization,
-            name:specialization.name
+    addSpecialization: (specializationName) => {
+        const newSpecialization = {
+            "name": specializationName
         }
-        const formParams = qs.stringify(data);
+        const formParams = qs.stringify(newSpecialization);
         return axios.post("/api/specialization",formParams, {
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',

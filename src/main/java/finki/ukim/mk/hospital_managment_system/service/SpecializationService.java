@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface SpecializationService {
 
-    Specialization createSpecialization(String name, LocalDateTime creationDate);
+    Specialization createSpecialization(String name);
 
     void deleteById(Long specializationId);
 

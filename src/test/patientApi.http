@@ -69,7 +69,7 @@ client.test("Request executed successfully", function() {
 
 
 ###
-DELETE http://localhost:8080/api/patient/2
+DELETE http://localhost:8080/api/patient/1
 
 > {%
 client.test("Request executed successfully", function() {

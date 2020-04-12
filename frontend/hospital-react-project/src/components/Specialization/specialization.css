@@ -17,6 +17,11 @@ h2{
     padding: 30px 0;
 }
 
+.card{
+    max-width: 65rem;
+    position: center;
+}
+
 /* Table Styles */
 
 .table-wrapper{

@@ -36,7 +36,7 @@ client.test("Request executed successfully", function() {
 POST http://localhost:8080/api/specialization
 Content-Type: application/x-www-form-urlencoded
 
-name=Dermatologist&creationDate=2019-04-20T22:55:52
+name=Dermatologist
 
 > {%
 client.test("Request executed successfully", function() {
@@ -53,7 +53,7 @@ client.test("Request executed successfully", function() {
 POST http://localhost:8080/api/specialization
 Content-Type: application/x-www-form-urlencoded
 
-name=Gynecologist&creationDate=2019-10-20T10:55:52
+name=Gynecologist
 
 > {%
 client.test("Request executed successfully", function() {
@@ -86,7 +86,7 @@ client.test("Request executed successfully", function() {
 %}
 
 ###
-DELETE http://localhost:8080/api/specialization/
+DELETE http://localhost:8080/api/specialization/1
 
 > {%
 client.test("Request executed successfully", function() {

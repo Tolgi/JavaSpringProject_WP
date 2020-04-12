@@ -23,9 +23,9 @@ public class SpecializationServiceImpl implements SpecializationService {
     }
 
     @Override
-    public Specialization createSpecialization(String name, LocalDateTime creationDate) {
+    public Specialization createSpecialization(String name) {
         Specialization specialization = new Specialization();
-        specialization.createSpecialization(name, creationDate);
+        specialization.createSpecialization(name, LocalDateTime.now());
         specializationRepository.save(specialization);
         return specialization;
     }
