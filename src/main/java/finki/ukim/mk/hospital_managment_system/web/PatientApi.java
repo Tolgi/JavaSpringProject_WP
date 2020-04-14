@@ -28,9 +28,8 @@ public class PatientApi {
                                  @RequestParam String address,
                                  @RequestParam Integer age,
                                  @RequestParam String contactNo,
-                                 @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)LocalDateTime creationDate,
                                  @RequestParam Long doctorId){
-        return patientService.createPatient(name, ssn, gender, email, address, age, contactNo, creationDate, doctorId);
+        return patientService.createPatient(name, ssn, gender, email, address, age, contactNo, doctorId);
     }
 
     @GetMapping
@@ -38,6 +37,23 @@ public class PatientApi {
         return patientService.findAll();
     }
 
+    @GetMapping(params = "patientId")
+    public Patient getPatient(@RequestParam Long patientId) {
+        return patientService.getPatient(patientId);
+    }
+
+    @PatchMapping("/edit/{patientId}")
+    public Patient editPatient(@PathVariable Long patientId,
+                               @RequestParam String name,
+                               @RequestParam Long ssn,
+                               @RequestParam String gender,
+                               @RequestParam String email,
+                               @RequestParam String address,
+                               @RequestParam Integer age,
+                               @RequestParam String contactNo,
+                               @RequestParam Long doctorId){
+        return patientService.editPatient(patientId, name, ssn, gender, email, address, age, contactNo, doctorId);
+    }
 
     @DeleteMapping("/{patientId}")
     public void deletePatient(@PathVariable Long patientId){

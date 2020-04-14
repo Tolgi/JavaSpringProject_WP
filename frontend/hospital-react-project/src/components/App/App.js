@@ -5,6 +5,7 @@ import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
 import Header from "../Header/header";
 import Specialization from "../Specialization/specializations";
 import Doctor from "../Doctor/doctors";
+import Patient from "../Patient/patients";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
                       <Route path="/" exact component={Home}/>
                       <Route path="/specialization" component={Specialization}/>
                       <Route path="/doctor" component={Doctor}/>
+                      <Route path="/patient" component={Patient}/>
                   </Switch>
               </div>
           </div>

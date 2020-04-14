@@ -10,6 +10,7 @@ import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
+import javax.print.Doc;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -75,4 +76,8 @@ public class Patient {
         }
     }
 
+
+    public void setFamilyDoctors(Doctor familyDoctor) {
+        this.familyDoctors.add(familyDoctor);
+    }
 }

@@ -40,6 +40,6 @@ const SpecializationService = {
     }
 
 
-}
+};
 
 export default SpecializationService;

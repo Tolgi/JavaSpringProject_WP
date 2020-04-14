@@ -1,6 +1,7 @@
 package finki.ukim.mk.hospital_managment_system.service.impl;
 
 import finki.ukim.mk.hospital_managment_system.exceptions.InvalidDoctorId;
+import finki.ukim.mk.hospital_managment_system.exceptions.InvalidPatientId;
 import finki.ukim.mk.hospital_managment_system.model.Appointment;
 import finki.ukim.mk.hospital_managment_system.model.Doctor;
 import finki.ukim.mk.hospital_managment_system.model.MedicalHistory;
@@ -32,9 +33,9 @@ public class PatientServiceImpl implements PatientService {
     }
 
     @Override
-    public Patient createPatient(String name, Long ssn, String gender, String email, String address, Integer age, String contactNo, LocalDateTime creationDate, Long doctorId) {
+    public Patient createPatient(String name, Long ssn, String gender, String email, String address, Integer age, String contactNo,  Long doctorId) {
         Patient patient = new Patient();
-        patient.createPatient(name, ssn, gender, email, address, age, contactNo, creationDate);
+        patient.createPatient(name, ssn, gender, email, address, age, contactNo, LocalDateTime.now());
         Doctor doctor = doctorRepository.findById(doctorId).orElseThrow(InvalidDoctorId::new);
         doctor.follow(patient);
         patientRepository.save(patient);
@@ -58,5 +59,26 @@ public class PatientServiceImpl implements PatientService {
     @Override
     public List<Patient> findAll() {
         return patientRepository.findAll();
+    }
+
+    @Override
+    public Patient getPatient(Long patientId) {
+        return patientRepository.findById(patientId).orElseThrow(InvalidPatientId::new);
+    }
+
+    @Override
+    public Patient editPatient(Long patientId, String name, Long ssn, String gender, String email, String address, Integer age, String contactNo, Long doctorId) {
+        Doctor doctor = doctorRepository.findById(doctorId).orElseThrow(InvalidDoctorId::new);
+        Patient patient = patientRepository.findById(patientId).orElseThrow(InvalidPatientId::new);
+        patient.setName(name);
+        patient.setSsn(ssn);
+        patient.setAddress(address);
+        patient.setAge(age);
+        patient.setEmail(email);
+        patient.setGender(gender);
+        patient.setContactNo(contactNo);
+        patient.setFamilyDoctors(doctor);
+        patientRepository.save(patient);
+        return patient;
     }
 }
