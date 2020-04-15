@@ -3,16 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c9a49e0b-fa78-4cdd-a5ba-815ed5709e05" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/App/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/App/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Patient/PatientDetails/patientDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Patient/PatientDetails/patientDetails.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../src/main/java/finki/ukim/mk/hospital_managment_system/service/MedicalHistoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/java/finki/ukim/mk/hospital_managment_system/service/MedicalHistoryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../src/main/java/finki/ukim/mk/hospital_managment_system/service/impl/MedicalHistoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/java/finki/ukim/mk/hospital_managment_system/service/impl/MedicalHistoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../src/main/java/finki/ukim/mk/hospital_managment_system/web/MedicalHistoryApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/java/finki/ukim/mk/hospital_managment_system/web/MedicalHistoryApi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../src/test/patientApi.http" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/test/patientApi.http" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../target/classes/finki/ukim/mk/hospital_managment_system/service/MedicalHistoryService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../target/classes/finki/ukim/mk/hospital_managment_system/service/MedicalHistoryService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../target/classes/finki/ukim/mk/hospital_managment_system/service/impl/MedicalHistoryImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../target/classes/finki/ukim/mk/hospital_managment_system/service/impl/MedicalHistoryImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../target/classes/finki/ukim/mk/hospital_managment_system/web/MedicalHistoryApi.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../target/classes/finki/ukim/mk/hospital_managment_system/web/MedicalHistoryApi.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +68,7 @@
       <workItem from="1586716222139" duration="1100000" />
       <workItem from="1586779005498" duration="2404000" />
       <workItem from="1586866822881" duration="27011000" />
-      <workItem from="1586959400447" duration="7934000" />
+      <workItem from="1586959400447" duration="13753000" />
     </task>
     <servers />
   </component>

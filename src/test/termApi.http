@@ -1,7 +1,7 @@
 POST http://localhost:8080/api/term
 Content-Type: application/x-www-form-urlencoded
 
-date=2020-01-25&time=14:50&status=free&doctorId=4
+date=2020-10-10&time=16:50&status=busy&doctorId=1
 
 > {%
 client.test("Request executed successfully", function() {
