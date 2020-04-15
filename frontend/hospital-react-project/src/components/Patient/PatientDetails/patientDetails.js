@@ -1,4 +1,7 @@
 import React from 'react';
+import MedicalHistory from "../../MedicalHistory/medicalHistory";
+import {Link} from "react-router-dom";
+import MedicalHistoryList from "../../MedicalHistory/MedicalHistoryList/medicalHistoryList";
 
 const PatientDetails = (props) => {
 
@@ -36,6 +39,19 @@ const PatientDetails = (props) => {
                     </tr>
                     </tbody>
                 </table>
+                <br/>
+                <br/>
+                <Link to={`/medicalHistory/list/${props.patient.id}`} className="btn btn-primary a-btn-slide-text">
+                    <span className="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                    <span><strong>Show medical histories</strong></span>
+                </Link>
+                <br/>
+                <br/>
+                <Link to={`/medicalHistory/add/${props.patient.id}`} className="btn btn-primary a-btn-slide-text">
+                    <span className="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                    <span><strong>Add medical histories</strong></span>
+                </Link>
+
             </div>
 
         </div>

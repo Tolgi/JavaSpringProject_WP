@@ -55,7 +55,7 @@ client.test("Request executed successfully", function() {
 POST http://localhost:8080/api/medicalHistory
 Content-Type: application/x-www-form-urlencoded
 
-bloodPressure=80/120&weight=85&bloodSugar=120&bodyTemperature=37.2&medicalPrescription=Abc.tab xyz Syrup&visitDate=2020-02-25T18:25:52&patientId=1
+bloodPressure=80/120&weight=85&bloodSugar=120&bodyTemperature=37.2&medicalPrescription=Abc.tab xyz Syrup&visitDate=2020-02-25T18:25:52&patientId=4
 
 > {%
 client.test("Request executed successfully", function() {

@@ -23,10 +23,10 @@ public class MedicalHistoryImpl implements MedicalHistoryService {
     }
 
     @Override
-    public MedicalHistory createMedicalHistory(String bloodPressure, Integer weight, Integer bloodSugar, String bodyTemperature, String medicalPerscription, LocalDateTime visitDate, Long patientId) {
+    public MedicalHistory createMedicalHistory(String bloodPressure, Integer weight, Integer bloodSugar, String bodyTemperature, String medicalPerscription,  Long patientId) {
         MedicalHistory medicalHistory = new MedicalHistory();
         Patient patient = patientRepository.findById(patientId).orElseThrow(InvalidPatientId::new);
-        medicalHistory.createMedicalHistory(bloodPressure, weight, bloodSugar, bodyTemperature, medicalPerscription, visitDate, patient);
+        medicalHistory.createMedicalHistory(bloodPressure, weight, bloodSugar, bodyTemperature, medicalPerscription, LocalDateTime.now(), patient);
         medicalHistoryRepository.save(medicalHistory);
         return medicalHistory;
     }

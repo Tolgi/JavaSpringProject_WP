@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface MedicalHistoryService {
 
-    MedicalHistory createMedicalHistory(String bloodPressure, Integer weight, Integer bloodSugar, String bodyTemperature, String medicalPerscription, LocalDateTime visitDate, Long patientId);
+    MedicalHistory createMedicalHistory(String bloodPressure, Integer weight, Integer bloodSugar, String bodyTemperature, String medicalPerscription, Long patientId);
 
     void deleteById(Long medicalHistoryId);
 

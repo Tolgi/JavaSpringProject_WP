@@ -26,10 +26,9 @@ public class MedicalHistoryApi {
                                                @RequestParam Integer bloodSugar,
                                                @RequestParam String bodyTemperature,
                                                @RequestParam String medicalPrescription,
-                                               @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime visitDate,
                                                @RequestParam Long patientId){
 
-        return medicalHistoryService.createMedicalHistory(bloodPressure, weight, bloodSugar, bodyTemperature, medicalPrescription, visitDate, patientId);
+        return medicalHistoryService.createMedicalHistory(bloodPressure, weight, bloodSugar, bodyTemperature, medicalPrescription, patientId);
     }
 
     @GetMapping("/{patientId}")

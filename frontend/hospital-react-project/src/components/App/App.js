@@ -6,9 +6,12 @@ import Header from "../Header/header";
 import Specialization from "../Specialization/specializations";
 import Doctor from "../Doctor/doctors";
 import Patient from "../Patient/patients";
+import MedicalHistory from "../MedicalHistory/medicalHistory";
 
 function App() {
-  return (
+
+
+    return (
       <Router>
           <div className="App">
               <Header/>
@@ -18,6 +21,7 @@ function App() {
                       <Route path="/specialization" component={Specialization}/>
                       <Route path="/doctor" component={Doctor}/>
                       <Route path="/patient" component={Patient}/>
+                      <Route path="/medicalHistory" component={MedicalHistory}/>
                   </Switch>
               </div>
           </div>
