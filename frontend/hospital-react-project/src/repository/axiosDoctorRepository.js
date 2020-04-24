@@ -11,6 +11,10 @@ const DoctorService = {
         return axios.get("/api/doctor?doctorId=" + id);
     },
 
+    getDoctorsBySpecialization: (specializationName) => {
+        return axios.get("/api/doctor?specializationName=" + specializationName);
+    },
+
     addDoctor: (newDoctor) => {
         const formParams = qs.stringify(newDoctor);
         return axios.post("/api/doctor",formParams, {

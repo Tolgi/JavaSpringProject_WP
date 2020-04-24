@@ -1,7 +1,7 @@
 POST http://localhost:8080/api/appointment
 Content-Type: application/x-www-form-urlencoded
 
-patientId=1&consultancyFees=700&status=false&creationDate=2000-10-31T01:30:00&doctorId=1&termId=1
+patientId=6&status=false&doctorId=9&termId=1
 
 > {%
 client.test("Request executed successfully", function() {
@@ -68,7 +68,16 @@ client.test("Request executed successfully", function() {
 %}
 
 ###
-GET http://localhost:8080/api/appointment?doctorId=1
+GET http://localhost:8080/api/appointment?doctorId=8
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+
+###
+PATCH http://localhost:8080/api/appointment/1/active
 
 > {%
 client.test("Request executed successfully", function() {

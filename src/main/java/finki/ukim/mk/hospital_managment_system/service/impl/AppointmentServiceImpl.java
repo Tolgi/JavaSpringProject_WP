@@ -34,7 +34,7 @@ public class AppointmentServiceImpl implements AppointmentService {
     }
 
     @Override
-    public Appointment createAppointment(Integer consultancyFees, String status, LocalDateTime creationDate, Long patientId, Long doctorId, Long termId) {
+    public Appointment createAppointment(String status, Long patientId, Long doctorId, Long termId) {
 
         Appointment appointment = new Appointment();
         Patient patient = patientRepository.findById(patientId).orElseThrow(InvalidPatientId::new);
@@ -58,7 +58,7 @@ public class AppointmentServiceImpl implements AppointmentService {
         LocalDate date = term.getDate();
         LocalTime time = term.getTimeOfAdmission();
 
-        appointment.createAppointment(consultancyFees, status, date, time, creationDate, patient, doctor);
+        appointment.createAppointment(status, date, time, LocalDateTime.now(), patient, doctor);
         appointmentRepository.save(appointment);
 
         return appointment;
@@ -92,5 +92,13 @@ public class AppointmentServiceImpl implements AppointmentService {
     @Override
     public Appointment findById(Long appointmentId) {
         return appointmentRepository.findById(appointmentId).orElseThrow(InvalidAppointmentId::new);
+    }
+
+    @Override
+    public Appointment updateStatus(Long appointmentId, String status) {
+        Appointment appointment = appointmentRepository.findById(appointmentId).orElseThrow(InvalidAppointmentId::new);
+        appointment.setStatus(status);
+        appointmentRepository.save(appointment);
+        return appointment;
     }
 }

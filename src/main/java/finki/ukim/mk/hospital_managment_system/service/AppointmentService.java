@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface AppointmentService {
 
-    Appointment createAppointment(Integer consultancyFees, String status, LocalDateTime creationDate, Long patientId, Long doctorId, Long termId);
+    Appointment createAppointment(String status, Long patientId, Long doctorId, Long termId);
 
     void deleteById(Long appointmentId);
 
@@ -22,4 +22,6 @@ public interface AppointmentService {
     List<Appointment> findAllByDoctorId(Long doctorId);
 
     Appointment findById(Long appointmentId);
+
+    Appointment updateStatus(Long appointmentId, String status);
 }

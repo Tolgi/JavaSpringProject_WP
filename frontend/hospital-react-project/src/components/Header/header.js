@@ -24,6 +24,9 @@ const Header = (props) => {
                         <li className="nav-item active">
                             <Link className={"nav-link"} to={"/patient/list"}>Patients</Link>
                         </li>
+                        <li className="nav-item active">
+                            <Link className={"nav-link"} to={"/appointment/list"}>Appointments</Link>
+                        </li>
                     </ul>
                     <FormSearch/>
                     <form className="form-inline mt-2 mt-md-0 ml-3">

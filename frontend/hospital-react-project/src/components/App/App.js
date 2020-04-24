@@ -8,6 +8,7 @@ import Doctor from "../Doctor/doctors";
 import Patient from "../Patient/patients";
 import MedicalHistory from "../MedicalHistory/medicalHistory";
 import Term from "../Term/terms";
+import Appointment from "../Appointment/appointments";
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
                       <Route path="/patient" component={Patient}/>
                       <Route path="/medicalHistory" component={MedicalHistory}/>
                       <Route path="/term" component={Term}/>
+                      <Route path="/appointment" component={Appointment}/>
                   </Switch>
               </div>
           </div>

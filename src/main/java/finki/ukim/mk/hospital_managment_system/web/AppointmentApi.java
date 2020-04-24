@@ -49,13 +49,11 @@ public class AppointmentApi {
 
     @PostMapping
     public Appointment createAppointment(@RequestParam("patientId") Long patientId,
-                                         @RequestParam("consultancyFees") Integer consultancyFees,
                                          @RequestParam("status") String status,
-                                         @RequestParam(value = "creationDate", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime creationDate,
                                          @RequestParam("doctorId") Long doctorId,
                                          @RequestParam("termId") Long termId){
 
-        Appointment appointment = appointmentService.createAppointment(consultancyFees, status, creationDate, patientId, doctorId, termId);
+        Appointment appointment = appointmentService.createAppointment(status, patientId, doctorId, termId);
         return appointment;
 
     }
@@ -63,6 +61,11 @@ public class AppointmentApi {
     @DeleteMapping("/{appointmentId}")
     public void deleteAppointment(@PathVariable Long appointmentId){
         appointmentService.deleteById(appointmentId);
+    }
+
+    @PatchMapping("/{appointmentId}/{status}")
+    public Appointment updateStatus(@PathVariable Long appointmentId, @PathVariable String status){
+        return appointmentService.updateStatus(appointmentId, status);
     }
 
 

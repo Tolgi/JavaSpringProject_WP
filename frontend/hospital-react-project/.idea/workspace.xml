@@ -4,6 +4,18 @@
     <list default="true" id="c9a49e0b-fa78-4cdd-a5ba-815ed5709e05" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/App/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repository/axiosDoctorRepository.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/axiosDoctorRepository.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/java/finki/ukim/mk/hospital_managment_system/model/Appointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/java/finki/ukim/mk/hospital_managment_system/model/Appointment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/java/finki/ukim/mk/hospital_managment_system/service/AppointmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/java/finki/ukim/mk/hospital_managment_system/service/AppointmentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/java/finki/ukim/mk/hospital_managment_system/service/impl/AppointmentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/java/finki/ukim/mk/hospital_managment_system/service/impl/AppointmentServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/java/finki/ukim/mk/hospital_managment_system/web/AppointmentApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/java/finki/ukim/mk/hospital_managment_system/web/AppointmentApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/test/appointmentApi.http" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/test/appointmentApi.http" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/test/termApi.http" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/test/termApi.http" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../target/classes/finki/ukim/mk/hospital_managment_system/model/Appointment.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../target/classes/finki/ukim/mk/hospital_managment_system/model/Appointment.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../target/classes/finki/ukim/mk/hospital_managment_system/service/AppointmentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../target/classes/finki/ukim/mk/hospital_managment_system/service/AppointmentService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../target/classes/finki/ukim/mk/hospital_managment_system/service/impl/AppointmentServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../target/classes/finki/ukim/mk/hospital_managment_system/service/impl/AppointmentServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../target/classes/finki/ukim/mk/hospital_managment_system/web/AppointmentApi.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../target/classes/finki/ukim/mk/hospital_managment_system/web/AppointmentApi.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +80,11 @@
       <workItem from="1586716222139" duration="1100000" />
       <workItem from="1586779005498" duration="2404000" />
       <workItem from="1586866822881" duration="27011000" />
-      <workItem from="1586959400447" duration="13753000" />
+      <workItem from="1586959400447" duration="14175000" />
+      <workItem from="1587324437189" duration="4066000" />
+      <workItem from="1587562648567" duration="20426000" />
+      <workItem from="1587679209866" duration="3464000" />
+      <workItem from="1587745103539" duration="6235000" />
     </task>
     <servers />
   </component>

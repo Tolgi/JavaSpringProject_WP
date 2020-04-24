@@ -48,8 +48,7 @@ public class Appointment {
     @ManyToOne
     private Doctor doctor;
 
-    public void createAppointment(Integer consultancyFees, String status, LocalDate date, LocalTime time, LocalDateTime creationDate, Patient patient, Doctor doctor){
-        this.consultancyFees = consultancyFees;
+    public void createAppointment(String status, LocalDate date, LocalTime time, LocalDateTime creationDate, Patient patient, Doctor doctor){
         this.status = status;
         this.date = date;
         this.time = time;
@@ -58,6 +57,7 @@ public class Appointment {
         this.doctor = doctor;
         this.doctorName = doctor.getName();
         this.patientSsn = patient.getSsn();
+        this.consultancyFees = doctor.getConsultancyFees();
     }
 
 
