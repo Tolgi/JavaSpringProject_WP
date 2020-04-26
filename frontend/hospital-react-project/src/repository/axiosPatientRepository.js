@@ -11,6 +11,11 @@ const PatientService = {
         return axios.get("/api/patient?patientId=" + patientId);
     },
 
+    getNumberOfPatients: () => {
+        return axios.get("/api/patient/number");
+    },
+
+
     addPatient: (newPatient) => {
         const formParams = qs.stringify(newPatient);
         return axios.post("/api/patient",formParams, {

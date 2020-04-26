@@ -1,4 +1,6 @@
 import React from 'react';
+import SaveIcon from "@material-ui/icons/Save";
+import Button from "@material-ui/core/Button";
 
 const MedicalHistoryAdd = (props) => {
 
@@ -43,7 +45,16 @@ const MedicalHistoryAdd = (props) => {
                             <textarea type="text"  name={"medicalPrescription"} className="form-control" placeholder="Medical prescription"/>
                         </div>
 
-                        <button type="submit" id="editbtn" className="btn btn-primary  col-md-2 editButton">Add</button>
+                        <Button
+                            variant="contained"
+                            color="primary"
+                            size="small"
+                            type="submit"
+                            id="editbtn"
+                            startIcon={<SaveIcon />}
+                        >
+                            Save
+                        </Button>
                     </form>
                 </div>
             </div>

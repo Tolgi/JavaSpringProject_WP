@@ -1,4 +1,7 @@
 import React from 'react';
+import EditIcon from '@material-ui/icons/Edit';
+import Button from '@material-ui/core/Button';
+
 
 const PatientEdit = (props) => {
 
@@ -66,7 +69,16 @@ const PatientEdit = (props) => {
                             <input type="number" name={"age"} onChange={handleTermOnChange} value={props.patient.age}  className="form-control" placeholder="Enter patient age ..."/>
                         </div>
 
-                        <button type="submit" id="editbtn" className="btn btn-primary  col-md-2 editButton">Edit</button>
+                        <Button
+                            variant="contained"
+                            color="primary"
+                            size="large"
+                            type="submit"
+                            startIcon={<EditIcon>edit</EditIcon>}
+                        >
+                            Edit
+                        </Button>
+                        {/*<button type="submit" id="editbtn" className="btn btn-primary  col-md-2 editButton">Edit</button>*/}
                     </form>
                 </div>
             </div>

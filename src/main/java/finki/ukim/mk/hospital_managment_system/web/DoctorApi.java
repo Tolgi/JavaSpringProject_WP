@@ -81,4 +81,9 @@ public class DoctorApi {
         Doctor doctor =  doctorService.editDoctor(doctorId, name, address, consultancyFees, contactNo, email, specializationId);
         return doctor;
     }
+
+    @GetMapping("/number")
+    public Integer numberOfDoctors(){
+        return doctorService.numbersOfDoctors();
+    }
 }

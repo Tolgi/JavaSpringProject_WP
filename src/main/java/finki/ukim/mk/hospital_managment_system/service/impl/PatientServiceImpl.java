@@ -81,4 +81,11 @@ public class PatientServiceImpl implements PatientService {
         patientRepository.save(patient);
         return patient;
     }
+
+    @Override
+    public Integer numbersOfPatients() {
+        List<Patient> patients = patientRepository.findAll();
+        Integer number = patients.size();
+        return number;
+    }
 }

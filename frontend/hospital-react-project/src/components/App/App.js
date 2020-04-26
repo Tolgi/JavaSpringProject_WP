@@ -9,6 +9,7 @@ import Patient from "../Patient/patients";
 import MedicalHistory from "../MedicalHistory/medicalHistory";
 import Term from "../Term/terms";
 import Appointment from "../Appointment/appointments";
+import Dashboard from "../Dashboard/Dashboard";
 
 function App() {
 
@@ -16,17 +17,10 @@ function App() {
     return (
       <Router>
           <div className="App">
-              <Header/>
+              <Dashboard/>
+              {/*<Header/>*/}
               <div className="content">
-                  <Switch>
-                      <Route path="/" exact component={Home}/>
-                      <Route path="/specialization" component={Specialization}/>
-                      <Route path="/doctor" component={Doctor}/>
-                      <Route path="/patient" component={Patient}/>
-                      <Route path="/medicalHistory" component={MedicalHistory}/>
-                      <Route path="/term" component={Term}/>
-                      <Route path="/appointment" component={Appointment}/>
-                  </Switch>
+
               </div>
           </div>
       </Router>

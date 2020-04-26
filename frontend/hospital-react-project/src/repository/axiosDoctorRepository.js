@@ -11,6 +11,10 @@ const DoctorService = {
         return axios.get("/api/doctor?doctorId=" + id);
     },
 
+    getNumberOfDoctors: () => {
+        return axios.get("/api/doctor/number");
+    },
+
     getDoctorsBySpecialization: (specializationName) => {
         return axios.get("/api/doctor?specializationName=" + specializationName);
     },

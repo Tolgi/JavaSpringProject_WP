@@ -1,4 +1,7 @@
 import React from 'react';
+import SaveIcon from '@material-ui/icons/Save';
+import Button from '@material-ui/core/Button';
+
 
 const PatientAdd = (props) => {
 
@@ -16,7 +19,6 @@ const PatientAdd = (props) => {
             "doctorId": 1 //vo idnina ke bide dinamicno
         });
     };
-
 
 
     return (
@@ -54,10 +56,18 @@ const PatientAdd = (props) => {
                         </div>
                         <div className="form-group  col-md-8">
                             <label>Patient Age</label>
-                            <input type="number" name={"age"}  className="form-control" placeholder="Consultancy fees"/>
+                            <input type="number" name={"age"}  className="form-control" placeholder="Enter age ..."/>
                         </div>
 
-                        <button type="submit" id="editbtn" className="btn btn-primary  col-md-2 editButton">Add</button>
+                        <Button
+                            variant="contained"
+                            color="primary"
+                            size="small"
+                            type="submit"
+                            startIcon={<SaveIcon />}
+                        >
+                            Save
+                        </Button>
                     </form>
                 </div>
             </div>

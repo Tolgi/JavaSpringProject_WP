@@ -68,7 +68,6 @@ const Specialization = ({match}) => {
     return (
 
         <div>
-            <h2 className= "col-md-10 font-weight-bold " >Doctor Specializations</h2>
             <Route path={`${match.path}/list`} exact render={(props) => <SpecializationList onAdd={addSpecialization} onDelete={deleteSpecialization} specializations={specializations}/>}/>
             <Route path={`${match.path}/edit/:id`} exact render={(props) => <SpecializationEdit  onEdit={editSpecialization} {...props} />}/>
         </div>

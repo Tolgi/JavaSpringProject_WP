@@ -68,5 +68,9 @@ public class AppointmentApi {
         return appointmentService.updateStatus(appointmentId, status);
     }
 
+    @GetMapping("/number")
+    public Integer numberOfAppointments(){
+        return appointmentService.numberOfAppointments();
+    }
 
 }

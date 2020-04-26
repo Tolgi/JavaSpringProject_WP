@@ -101,4 +101,11 @@ public class AppointmentServiceImpl implements AppointmentService {
         appointmentRepository.save(appointment);
         return appointment;
     }
+
+    @Override
+    public Integer numberOfAppointments() {
+        List<Appointment> appointments = appointmentRepository.findAll();
+        Integer number = appointments.size();
+        return number;
+    }
 }

@@ -3,19 +3,36 @@
   <component name="ChangeListManager">
     <list default="true" id="c9a49e0b-fa78-4cdd-a5ba-815ed5709e05" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/App/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/App/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header/header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Appointment/AppointmentList/allAppointmentsList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Appointment/AppointmentList/allAppointmentsList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Appointment/AppointmentList/appointmentList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Appointment/AppointmentList/appointmentList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Appointment/SingleAppointment/singleAppointment.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Appointment/SingleAppointment/singleAppointment.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Doctor/DoctorAdd/doctorAdd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Doctor/DoctorAdd/doctorAdd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Doctor/DoctorEdit/doctorEdit.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Doctor/DoctorEdit/doctorEdit.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Doctor/DoctorList/doctorList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Doctor/DoctorList/doctorList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Doctor/SingleDoctor/singleDoctor.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Doctor/SingleDoctor/singleDoctor.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Doctor/doctors.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Doctor/doctors.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MedicalHistory/MedicalHistoryAdd/medicalHistoryAdd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MedicalHistory/MedicalHistoryAdd/medicalHistoryAdd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MedicalHistory/MedicalHistoryList/medicalHistoryList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MedicalHistory/MedicalHistoryList/medicalHistoryList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Patient/PatientAdd/patientAdd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Patient/PatientAdd/patientAdd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Patient/PatientDetails/patientDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Patient/PatientDetails/patientDetails.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Patient/PatientEdit/patientEdit.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Patient/PatientEdit/patientEdit.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Patient/PatientList/patientList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Patient/PatientList/patientList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Patient/SinglePatient/singlePatient.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Patient/SinglePatient/singlePatient.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Patient/patients.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Patient/patients.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Specialization/SingleSpecialization/singleSpecialization.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Specialization/SingleSpecialization/singleSpecialization.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Specialization/SpecializationEdit/specializationEdit.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Specialization/SpecializationEdit/specializationEdit.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Specialization/SpecializationList/specializationList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Specialization/SpecializationList/specializationList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Specialization/specialization.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Specialization/specialization.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Specialization/specializations.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Specialization/specializations.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repository/axiosAppointmentRepository.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/axiosAppointmentRepository.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/repository/axiosDoctorRepository.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/axiosDoctorRepository.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../src/main/java/finki/ukim/mk/hospital_managment_system/model/Appointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/java/finki/ukim/mk/hospital_managment_system/model/Appointment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../src/main/java/finki/ukim/mk/hospital_managment_system/service/AppointmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/java/finki/ukim/mk/hospital_managment_system/service/AppointmentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../src/main/java/finki/ukim/mk/hospital_managment_system/service/impl/AppointmentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/java/finki/ukim/mk/hospital_managment_system/service/impl/AppointmentServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../src/main/java/finki/ukim/mk/hospital_managment_system/web/AppointmentApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/java/finki/ukim/mk/hospital_managment_system/web/AppointmentApi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../src/test/appointmentApi.http" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/test/appointmentApi.http" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../src/test/termApi.http" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/test/termApi.http" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../target/classes/finki/ukim/mk/hospital_managment_system/model/Appointment.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../target/classes/finki/ukim/mk/hospital_managment_system/model/Appointment.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../target/classes/finki/ukim/mk/hospital_managment_system/service/AppointmentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../target/classes/finki/ukim/mk/hospital_managment_system/service/AppointmentService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../target/classes/finki/ukim/mk/hospital_managment_system/service/impl/AppointmentServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../target/classes/finki/ukim/mk/hospital_managment_system/service/impl/AppointmentServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../target/classes/finki/ukim/mk/hospital_managment_system/web/AppointmentApi.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../target/classes/finki/ukim/mk/hospital_managment_system/web/AppointmentApi.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repository/axiosPatientRepository.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/axiosPatientRepository.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +101,8 @@
       <workItem from="1587324437189" duration="4066000" />
       <workItem from="1587562648567" duration="20426000" />
       <workItem from="1587679209866" duration="3464000" />
-      <workItem from="1587745103539" duration="6235000" />
+      <workItem from="1587745103539" duration="20070000" />
+      <workItem from="1587831662876" duration="18322000" />
     </task>
     <servers />
   </component>
@@ -100,10 +118,10 @@
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="620" y="358" width="669" height="397" key="#com.intellij.fileTypes.FileTypeChooser/0.27.1920.1053@0.27.1920.1053" timestamp="1586213427434" />
-    <state x="693" y="302" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1586986041695">
+    <state x="693" y="302" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1587770124083">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state x="693" y="302" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1586986041695" />
+    <state x="693" y="302" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1587770124083" />
     <state x="743" y="311" width="424" height="491" key="FileChooserDialogImpl" timestamp="1586188328691">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>

@@ -69,7 +69,6 @@ const Patient = ({match}) => {
 
     return (
         <div>
-            <h2 className= "col-md-10 font-weight-bold " >Patients</h2>
             <Route path={`${match.path}/list`} exact render={(props) => <PatientList onDetails={loadPatient} onEdit={loadPatient} onDelete={deletePatient} patients={patients}/>}/>
             <Route path={`${match.path}/edit/:id`} exact render={(props) => <PatientEdit patient={patient} setPatient={setPatient} onEdit={editPatient} {...props} />}/>
             <Route path={`${match.path}/add`} exact render={(props) => <PatientAdd onAdd={addPatient} />}/>

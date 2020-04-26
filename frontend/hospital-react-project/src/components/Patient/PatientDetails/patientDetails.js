@@ -3,8 +3,20 @@ import MedicalHistory from "../../MedicalHistory/medicalHistory";
 import {Link} from "react-router-dom";
 import MedicalHistoryList from "../../MedicalHistory/MedicalHistoryList/medicalHistoryList";
 
-const PatientDetails = (props) => {
+import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+import AddIcon from '@material-ui/icons/Add';
 
+const PatientDetails = (props) => {
+    const useStyles = makeStyles((theme) => ({
+        root: {
+            '& > *': {
+                margin: theme.spacing(1),
+            },
+        },
+    }));
+
+    const classes = useStyles();
 
     return (
         <div>
@@ -41,16 +53,15 @@ const PatientDetails = (props) => {
                 </table>
                 <br/>
                 <br/>
-                <Link to={`/medicalHistory/list/${props.patient.id}`} className="btn btn-primary a-btn-slide-text">
-                    <span className="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                    <span><strong>Show medical histories</strong></span>
-                </Link>
-                <br/>
-                <br/>
-                <Link to={`/medicalHistory/add/${props.patient.id}`} className="btn btn-primary a-btn-slide-text">
-                    <span className="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                    <span><strong>Add medical histories</strong></span>
-                </Link>
+
+                <div className={classes.root}>
+                    <Button variant="outlined" color="primary" href={`/medicalHistory/list/${props.patient.id}`}>
+                        Show medical histories
+                    </Button>
+                    <Button variant="outlined"  startIcon={<AddIcon>add</AddIcon>} color="secondary" href={`/medicalHistory/add/${props.patient.id}`}>
+                        Add medical histories
+                    </Button>
+                </div>
 
             </div>
 

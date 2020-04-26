@@ -14,4 +14,5 @@ public interface JpaDoctorRepository extends JpaRepository<Doctor, Long> {
     List<Doctor> findAllBySpecializationId(Long specializationId);
     List<Doctor> findDoctorsByNameContains(String name);
 
+
 }

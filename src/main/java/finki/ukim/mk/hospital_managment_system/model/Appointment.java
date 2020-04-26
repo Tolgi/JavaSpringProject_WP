@@ -1,9 +1,6 @@
 package finki.ukim.mk.hospital_managment_system.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -38,6 +35,7 @@ public class Appointment {
 
     private String doctorName;
 
+
     private Long patientSsn;
 
 
@@ -58,7 +56,7 @@ public class Appointment {
         this.doctorName = doctor.getName();
         this.patientSsn = patient.getSsn();
         this.consultancyFees = doctor.getConsultancyFees();
-    }
 
+    }
 
 }

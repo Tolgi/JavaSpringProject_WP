@@ -8,6 +8,7 @@ import 'font-awesome/css/font-awesome.css';
 import 'jquery/dist/jquery';
 import 'bootstrap/dist/js/bootstrap.min';
 
+
 ReactDOM.render(
   <React.StrictMode>
     <App />

@@ -1,9 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../specialization.css';
+import Button from "@material-ui/core/Button";
+import EditIcon from "@material-ui/icons/Edit";
+import DeleteIcon from "@material-ui/icons/Delete";
+import {makeStyles} from "@material-ui/core/styles";
 
 
 const SingleSpecialization = (props) => {
+    const useStyles = makeStyles((theme) => ({
+        button: {
+            margin: theme.spacing(1),
+        },
+    }));
+    const classes = useStyles();
 
     return (
         <tr key={props.specialization.id}>
@@ -11,17 +21,26 @@ const SingleSpecialization = (props) => {
             <td>{props.specialization.name}</td>
             <td>{props.specialization.creationTime}</td>
             <td>
-                <Link to={`/specialization/edit/${props.specialization.id}`}>
-                    <button className="speciButton btn btn-primary a-btn-slide-text">
-                        <span className="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                        <span><strong>Edit</strong></span>
-                    </button>
-                </Link>
+                <Button
+                    variant="contained"
+                    color="primary"
+                    size="small"
+                    className={classes.button}
+                    startIcon={<EditIcon>edit</EditIcon>}
+                    href={`/specialization/edit/${props.specialization.id}`}
+                >
+                    Edit
+                </Button>
 
-                <button onClick={()=>props.onDelete(props.specialization.id)} className="speciButton btn btn-primary a-btn-slide-text">
-                        <span className="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                        <span><strong>Delete</strong></span>
-                </button>
+                <Button
+                    variant="contained"
+                    color="secondary"
+                    size="small"
+                    startIcon={<DeleteIcon />}
+                    onClick={()=>props.onDelete(props.specialization.id)}
+                >
+                    Delete
+                </Button>
 
             </td>
         </tr>

@@ -1,4 +1,6 @@
 import React from 'react';
+import SaveIcon from '@material-ui/icons/Save';
+import Button from '@material-ui/core/Button';
 
 const DoctorAdd = (props) => {
 
@@ -54,7 +56,15 @@ const DoctorAdd = (props) => {
                             <label>Contact number</label>
                             <input type="text"  name={"email"}  className="form-control" placeholder="Email..."/>
                         </div>
-                        <button type="submit" id="editbtn" className="btn btn-primary  col-md-2 editButton">Add</button>
+                        <Button
+                            variant="contained"
+                            color="primary"
+                            size="small"
+                            type="submit"
+                            startIcon={<SaveIcon />}
+                        >
+                            Save
+                        </Button>
                     </form>
                 </div>
             </div>

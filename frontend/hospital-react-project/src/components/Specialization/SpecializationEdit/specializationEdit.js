@@ -1,6 +1,13 @@
 import React, {useState, useEffect} from 'react';
 import '../specialization.css';
 import SpecializationService from "../../../repository/axiosSpecializationRepository";
+import Card from "@material-ui/core/Card";
+import CardContent from "@material-ui/core/CardContent";
+import Typography from "@material-ui/core/Typography";
+import Box from "@material-ui/core/Box";
+import Input from "@material-ui/core/Input";
+import Button from "@material-ui/core/Button";
+import EditIcon from "@material-ui/icons/Edit";
 
 
 const SpecializationEdit = (props) => {
@@ -35,38 +42,30 @@ const SpecializationEdit = (props) => {
     return (
 
         <div>
-            <div className="card-body">
-                <div className="card-text">
-                    <div className="specialization">
-                        <form onSubmit={onFormSubmit}>
-                            <div className="row form-group">
-                                <div className="col-md-6 font-weight-bold"> Specialization name:</div>
-                                <div className="col-md-6">
-                                    <div className="row">
-                                        <div className="col-md-5">
-                                            <input onChange={handleTermOnChange} name={"name"} type="text"
-                                                   className="form-control"
-                                                   value={specialization.name}
-                                                   title="Name"/>
-                                        </div>
-
-                                </div>
-                            </div>
-
-                            <div className="col-md-10">
-
-                                <button type="submit" className="btn btn-primary" title="Submit">
-                                    <i className="fa fa-fw fa-save"></i> Edit
-                                </button>
-                            </div>
-                            </div>
-                        </form>
-                        <hr/>
-                    </div>
-
-                </div>
-            </div>
-
+            <Card  variant="outlined">
+                <CardContent>
+                    <Typography  color="textSecondary" gutterBottom>
+                        Edit Doctor Specialization
+                    </Typography>
+                    <form onSubmit={onFormSubmit}>
+                        <Box  color="text.primary" component="div" m={1}>
+                            <Input onChange={handleTermOnChange} name={"name"} type="text"
+                                   className="form-control"
+                                   value={specialization.name}
+                                   title="Name"/>
+                        </Box>
+                        <Button
+                            variant="contained"
+                            color="primary"
+                            size="medium"
+                            type="submit"
+                            startIcon={<EditIcon />}
+                        >
+                            Edit
+                        </Button>
+                    </form>
+                </CardContent>
+            </Card>
         </div>
     );
 }

@@ -24,4 +24,6 @@ public interface AppointmentService {
     Appointment findById(Long appointmentId);
 
     Appointment updateStatus(Long appointmentId, String status);
+
+    Integer numberOfAppointments();
 }

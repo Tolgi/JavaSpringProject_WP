@@ -95,5 +95,12 @@ public class DoctorServiceImpl implements DoctorService {
         return doctor;
     }
 
+    @Override
+    public Integer numbersOfDoctors() {
+        List<Doctor> doctors = doctorRepository.findAll();
+        Integer number = doctors.size();
+        return number;
+    }
+
 
 }

@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Link} from "react-router-dom";
 import SingleAppointmentBy from "../SingleAppointment/singleAppointmentBy";
+import {Divider} from "@material-ui/core";
 
 const AppointmentList = (props) => {
 
@@ -34,8 +35,8 @@ const AppointmentList = (props) => {
 
     return (
         <div>
-
-            <br />
+            <h4>APPOINTMENTS</h4>
+            <Divider />
             <div className="table-wrapper">
                 <table className="fl-table">
                     <thead>

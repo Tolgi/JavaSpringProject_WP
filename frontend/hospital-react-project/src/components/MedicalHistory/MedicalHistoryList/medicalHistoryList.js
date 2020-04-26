@@ -1,5 +1,6 @@
 import React , {useState, useEffect} from 'react';
 import SingleMedicalHistory from "../SingleMedicalHistory/singleMedicalHistory";
+import {Divider} from "@material-ui/core";
 
 const MedicalHistoryList = (props) => {
 
@@ -16,6 +17,8 @@ const MedicalHistoryList = (props) => {
 
     return (
         <div>
+            <h4>Medical history</h4>
+            <Divider />
             <div className="table-wrapper">
                 <table className="fl-table">
                     <thead>

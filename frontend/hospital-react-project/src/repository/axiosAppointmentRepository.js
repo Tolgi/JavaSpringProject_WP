@@ -11,6 +11,10 @@ const AppointmentService = {
         return axios.get("/api/appointment?appointmentId=" + id);
     },
 
+    getNumberOfAppointments: () => {
+        return axios.get("/api/appointment/number");
+    },
+
     getAppointmentsByPatientId: (id) => {
         return axios.get("/api/appointment?patientId=" + id);
     },

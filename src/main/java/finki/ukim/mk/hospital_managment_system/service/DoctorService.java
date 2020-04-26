@@ -26,4 +26,6 @@ public interface DoctorService {
     List<Doctor> findAllBySpecializationId(Long specializationId);
 
     Doctor editDoctor(Long doctorId, String name, String address, Integer consultancyFees, String contactNo, String email, Long specializationId);
+
+    Integer numbersOfDoctors();
 }

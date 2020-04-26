@@ -60,4 +60,8 @@ public class PatientApi {
         patientService.deleteById(patientId);
     }
 
+    @GetMapping("/number")
+    public Integer numberOfPatients(){
+        return patientService.numbersOfPatients();
+    }
 }

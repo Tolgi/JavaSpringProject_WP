@@ -1,9 +1,17 @@
 import React  from 'react';
-import { Link } from 'react-router-dom';
-
+import Button from '@material-ui/core/Button';
+import DeleteIcon from '@material-ui/icons/Delete';
+import EditIcon from '@material-ui/icons/Edit';
+import { makeStyles } from '@material-ui/core/styles';
 
 
 const SingleDoctor = (props) => {
+    const useStyles = makeStyles((theme) => ({
+        button: {
+            margin: theme.spacing(1),
+        },
+    }));
+    const classes = useStyles();
 
     return (
         <tr key={props.doctor.id}>
@@ -11,17 +19,26 @@ const SingleDoctor = (props) => {
             <td>{props.doctor.name}</td>
             <td>{props.doctor.specialization.name}</td>
             <td>
-                <button onClick={() => props.onEdit(props.doctor.id)} className="btn btn-primary a-btn-slide-text">
-                    <span className="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                    <span><strong>Edit</strong></span>
-                </button>
+                <Button
+                    variant="contained"
+                    color="primary"
+                    size="small"
+                    className={classes.button}
+                    startIcon={<EditIcon>edit</EditIcon>}
+                    onClick={() => props.onEdit(props.doctor.id)}
+                >
+                    Edit
+                </Button>
 
-
-                <button onClick={()=>props.onDelete(props.doctor.id)} className="btn btn-primary a-btn-slide-text">
-                    <span className="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                    <span><strong>Delete</strong></span>
-                </button>
-
+                <Button
+                    variant="contained"
+                    color="secondary"
+                    size="small"
+                    startIcon={<DeleteIcon />}
+                    onClick={()=>props.onDelete(props.doctor.id)}
+                >
+                    Delete
+                </Button>
             </td>
         </tr>
     );

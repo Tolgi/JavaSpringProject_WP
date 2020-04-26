@@ -1,13 +1,19 @@
 import React from 'react';
-
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
 import '../specialization.css';
 import SingleSpecialization from "../SingleSpecialization/singleSpecialization";
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
+import Input from '@material-ui/core/Input';
+import SaveIcon from "@material-ui/icons/Save";
+import Box from '@material-ui/core/Box';
 
 const SpecializationList = (props) => {
 
     const OneSpecialization = props.specializations.map((specialization) => {
         return(
-             <SingleSpecialization onDelete={props.onDelete} specialization={specialization} key={specialization.id}/>
+            <SingleSpecialization onDelete={props.onDelete} specialization={specialization} key={specialization.id}/>
         );
     });
 
@@ -18,39 +24,28 @@ const SpecializationList = (props) => {
     };
 
     return (
-        <div>
-            <div>
-                <div className="card-body">
-                    <div className="card-text">
-                        <div className="specialization">
-                            <form onSubmit={onFormSubmit}>
-                                <div className="row form-group">
-                                    <div className="col-md-6 font-weight-bold"> Add new specialization</div>
-                                    <div className="col-md-6">
-                                        <div className="row">
-                                            <div className="col-md-5">
-                                                <input className="form-control" type="text" name={"firstName"} placeholder={"Enter doctor specialization ..."}/>
-                                            </div>
-
-                                        </div>
-                                    </div>
-
-                                    <div className="speciButton col-md-10">
-
-                                        <button type="submit" className="btn btn-primary" title="Submit">
-                                            <i className="fa fa-fw fa-save"></i> Add
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
-                            <hr/>
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
-
+     <div>
+        <Card  variant="outlined">
+            <CardContent>
+                <Typography  color="textSecondary" gutterBottom>
+                    Add new specialization
+                </Typography>
+                <form onSubmit={onFormSubmit}>
+                    <Box  color="text.primary" component="div" m={1}>
+                    <Input placeholder="enter specialization name" name={"firstName"} type="text" d aria-describedby="my-helper-text" />
+                    </Box>
+                    <Button
+                        variant="contained"
+                        color="primary"
+                        size="medium"
+                        type="submit"
+                        startIcon={<SaveIcon />}
+                    >
+                        Save
+                    </Button>
+                </form>
+            </CardContent>
+        </Card>
 
             <br />
             <div className="table-wrapper">
@@ -68,9 +63,10 @@ const SpecializationList = (props) => {
                     </tbody>
                 </table>
             </div>
-        </div>
+     </div>
 
     );
+
 }
 
 export default SpecializationList;
