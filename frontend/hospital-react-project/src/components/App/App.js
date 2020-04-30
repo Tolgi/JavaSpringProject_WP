@@ -10,18 +10,25 @@ import MedicalHistory from "../MedicalHistory/medicalHistory";
 import Term from "../Term/terms";
 import Appointment from "../Appointment/appointments";
 import Dashboard from "../Dashboard/Dashboard";
+import Landing from "../Landing/landing";
+import SignIn from "../SignIn/signIn";
+import Container from "@material-ui/core/Container";
+import SpecializationList from "../Specialization/SpecializationList/specializationList";
 
 function App() {
 
-
+// -------------will be fixed soon------------//
     return (
       <Router>
           <div className="App">
-              <Dashboard/>
-              {/*<Header/>*/}
-              <div className="content">
 
-              </div>
+              {/*<Header/>*/}
+              {/*<Dashboard/>*/}
+              <Switch>
+                  <Route path='/' exact render={(props) => <Landing/>}/>
+                  <Route path="/signIn" exact render={(props) => <SignIn/>}/>
+              </Switch>
+
           </div>
       </Router>
 

@@ -11,6 +11,8 @@ import LayersIcon from '@material-ui/icons/Layers';
 import AssignmentIcon from '@material-ui/icons/Assignment';
 import {Link} from "react-router-dom";
 import adminDashboard from "./adminDashboard";
+import List from '@material-ui/core/List';
+
 
 export const mainListItems = (
     <div>
@@ -25,7 +27,6 @@ export const mainListItems = (
             <ListItemIcon>
                 <PeopleIcon />
             </ListItemIcon>
-
             <ListItemText primary="Doctors" />
         </ListItem>
         <ListItem button component={Link} to="/patient/list">

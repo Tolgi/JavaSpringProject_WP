@@ -5,8 +5,12 @@ import App from './components/App/App';
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'font-awesome/css/font-awesome.css';
-import 'jquery/dist/jquery';
+import 'jquery/dist/jquery.min';
 import 'bootstrap/dist/js/bootstrap.min';
+import './custom-css/Lightbox-Gallery.css';
+import './custom-css/Navigation-Clean.css';
+import './custom-css/Pretty-Footer.css';
+import './custom-css/styles.css';
 
 
 ReactDOM.render(

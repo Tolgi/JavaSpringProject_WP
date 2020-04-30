@@ -12,3 +12,7 @@ code {
     monospace;
 }
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap');
+@import "fonts/font-awesome.min.css";
+@import "fonts/ionicons.min.css";
+@import "custom-css/Lightbox-Gallery.css";
+@import "custom-css/styles.css";

@@ -1,5 +1,4 @@
 import React  from 'react';
-import { Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
@@ -23,11 +22,6 @@ const SinglePatient = (props) => {
             <td>{props.patient.contactNo}</td>
             <td>{props.patient.creationDate}</td>
             <td>
-                {/*<button onClick={() => props.onEdit(props.patient.id, "edit")} className="btn btn-primary a-btn-slide-text">*/}
-                {/*    <span className="glyphicon glyphicon-remove" aria-hidden="true"></span>*/}
-                {/*    <span><strong>Edit</strong></span>*/}
-                {/*</button>*/}
-
                 <Button
                     variant="contained"
                     color="primary"
@@ -38,13 +32,6 @@ const SinglePatient = (props) => {
                 >
                     Edit
                 </Button>
-
-
-                {/*<button onClick={()=>props.onDelete(props.patient.id)} className="btn btn-primary a-btn-slide-text">*/}
-                {/*    <span className="glyphicon glyphicon-remove" aria-hidden="true"></span>*/}
-                {/*    <span><strong>Delete</strong></span>*/}
-                {/*</button>*/}
-
                 <Button
                     variant="contained"
                     color="secondary"
@@ -54,11 +41,6 @@ const SinglePatient = (props) => {
                 >
                     Delete
                 </Button>
-
-                {/*<button onClick={()=>props.onDetails(props.patient.id, "details")} className="btn btn-primary a-btn-slide-text">*/}
-                {/*    <span className="glyphicon glyphicon-remove" aria-hidden="true"></span>*/}
-                {/*    <span><strong>Details</strong></span>*/}
-                {/*</button>*/}
 
                 <Button
                     variant="contained"

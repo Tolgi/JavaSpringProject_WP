@@ -20,7 +20,6 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import { mainListItems, secondaryListItems } from './listItems';
 
-
 import Doctor from "../Doctor/doctors";
 import {Route, Switch} from "react-router-dom";
 import Home from "../Home/home";
@@ -30,6 +29,7 @@ import MedicalHistory from "../MedicalHistory/medicalHistory";
 import Term from "../Term/terms";
 import Appointment from "../Appointment/appointments";
 import AdminDashboard from "./adminDashboard";
+import SpecializationList from "../Specialization/SpecializationList/specializationList";
 
 function Copyright() {
     return (
@@ -126,7 +126,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function Dashboard() {
+export default function Dashboard({match}) {
     const classes = useStyles();
     const [open, setOpen] = React.useState(true);
     const handleDrawerOpen = () => {
@@ -182,8 +182,6 @@ export default function Dashboard() {
                 <div className={classes.appBarSpacer} />
                 <Container maxWidth="lg" className={classes.container}>
                     <Switch>
-                        <Route path="/" exact component={Home}/>
-
                         <Route path="/specialization" component={Specialization}/>
                         <Route path="/doctor" component={Doctor}/>
                         <Route path="/patient" component={Patient}/>
