@@ -21,7 +21,8 @@ public class PatientApi {
     }
 
     @PostMapping
-    public Patient createPatient(@RequestParam String name,
+    public Patient createPatient(@RequestParam Long id,
+                                 @RequestParam String name,
                                  @RequestParam Long ssn,
                                  @RequestParam String gender,
                                  @RequestParam String email,
@@ -29,7 +30,7 @@ public class PatientApi {
                                  @RequestParam Integer age,
                                  @RequestParam String contactNo,
                                  @RequestParam Long doctorId){
-        return patientService.createPatient(name, ssn, gender, email, address, age, contactNo, doctorId);
+        return patientService.createPatient(id,name, ssn, gender, email, address, age, contactNo, doctorId);
     }
 
     @GetMapping

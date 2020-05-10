@@ -1,0 +1,599 @@
+POST http://localhost:8080/api/auth/doctor/signup
+Content-Type: application/json
+
+{
+  "username": "Doctor",
+  "email": "doctor@gmail.com",
+  "role": ["doctor"],
+  "password": "doctor123",
+  "name": "Philip C. Hoffmanman",
+  "address": "UChicago Medicine",
+  "consultancyFees": 430,
+  "contactNo": "070-472-932",
+  "specializationId": 3
+}
+
+<> 2020-05-09T114424.200.json
+
+###
+
+POST http://localhost:8080/api/auth/patient/signup
+Content-Type: application/json
+
+{
+  "username": "Patientbyown",
+  "email": "patientbtown@gmail.com",
+  "role": ["user"],
+  "password": "patient123",
+  "name": "ALone",
+  "ssn": 29129974950,
+  "gender": "female",
+  "address": "UChicago Medicine",
+  "age": 22,
+  "contactNo": "070-470-930",
+  "doctorId": null
+}
+
+<> 2020-05-09T112744.200.json
+
+###
+
+POST http://localhost:8080/api/auth/patient/signup
+Content-Type: application/json
+
+{
+  "username": "Patient",
+  "email": "patient@gmail.com",
+  "role": ["user"],
+  "password": "patient123",
+  "name": "Vikktorija",
+  "ssn": 29129974950,
+  "gender": "female",
+  "address": "UChicago Medicine",
+  "age": 22,
+  "contactNo": "070-470-930",
+  "doctorId": 9
+}
+
+<> 2020-05-09T112444.200.json
+
+###
+
+POST http://localhost:8080/api/auth/patient/signup
+Content-Type: application/json
+
+{
+  "username": "Patient",
+  "email": "patient@gmail.com",
+  "role": ["user"],
+  "password": "patient123",
+  "name": "Vikktorija",
+  "ssn": 29129974950,
+  "gender": "female",
+  "address": "UChicago Medicine",
+  "age": 22,
+  "contactNo": "070-470-930",
+  "doctorId": 9
+}
+
+<> 2020-05-09T111449.500.json
+
+###
+
+POST http://localhost:8080/api/auth/patient/signup
+Content-Type: application/json
+
+{
+  "username": "Patient",
+  "email": "patient@gmail.com",
+  "role": ["user"],
+  "password": "patient123",
+  "name": "Vikktorija",
+  "ssn": 29129974950,
+  "gender": "female",
+  "address": "UChicago Medicine",
+  "age": 22,
+  "contactNo": "070-470-930",
+  "doctorId": 9
+}
+
+<> 2020-05-09T111143.500.json
+
+###
+
+POST http://localhost:8080/api/auth/signup
+Content-Type: application/json
+
+{
+    "username": "Adminn",
+    "email": "adminn@gmail.com",
+    "role": ["admin"],
+    "password": "admin123"
+}
+
+<> 2020-05-09T100344.200.json
+
+###
+
+POST http://localhost:8080/api/auth/signup
+Content-Type: application/json
+
+{
+    "username": "aaaaaaaaaaaaaaa",
+    "email": "admiaaaaaaaaaaaan@gmail.com",
+    "role": ["doctor"],
+    "password": "admin123"
+}
+
+<> 2020-05-09T100214.200.json
+
+###
+
+POST http://localhost:8080/api/auth/signup
+Content-Type: application/json
+
+{
+    "username": "aaaaaaaaaaaaaa",
+    "email": "admiaaaaaaaaaaan@gmail.com",
+    "roles": ["doctor"],
+    "password": "admin123"
+}
+
+<> 2020-05-09T095129.200.json
+
+###
+
+POST http://localhost:8080/api/auth/signup
+Content-Type: application/json
+
+{
+    "username": "aaaaaaaaaaaaa",
+    "email": "admiaaaaaaaaaan@gmail.com",
+    "roles": ["doctor"],
+    "password": "admin123"
+}
+
+<> 2020-05-09T095120.400.json
+
+###
+
+POST http://localhost:8080/api/auth/signup
+Content-Type: application/json
+
+{
+    "username": "aaaaaaaaaaaaa",
+    "email": "admiaaaaaaaaaan@gmail.com",
+    "roles": "doctor",
+    "password": "admin123"
+
+}
+
+<> 2020-05-09T094239.200.json
+
+###
+
+POST http://localhost:8080/api/auth/signup
+Content-Type: application/json
+
+{
+    "username": "aaaaaaaaaaa",
+    "email": "admiaaaaaaaan@gmail.com",
+    "roles": "doctor",
+    "password": "admin123"
+
+}
+
+<> 2020-05-09T094233.400.json
+
+###
+
+POST http://localhost:8080/api/auth/signup
+Content-Type: application/json
+
+{
+    "username": "aaaaaaaaaaa",
+    "email": "admiaaaaaaaan@gmail.com",
+    "password": "admin123",
+    "roles": "doctor"
+}
+
+<> 2020-05-09T094100.200.json
+
+###
+
+POST http://localhost:8080/api/auth/signup
+Content-Type: application/json
+
+{
+    "username": "aaaaaaaaa",
+    "email": "admiaaaaaan@gmail.com",
+    "password": "admin123",
+    "roles": "doctor"
+}
+
+<> 2020-05-09T094051.400.json
+
+###
+
+POST http://localhost:8080/api/auth/signup
+Content-Type: application/json
+
+{
+    "username": "aaaaaaaaa",
+    "email": "admiaaaaaan@gmail.com",
+    "password": "admin123",
+    "roles": "doctor"
+}
+
+<> 2020-05-09T093128.200.json
+
+###
+
+POST http://localhost:8080/api/auth/signup
+Content-Type: application/json
+
+{
+    "username": "aaaaaaa",
+    "email": "admiaaaan@gmail.com",
+    "password": "admin123",
+    "roles": "doctor"
+}
+
+<> 2020-05-09T093120.400.json
+
+###
+
+POST http://localhost:8080/api/auth/signup
+Content-Type: application/json
+
+{
+    "username": "aaaaaaa",
+    "email": "admiaaaan@gmail.com",
+    "password": "admin123",
+    "roles": "doctor"
+}
+
+<> 2020-05-09T092908.200.json
+
+###
+
+POST http://localhost:8080/api/auth/signup
+Content-Type: application/json
+
+{
+    "username": "Admin",
+    "email": "admin@gmail.com",
+    "password": "admin123",
+    "roles": "ROLE_ADMIN"
+}
+
+<> 2020-05-09T092600.200.json
+
+###
+
+POST http://localhost:8080/api/auth/sign-up
+Content-Type: application/json
+
+{
+    "username": "Viktorija",
+    "email": "viki@gmail.com",
+    "password": "viki123",
+    "roles": []
+}
+
+###
+
+POST http://localhost:8080/api/auth/sign-up
+Content-Type: application/json
+
+{
+    "username": "Viktorija",
+    "email": "viki@gmail.com",
+    "password": "viki123",
+    "roles": []
+}
+
+<> 2020-05-04T045202.403.json
+
+###
+
+POST http://localhost:8080/api/auth/role/add
+Content-Type: application/x-www-form-urlencoded
+
+name=ROLE_DOCTOR
+
+<> 2020-05-04T045141.200.json
+
+###
+
+POST http://localhost:8080/api/auth/role/add
+Content-Type: application/x-www-form-urlencoded
+
+name=ROLE_USER
+
+<> 2020-05-04T045125.200.json
+
+###
+
+POST http://localhost:8080/api/auth/role/add
+Content-Type: application/x-www-form-urlencoded
+
+name=ROLE_ADMIN
+
+<> 2020-05-04T045055.200.json
+
+###
+
+POST http://localhost:8080/api/auth/role/add
+Content-Type: application/x-www-form-urlencoded
+
+name=ROLE_ADMIN
+
+<> 2020-05-04T044651.403.json
+
+###
+
+POST http://localhost:8080/api/auth/role/add
+Content-Type: application/x-www-form-urlencoded
+
+name=ROLE_ADMIN
+
+<> 2020-05-04T044610.403.json
+
+###
+
+POST http://localhost:8080/api/auth/sign-up
+Content-Type: application/json
+
+{
+    "username": "Viktorija",
+    "email": "viki@gmail.com",
+    "password": "viki123",
+    "roles": []
+}
+
+<> 2020-05-04T044603.500.json
+
+###
+
+POST http://localhost:8080/api/auth/role/add
+Content-Type: application/x-www-form-urlencoded
+
+name=ROLE_ADMIN
+
+<> 2020-05-04T044223.403.json
+
+###
+
+POST http://localhost:8080/api/auth/sign-up
+Content-Type: application/json
+
+{
+    "username": "Viktorija",
+    "email": "viki@gmail.com",
+    "password": "viki123",
+    "roles": []
+}
+
+<> 2020-05-04T041527.500.json
+
+###
+
+POST http://localhost:8080/api/auth/sign-up
+Content-Type: application/json
+
+{
+  "user": {
+    "username": "Viktorija",
+    "email": "viki@gmail.com",
+    "password": "viki123",
+    "roles": []
+  }
+}
+
+<> 2020-05-04T041457.500.json
+
+###
+
+POST http://localhost:8080/api/auth/sign-up
+Content-Type: application/json
+
+{
+  "user": {
+    "username": "Viktorija",
+    "email": "viki@gmail.com",
+    "password": "viki123",
+    "roles": []
+  }
+}
+
+###
+
+POST http://localhost:8080/api/auth/sign-up
+Content-Type: application/json
+
+{
+  "username":"Viktorija",
+  "email":"viki@gmail.com",
+  "password":"viki123",
+  "roles": []
+}
+
+###
+
+POST http://localhost:8080/api/auth/sign-up
+Content-Type: application/json
+
+{
+  "username":"Viktorija",
+  "email":"viki@gmail.com",
+  "password":"viki123",
+  "roles": []
+}
+
+###
+
+POST http://localhost:8080/api/auth/sign-up
+Content-Type: application/json
+
+{
+  "username":"Viktorija",
+  "email":"viki@gmail.com",
+  "password":"viki123",
+  "roles": []
+}
+
+###
+
+POST http://localhost:8080/api/auth/sign-up
+Content-Type: application/json
+
+{
+  "username":"Viktorija",
+  "email":"viki@gmail.com",
+  "password":"viki123"
+}
+
+###
+
+POST http://localhost:8080/api/auth/sign-up
+Content-Type: application/json
+
+{
+  "username":"Viktorija",
+  "email":"viki@gmail.com",
+  "password":"viki123"
+}
+
+###
+
+POST http://localhost:8080/api/auth/sign-up
+Content-Type: application/x-www-form-urlencoded
+
+username=Viktorija&email=viki@gmail.com&password=viki123
+
+###
+
+POST http://localhost:8080/api/auth/sign-up
+Content-Type: application/x-www-form-urlencoded
+
+username=Viktorija&email=viki@gmail.com&password=viki123
+
+###
+
+POST http://localhost:8080/api/auth/sign-up
+Content-Type: application/x-www-form-urlencoded
+X-Content-Type-Options: nosniff
+
+username=Viktorija&email=viki@gmail.com&password=viki123
+
+###
+
+POST http://localhost:8080/api/auth/sign-up
+X-Content-Type-Options: nosniff
+
+username=Viktorija&email=viki@gmail.com&password=viki123
+
+###
+
+POST http://localhost:8080/api/auth/sign-up
+Content-Type: application/x-www-form-urlencoded
+
+username=Viktorija&email=viki@gmail.com&password=viki123
+
+###
+
+POST http://localhost:8080/api/auth/sign-up
+Content-Type: application/x-www-form-urlencoded
+
+username=Viktorija&email=viki@gmail.com&password=viki123
+
+###
+
+PATCH http://localhost:8080/api/appointment/1/active
+
+<> 2020-04-24T080220.200.json
+
+###
+
+POST http://localhost:8080/api/term
+Content-Type: application/x-www-form-urlencoded
+
+date=2020-06-20&time=10:40&status=free&doctorId=8
+
+<> 2020-04-24T010300.200.json
+
+###
+
+POST http://localhost:8080/api/term
+Content-Type: application/x-www-form-urlencoded
+
+date=2020-06-25&time=10:40&status=free&doctorId=8
+
+<> 2020-04-24T010251.200.json
+
+###
+
+POST http://localhost:8080/api/term
+Content-Type: application/x-www-form-urlencoded
+
+date=2020-08-25&time=16:15&status=free&doctorId=8
+
+<> 2020-04-24T010228.200.json
+
+###
+
+POST http://localhost:8080/api/term
+Content-Type: application/x-www-form-urlencoded
+
+date=2020-08-25&time=16:15&status=free&doctorId=1
+
+<> 2020-04-24T010219.200.json
+
+###
+
+POST http://localhost:8080/api/term
+Content-Type: application/x-www-form-urlencoded
+
+date=2020-08-21&time=14:35&status=free&doctorId=1
+
+<> 2020-04-24T010156.200.json
+
+###
+
+POST http://localhost:8080/api/term
+Content-Type: application/x-www-form-urlencoded
+
+date=2020-05-11&time=08:45&status=free&doctorId=12
+
+<> 2020-04-24T010131.200.json
+
+###
+
+POST http://localhost:8080/api/term
+Content-Type: application/x-www-form-urlencoded
+
+date=2020-03-11&time=08:45&status=free&doctorId=12
+
+<> 2020-04-24T010120.500.json
+
+###
+
+POST http://localhost:8080/api/term
+Content-Type: application/x-www-form-urlencoded
+
+date=2020-03-11&time=08:45&status=free&doctorId=12
+
+<> 2020-04-24T010102.200.json
+
+###
+
+POST http://localhost:8080/api/term
+Content-Type: application/x-www-form-urlencoded
+
+date=2020-09-24&time=10:20&status=free&doctorId=13
+
+<> 2020-04-24T010034.200.json
+
+###
+

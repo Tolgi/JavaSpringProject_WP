@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {useState} from 'react';
 import SaveIcon from '@material-ui/icons/Save';
 import Button from '@material-ui/core/Button';
 
 
 const PatientAdd = (props) => {
+
 
     const onFormSubmit = (e) => {
         e.preventDefault();
@@ -27,7 +28,7 @@ const PatientAdd = (props) => {
             <div className="card-body" >
                 <div className="card-text">
                     <form onSubmit={onFormSubmit} id="editForm">
-                        <div className="form-group col-md-8">
+                        <div className="form-group col-sm-2">
                             <label>Patient name</label>
                             <input type="text" name={"name"} className="form-control" placeholder="Enter name"/>
                         </div>

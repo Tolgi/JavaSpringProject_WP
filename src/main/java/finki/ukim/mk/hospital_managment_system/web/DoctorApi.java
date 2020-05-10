@@ -26,17 +26,17 @@ public class DoctorApi {
     }
 
 
-    @PostMapping
-    public Doctor createDoctor(@RequestParam String name,
-                               @RequestParam String address,
-                               @RequestParam Integer consultancyFees,
-                               @RequestParam String contactNo,
-                               @RequestParam String email,
-                               @RequestParam Long specializationId){
-
-        Doctor doctor =  doctorService.createDoctor(name,address,consultancyFees,contactNo,email,specializationId);
-        return doctor;
-    }
+//    @PostMapping
+//    public Doctor createDoctor(@RequestParam String name,
+//                               @RequestParam String address,
+//                               @RequestParam Integer consultancyFees,
+//                               @RequestParam String contactNo,
+//                               @RequestParam String email,
+//                               @RequestParam Long specializationId){
+//
+//        Doctor doctor =  doctorService.createDoctor(name,address,consultancyFees,contactNo,email,specializationId);
+//        return doctor;
+//    }
 
     @DeleteMapping("/{doctorId}")
     public void deleteDoctor(@PathVariable Long doctorId){

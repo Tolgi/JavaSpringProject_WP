@@ -33,13 +33,17 @@ public class PatientServiceImpl implements PatientService {
     }
 
     @Override
-    public Patient createPatient(String name, Long ssn, String gender, String email, String address, Integer age, String contactNo,  Long doctorId) {
+    public Patient createPatient(Long id, String name, Long ssn, String gender, String email, String address, Integer age, String contactNo,  Long doctorId) {
         Patient patient = new Patient();
-        patient.createPatient(name, ssn, gender, email, address, age, contactNo, LocalDateTime.now());
-        Doctor doctor = doctorRepository.findById(doctorId).orElseThrow(InvalidDoctorId::new);
-        doctor.follow(patient);
+        patient.createPatient(id, name, ssn, gender, email, address, age, contactNo, LocalDateTime.now());
+
+        if(doctorId != null) {
+            Doctor doctor = doctorRepository.findById(doctorId).orElseThrow(InvalidDoctorId::new);
+            doctor.follow(patient);
+            doctorRepository.save(doctor);
+        }
+
         patientRepository.save(patient);
-        doctorRepository.save(doctor);
         return patient;
     }
 

@@ -1,0 +1,1 @@
+{"timestamp":"2020-05-04T14:14:57.184+0000","status":500,"error":"Internal Server Error","exception":"java.lang.NullPointerException","message":"No message available","path":"/api/auth/sign-up"}

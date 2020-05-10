@@ -1,3 +1,48 @@
+POST http://localhost:8080/api/auth/patient/signup
+Content-Type: application/json
+
+{
+  "username": "Patientbyown",
+  "email": "patientbtown@gmail.com",
+  "role": ["user"],
+  "password": "patient123",
+  "name": "ALone",
+  "ssn": 29129974950,
+  "gender": "female",
+  "address": "UChicago Medicine",
+  "age": 22,
+  "contactNo": "070-470-930",
+  "doctorId": null
+}
+
+
+###
+
+POST http://localhost:8080/api/auth/doctor/signup
+Content-Type: application/json
+
+{
+  "username": "Doctor",
+  "email": "doctor@gmail.com",
+  "role": ["doctor"],
+  "password": "doctor123",
+  "name": "Philip C. Hoffmanman",
+  "address": "UChicago Medicine",
+  "consultancyFees": 430,
+  "contactNo": "070-472-932",
+  "specializationId": 3
+}
+
+
+###
+
+
+POST http://localhost:8080/api/doctor
+Content-Type: application/x-www-form-urlencoded
+
+name=Philip C. Hoffman&address=UChicago Medicine&consultancyFees=750&contactNo=773-702-8222&email=philipch@gmail.com&specializationId=2
+
+###
 POST http://localhost:8080/api/patient
 Content-Type: application/x-www-form-urlencoded
 

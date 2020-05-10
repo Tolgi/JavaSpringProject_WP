@@ -16,7 +16,6 @@ import java.util.List;
 public class Doctor {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "doctor_id")
     private Long id;
 
@@ -52,7 +51,8 @@ public class Doctor {
         patient.getFamilyDoctors().remove(this);
     }
 
-    public void createDoctor(String name, String address, Integer consultancyFees, String contactNo, String email, Specialization specialization){
+    public void createDoctor(Long id, String name, String address, Integer consultancyFees, String contactNo, String email, Specialization specialization){
+        this.id = id;
         this.name = name;
         this.address = address;
         this.consultancyFees = consultancyFees;

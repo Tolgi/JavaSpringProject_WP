@@ -1,0 +1,1 @@
+{"timestamp":"2020-05-04T14:15:27.845+0000","status":500,"error":"Internal Server Error","exception":"finki.ukim.mk.hospital_managment_system.exceptions.InvalidRoleName","message":"No message available","path":"/api/auth/sign-up"}

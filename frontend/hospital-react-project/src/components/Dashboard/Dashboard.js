@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -18,7 +18,7 @@ import Link from '@material-ui/core/Link';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
-import { mainListItems, secondaryListItems } from './listItems';
+import {MainListItems, mainListItems, secondaryListItems} from './listItems';
 
 import Doctor from "../Doctor/doctors";
 import {Route, Switch} from "react-router-dom";
@@ -30,6 +30,10 @@ import Term from "../Term/terms";
 import Appointment from "../Appointment/appointments";
 import AdminDashboard from "./adminDashboard";
 import SpecializationList from "../Specialization/SpecializationList/specializationList";
+import RouteAuthenticated from "../Rotes/AuthenticatedRoute";
+import AuthService from "../../authentication/axiosAuthRepository";
+import DoctorDashboard from "./doctorDashboard";
+import RouteUnauthenticated from "../Rotes/UnauthenticatedRoute";
 
 function Copyright() {
     return (
@@ -127,6 +131,21 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Dashboard({match}) {
+
+    const [userRole, setUserRole] = useState(false);
+    const [adminRole, setAdminRole] = useState(false);
+    const [doctorRole, setDoctorRole] = useState(false);
+
+    useEffect(() => {
+        const currentUser = AuthService.getCurrentUser();
+
+        if(currentUser){
+            setUserRole(currentUser.roles.includes("ROLE_USER"));
+            setAdminRole(currentUser.roles.includes("ROLE_ADMIN"));
+            setDoctorRole(currentUser.roles.includes("ROLE_DOCTOR"));
+        }
+    }, []);
+
     const classes = useStyles();
     const [open, setOpen] = React.useState(true);
     const handleDrawerOpen = () => {
@@ -174,25 +193,38 @@ export default function Dashboard({match}) {
                     </IconButton>
                 </div>
                 <Divider />
-                <List>{mainListItems}</List>
+                <List><MainListItems/></List>
                 <Divider />
                 <List>{secondaryListItems}</List>
             </Drawer>
             <main className={classes.content}>
                 <div className={classes.appBarSpacer} />
                 <Container maxWidth="lg" className={classes.container}>
-                    <Switch>
-                        <Route path="/specialization" component={Specialization}/>
-                        <Route path="/doctor" component={Doctor}/>
-                        <Route path="/patient" component={Patient}/>
-                        <Route path="/medicalHistory" component={MedicalHistory}/>
-                        <Route path="/term" component={Term}/>
-                        <Route path="/appointment" component={Appointment}/>
-                    </Switch>
+
+                    <RouteAuthenticated path="/dashboard/doctor" component={Doctor} />
+                    <RouteAuthenticated path="/dashboard/patient" component={Patient} />
+                    <RouteAuthenticated path="/dashboard/medicalHistory" component={MedicalHistory} />
+                    <RouteAuthenticated path="/dashboard/term" component={Term} />
+                    <RouteAuthenticated path="/dashboard/appointment" component={Appointment} />
+                    {/*<Switch>*/}
+                    {/*    <Route path="/specialization" component={Specialization}/>*/}
+                    {/*    <Route path="/doctor" component={Doctor}/>*/}
+                    {/*    <Route path="/patient" component={Patient}/>*/}
+                    {/*    <Route path="/medicalHistory" component={MedicalHistory}/>*/}
+                    {/*    <Route path="/term" component={Term}/>*/}
+                    {/*    <Route path="/appointment" component={Appointment}/>*/}
+                    {/*</Switch>*/}
                     <Grid container spacing={3}>
+                        {adminRole &&
                         <Grid item xs={7}>
-                            <Route path="/dashboard" exact component={AdminDashboard}/>
+                            <RouteAuthenticated path="/dashboard/adminHome" exact component={AdminDashboard}/>
                         </Grid>
+                        }
+                        {doctorRole &&
+                        <Grid item xs={7}>
+                            <RouteAuthenticated path="/dashboard/doctorHome" exact component={DoctorDashboard}/>
+                        </Grid>
+                        }
                         <Grid item xs={12}>
                             <Paper className={classes.paper}>
 

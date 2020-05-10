@@ -2,16 +2,135 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c9a49e0b-fa78-4cdd-a5ba-815ed5709e05" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/img/doctorLogin.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/frontend.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/frontend.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/hospital-react-project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/hospital-react-project.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/public/favicon.ico" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/logo192.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/logo192.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/logo512.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/logo512.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/robots.txt" beforeDir="false" afterPath="$PROJECT_DIR$/public/robots.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/App/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/App/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Appointment/AppointmentAdd/appointmentAdd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Appointment/AppointmentAdd/appointmentAdd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Appointment/AppointmentList/allAppointmentsList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Appointment/AppointmentList/allAppointmentsList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Appointment/AppointmentList/appointmentList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Appointment/AppointmentList/appointmentList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Appointment/SingleAppointment/singleAppointment.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Appointment/SingleAppointment/singleAppointment.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Appointment/SingleAppointment/singleAppointmentBy.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Appointment/SingleAppointment/singleAppointmentBy.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Appointment/appointments.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Appointment/appointments.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Dashboard/Dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dashboard/Dashboard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Dashboard/Title.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dashboard/Title.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Dashboard/adminDashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dashboard/adminDashboard.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Dashboard/listItems.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dashboard/listItems.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Doctor/DoctorAdd/doctorAdd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Doctor/DoctorAdd/doctorAdd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Doctor/DoctorEdit/doctorEdit.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Doctor/DoctorEdit/doctorEdit.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Doctor/DoctorList/doctorList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Doctor/DoctorList/doctorList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Doctor/SingleDoctor/singleDoctor.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Doctor/SingleDoctor/singleDoctor.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Doctor/doctors.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Doctor/doctors.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/FormSearch/formSearch.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/header.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Home/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Landing/landing.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Landing/landing.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MedicalHistory/MedicalHistoryAdd/medicalHistoryAdd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MedicalHistory/MedicalHistoryAdd/medicalHistoryAdd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MedicalHistory/MedicalHistoryList/medicalHistoryList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MedicalHistory/MedicalHistoryList/medicalHistoryList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MedicalHistory/SingleMedicalHistory/singleMedicalHistory.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MedicalHistory/SingleMedicalHistory/singleMedicalHistory.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MedicalHistory/medicalHistory.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MedicalHistory/medicalHistory.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Patient/PatientAdd/patientAdd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Patient/PatientAdd/patientAdd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Patient/PatientDetails/patientDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Patient/PatientDetails/patientDetails.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Patient/PatientEdit/patientEdit.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Patient/PatientEdit/patientEdit.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Patient/PatientList/patientList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Patient/PatientList/patientList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Patient/SinglePatient/singlePatient.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Patient/SinglePatient/singlePatient.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Patient/patients.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Patient/patients.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SignIn/signIn.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Specialization/SingleSpecialization/singleSpecialization.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Specialization/SingleSpecialization/singleSpecialization.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Specialization/SpecializationEdit/specializationEdit.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Specialization/SpecializationEdit/specializationEdit.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Specialization/SpecializationList/specializationList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Specialization/SpecializationList/specializationList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Specialization/specialization.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Specialization/specialization.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Specialization/specializations.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Specialization/specializations.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Term/SingleTerm/singleTerm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Term/SingleTerm/singleTerm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Term/TermAdd/termAdd.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Term/TermAdd/termAdd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Term/TermsList/termsList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Term/TermsList/termsList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Term/terms.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Term/terms.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/custom-axios/axios.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/custom-axios/axios.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/custom-css/Lightbox-Gallery.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/custom-css/Lightbox-Gallery.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/custom-css/Navigation-Clean.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/custom-css/Navigation-Clean.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/custom-css/Pretty-Footer.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/custom-css/Pretty-Footer.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/custom-css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/custom-css/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fonts/FontAwesome.otf" beforeDir="false" afterPath="$PROJECT_DIR$/src/fonts/FontAwesome.otf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fonts/font-awesome.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/fonts/font-awesome.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fonts/fontawesome-webfont.eot" beforeDir="false" afterPath="$PROJECT_DIR$/src/fonts/fontawesome-webfont.eot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fonts/fontawesome-webfont.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/fonts/fontawesome-webfont.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fonts/fontawesome-webfont.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/src/fonts/fontawesome-webfont.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fonts/fontawesome-webfont.woff" beforeDir="false" afterPath="$PROJECT_DIR$/src/fonts/fontawesome-webfont.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fonts/fontawesome-webfont.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/src/fonts/fontawesome-webfont.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fonts/ionicons.eot" beforeDir="false" afterPath="$PROJECT_DIR$/src/fonts/ionicons.eot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fonts/ionicons.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/fonts/ionicons.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fonts/ionicons.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/fonts/ionicons.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fonts/ionicons.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/src/fonts/ionicons.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fonts/ionicons.woff" beforeDir="false" afterPath="$PROJECT_DIR$/src/fonts/ionicons.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/img/admin.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/img/admin.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/img/cover1.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/src/img/cover1.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/img/cover2.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/src/img/cover2.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/img/cover4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/img/cover4.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/img/doctor.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/img/doctor.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/img/doctorLogin.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/img/doctorLogin.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/img/group.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/img/group.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/img/group3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/img/group3.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/img/group4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/img/group4.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/img/img1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/img/img1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/img/img2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/img/img2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/img/img3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/img/img3.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/img/logo5.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/img/logo5.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/img/patient.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/img/patient.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logo.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/logo.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repository/axiosAppointmentRepository.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/axiosAppointmentRepository.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repository/axiosDoctorRepository.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/axiosDoctorRepository.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repository/axiosMedicalHistory.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/axiosMedicalHistory.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repository/axiosPatientRepository.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/axiosPatientRepository.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repository/axiosSpecializationRepository.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/axiosSpecializationRepository.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repository/axiosTermRepository.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/repository/axiosTermRepository.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serviceWorker.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/serviceWorker.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/setupTests.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/setupTests.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../hospital_managment_system.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../../hospital_managment_system.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/java/finki/ukim/mk/hospital_managment_system/HospitalManagmentSystemApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/java/finki/ukim/mk/hospital_managment_system/HospitalManagmentSystemApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/java/finki/ukim/mk/hospital_managment_system/model/Doctor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/java/finki/ukim/mk/hospital_managment_system/model/Doctor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/java/finki/ukim/mk/hospital_managment_system/model/Patient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/java/finki/ukim/mk/hospital_managment_system/model/Patient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/java/finki/ukim/mk/hospital_managment_system/service/DoctorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/java/finki/ukim/mk/hospital_managment_system/service/DoctorService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/java/finki/ukim/mk/hospital_managment_system/service/PatientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/java/finki/ukim/mk/hospital_managment_system/service/PatientService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/java/finki/ukim/mk/hospital_managment_system/service/impl/DoctorServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/java/finki/ukim/mk/hospital_managment_system/service/impl/DoctorServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/java/finki/ukim/mk/hospital_managment_system/service/impl/PatientServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/java/finki/ukim/mk/hospital_managment_system/service/impl/PatientServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/java/finki/ukim/mk/hospital_managment_system/web/DoctorApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/java/finki/ukim/mk/hospital_managment_system/web/DoctorApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/main/java/finki/ukim/mk/hospital_managment_system/web/PatientApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/main/java/finki/ukim/mk/hospital_managment_system/web/PatientApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/test/doctorApi.http" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/test/doctorApi.http" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/test/patientApi.http" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/test/patientApi.http" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../src/test/termApi.http" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/test/termApi.http" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../target/classes/finki/ukim/mk/hospital_managment_system/HospitalManagmentSystemApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../target/classes/finki/ukim/mk/hospital_managment_system/HospitalManagmentSystemApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../target/classes/finki/ukim/mk/hospital_managment_system/model/Doctor.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../target/classes/finki/ukim/mk/hospital_managment_system/model/Doctor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../target/classes/finki/ukim/mk/hospital_managment_system/model/Patient.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../target/classes/finki/ukim/mk/hospital_managment_system/model/Patient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../target/classes/finki/ukim/mk/hospital_managment_system/service/DoctorService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../target/classes/finki/ukim/mk/hospital_managment_system/service/DoctorService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../target/classes/finki/ukim/mk/hospital_managment_system/service/PatientService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../target/classes/finki/ukim/mk/hospital_managment_system/service/PatientService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../target/classes/finki/ukim/mk/hospital_managment_system/service/impl/DoctorServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../target/classes/finki/ukim/mk/hospital_managment_system/service/impl/DoctorServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../target/classes/finki/ukim/mk/hospital_managment_system/service/impl/PatientServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../target/classes/finki/ukim/mk/hospital_managment_system/service/impl/PatientServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../target/classes/finki/ukim/mk/hospital_managment_system/web/DoctorApi.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../target/classes/finki/ukim/mk/hospital_managment_system/web/DoctorApi.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../target/classes/finki/ukim/mk/hospital_managment_system/web/PatientApi.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../target/classes/finki/ukim/mk/hospital_managment_system/web/PatientApi.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,16 +170,17 @@
     <property name="settings.editor.selected.configurable" value="settings.nodejs" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/custom-css" />
-      <recent name="$PROJECT_DIR$/src/fonts" />
-      <recent name="$PROJECT_DIR$/src/img" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/authorization" />
       <recent name="$PROJECT_DIR$/src/components/Specialization" />
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/src/components/Specialization/SpecializationList" />
       <recent name="$PROJECT_DIR$/src/components/App" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/custom-css" />
+      <recent name="$PROJECT_DIR$/src/fonts" />
+      <recent name="$PROJECT_DIR$/src/img" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -93,6 +213,10 @@
       <workItem from="1588109101442" duration="9324000" />
       <workItem from="1588177849404" duration="2880000" />
       <workItem from="1588273123893" duration="411000" />
+      <workItem from="1588966845400" duration="55000" />
+      <workItem from="1588966923302" duration="397000" />
+      <workItem from="1589036983052" duration="357000" />
+      <workItem from="1589037493850" duration="16518000" />
     </task>
     <servers />
   </component>

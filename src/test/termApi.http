@@ -15,6 +15,49 @@ client.global.set("slotId", response.body["slotId"]);
 
 
 ###
+POST http://localhost:8080/api/auth/role/add
+Content-Type: application/x-www-form-urlencoded
+
+name=ROLE_DOCTOR
+
+> {%
+client.test("Request executed successfully", function() {
+client.assert(response.status === 201, "Response status is not 201");
+client.assert(response.headers.valueOf("Location")!= null, "Invalid Location");
+client.assert(response.body.hasOwnProperty("slotId"), 'Can not find the slotId');
+client.global.set("newSlotUrl", response.headers.valueOf("Location"));
+client.global.set("slotId", response.body["slotId"]);
+});
+%}
+
+
+###
+
+POST http://localhost:8080/api/auth/signup
+Content-Type: application/json
+
+{
+    "username": "Adminn",
+    "email": "adminn@gmail.com",
+    "role": ["admin"],
+    "password": "admin123"
+}
+
+
+
+> {%
+client.test("Request executed successfully", function() {
+client.assert(response.status === 201, "Response status is not 201");
+client.assert(response.headers.valueOf("Location")!= null, "Invalid Location");
+client.assert(response.body.hasOwnProperty("slotId"), 'Can not find the slotId');
+client.global.set("newSlotUrl", response.headers.valueOf("Location"));
+client.global.set("slotId", response.body["slotId"]);
+});
+%}
+
+
+###
+
 GET http://localhost:8080/api/term?doctorId=2
 
 > {%

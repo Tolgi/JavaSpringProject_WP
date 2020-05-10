@@ -33,11 +33,11 @@ public class DoctorServiceImpl implements DoctorService {
     }
 
     @Override
-    public Doctor createDoctor(String name, String address, Integer consultancyFees, String contactNo, String email, Long specializationId) {
+    public Doctor createDoctor(Long id, String name, String address, Integer consultancyFees, String contactNo, String email, Long specializationId) {
 
         Doctor doctor = new Doctor();
         Specialization specialization = this.specializationRepository.findById(specializationId).orElseThrow(InvalidSpecializationId::new);
-        doctor.createDoctor(name, address, consultancyFees, contactNo, email, specialization);
+        doctor.createDoctor(id, name, address, consultancyFees, contactNo, email, specialization);
         doctorRepository.save(doctor);
         return doctor;
     }

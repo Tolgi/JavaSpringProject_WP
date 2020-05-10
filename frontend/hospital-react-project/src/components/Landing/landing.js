@@ -57,7 +57,7 @@ const Landing = (props) =>{
                                 <div className="media-body">
                                     <h5><strong>&nbsp; &nbsp;Patients</strong></h5>
                                     <p>
-                                      <a href="/signIn"><button className="btn btn-primary" type="button" >Click here</button></a>
+                                      <a href="/signUpPatient"><button className="btn btn-primary" type="button" >Click here</button></a>
                                     </p>
                                 </div>
                             </div>
@@ -67,7 +67,7 @@ const Landing = (props) =>{
                                 <div className="media-body">
                                     <h5><strong>Admin Login</strong></h5>
                                     <p>
-                                        <button className="btn btn-primary" type="button">Click here</button>
+                                        <a href="/login"><button className="btn btn-primary" type="button">Click here</button></a>
                                     </p>
                                 </div>
                             </div>
@@ -77,7 +77,7 @@ const Landing = (props) =>{
                                 <div className="media-body">
                                     <h5><strong>Doctor Login</strong></h5>
                                     <p>
-                                        <button className="btn btn-primary" type="button">Click here</button>
+                                        <a href="/signUpDoctor"><button className="btn btn-primary" type="button">Click here</button></a>
                                     </p>
                                 </div>
                             </div>

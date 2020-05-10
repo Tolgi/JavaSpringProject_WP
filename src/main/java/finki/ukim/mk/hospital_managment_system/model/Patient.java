@@ -23,7 +23,6 @@ import java.util.List;
 public class Patient {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "patient_id")
     private Long id;
 
@@ -57,7 +56,8 @@ public class Patient {
     @NotFound(action = NotFoundAction.IGNORE)
     private List<Doctor> familyDoctors;
 
-    public void createPatient(String name, Long ssn, String gender, String email, String address, Integer age, String contactNo, LocalDateTime creationDate){
+    public void createPatient(Long id, String name, Long ssn, String gender, String email, String address, Integer age, String contactNo, LocalDateTime creationDate){
+        this.id = id;
         this.name = name;
         this.ssn = ssn;
         this.gender = gender;
