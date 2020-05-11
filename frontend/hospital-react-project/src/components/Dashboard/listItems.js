@@ -15,6 +15,7 @@ import ScheduleIcon from '@material-ui/icons/Schedule';
 import AddAlarmIcon from '@material-ui/icons/AddAlarm';
 import MoodIcon from '@material-ui/icons/Mood';
 import AccountBoxIcon from '@material-ui/icons/AccountBox';
+import RecentActorsIcon from '@material-ui/icons/RecentActors';
 
 export const MainListItems = () => {
 
@@ -40,7 +41,7 @@ export const MainListItems = () => {
 
 {/*/---------------------------DOCTOR ROLE LIST ITEMS --------------------------------/*/}
             {doctorRole &&
-            <ListItem button component={Link} to="/dashboard/doctorHome">
+            <ListItem button component={Link} to="/dashboard/home">
                 <ListItemIcon>
                     <HomeIcon/>
                 </ListItemIcon>
@@ -95,7 +96,7 @@ export const MainListItems = () => {
 
 {/*---------------------------------- ADMIN ROLE LIST ITEMS -------------------------------------------------*/}
             {adminRole &&
-            <ListItem button component={Link} to="/dashboard/adminHome">
+            <ListItem button component={Link} to="/dashboard/home">
                 <ListItemIcon>
                     <HomeIcon/>
                 </ListItemIcon>
@@ -106,7 +107,7 @@ export const MainListItems = () => {
 
 
             {adminRole &&
-            <ListItem button component={Link} to="/dashboard/doctor/list">
+            <ListItem button component={Link}  to="/dashboard/doctor/list" >
                 <ListItemIcon>
                     <PeopleIcon/>
                 </ListItemIcon>
@@ -124,7 +125,7 @@ export const MainListItems = () => {
             }
 
             {adminRole &&
-            <ListItem button>
+            <ListItem button component={Link} to="/dashboard/users/list">
                 <ListItemIcon>
                     <PeopleIcon/>
                 </ListItemIcon>
@@ -132,9 +133,18 @@ export const MainListItems = () => {
             </ListItem>
             }
 
+            {adminRole &&
+            <ListItem button component={Link} to="/dashboard/specialization/list">
+                <ListItemIcon>
+                    <RecentActorsIcon/>
+                </ListItemIcon>
+                <ListItemText primary="Doctor Specializations"/>
+            </ListItem>
+            }
+
 {/*--------------------------- USER ROLE LIST ITEMS -----------------------------------------------*/}
             {userRole &&
-            <ListItem button component={Link} to="/dashboard/patientHome">
+            <ListItem button component={Link} to="/dashboard/home">
                 <ListItemIcon>
                     <HomeIcon/>
                 </ListItemIcon>
@@ -143,7 +153,7 @@ export const MainListItems = () => {
             }
 
             {userRole &&
-            <ListItem button component={Link} to={`/dashboard/patient/details/${user.id}`}>
+            <ListItem button component={Link} to={`/dashboard/patient/details/${AuthService.getCurrentUser().id}`}>
                 <ListItemIcon>
                     <AccountBoxIcon/>
                 </ListItemIcon>

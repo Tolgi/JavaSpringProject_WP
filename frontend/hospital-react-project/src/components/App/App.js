@@ -12,7 +12,6 @@ import SignUpDoctor from "../SignUp/signUpDoctor";
 
 function App() {
 
-// -------------will be fixed soon------------//
     return (
       <Router>
           <div className="App">

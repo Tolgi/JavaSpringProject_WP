@@ -38,8 +38,8 @@ const Patient = ({match}) => {
             setPatients(nextState);
         });
 
-        history.push("/patient/list");
-        console.log(patient);
+        history.push("/dashboard/patient/list");
+        history.go();
     };
 
     const editPatient = (patientId) => {
@@ -55,6 +55,7 @@ const Patient = ({match}) => {
 
          setPatients(nextState);
          history.push(`/dashboard/patient/details/${updatedPatient.id}`);
+         //history.go();
       })
     };
 
@@ -65,9 +66,10 @@ const Patient = ({match}) => {
         });
 
         if(flag === "edit"){
-            history.push(`/dashboard/patient/edit/${patient.id}`);
+            history.push(`/dashboard/patient/edit/${patientId}`);
         }else {
-            history.push(`/dashboard/patient/details/${patient.id}`);
+            history.push(`/dashboard/patient/details/${patientId}`);
+
         }
     };
 

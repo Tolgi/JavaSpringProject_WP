@@ -8,6 +8,7 @@ import finki.ukim.mk.hospital_managment_system.model.MedicalHistory;
 import finki.ukim.mk.hospital_managment_system.model.Patient;
 import finki.ukim.mk.hospital_managment_system.repository.DoctorRepository;
 import finki.ukim.mk.hospital_managment_system.repository.PatientRepository;
+import finki.ukim.mk.hospital_managment_system.repository.jpa.JpaUserRepository;
 import finki.ukim.mk.hospital_managment_system.service.AppointmentService;
 import finki.ukim.mk.hospital_managment_system.service.MedicalHistoryService;
 import finki.ukim.mk.hospital_managment_system.service.PatientService;
@@ -24,12 +25,15 @@ public class PatientServiceImpl implements PatientService {
     private final DoctorRepository doctorRepository;
     private final AppointmentService appointmentService;
     private final MedicalHistoryService medicalHistoryService;
+    private final JpaUserRepository userRepository;
 
-    public PatientServiceImpl(PatientRepository patientRepository, DoctorRepository doctorRepository, AppointmentService appointmentService, MedicalHistoryService medicalHistoryService) {
+    public PatientServiceImpl(PatientRepository patientRepository, DoctorRepository doctorRepository, AppointmentService appointmentService,
+                              MedicalHistoryService medicalHistoryService, JpaUserRepository userRepository) {
         this.patientRepository = patientRepository;
         this.doctorRepository = doctorRepository;
         this.appointmentService = appointmentService;
         this.medicalHistoryService = medicalHistoryService;
+        this.userRepository = userRepository;
     }
 
     @Override
@@ -59,6 +63,7 @@ public class PatientServiceImpl implements PatientService {
         medicalHistoryService.saveAll(medicalHistories);
 
         patientRepository.deleteById(patientId);
+        userRepository.deleteById(patientId);
     }
 
     @Override

@@ -62,6 +62,7 @@ const LogOut = (props) => {
                 <Typography component="h1" variant="h2">
                     Logged Out
                 </Typography>
+                <br/><br/>
 
                 <Typography component="h3" variant="h5">
                     You are now logged out.
@@ -71,7 +72,6 @@ const LogOut = (props) => {
                 <Button  type="submit">
                     <a href="/login">Sign in again</a>
                 </Button>
-
             </div>
             <Box mt={8}>
                 <Copyright />

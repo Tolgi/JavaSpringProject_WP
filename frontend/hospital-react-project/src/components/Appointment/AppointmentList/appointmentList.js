@@ -35,7 +35,7 @@ const AppointmentList = (props) => {
 
     return (
         <div>
-            <h4>APPOINTMENTS</h4>
+            <h4>YOUR APPOINTMENTS</h4>
             <Divider />
             <div className="table-wrapper">
                 <table className="fl-table">

@@ -46,11 +46,9 @@ const Term = ({match}) => {
           const newTerm = response.data;
           const nextState = [...allTerms, newTerm];
           setAllTerms(nextState);
-          loadTermsByDoctor(newTerm.doctorId);
       });
-
-
         history.push("/dashboard/term/doctor/"+newTerm.doctorId);
+        history.go();
     };
 
 

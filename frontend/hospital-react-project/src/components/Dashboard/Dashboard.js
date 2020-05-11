@@ -37,6 +37,7 @@ import DoctorDashboard from "./doctorDashboard";
 import RouteUnauthenticated from "../Rotes/UnauthenticatedRoute";
 import Tooltip from '@material-ui/core/Tooltip';
 import PatientDasboard from "./patientDashboard";
+import User from "../User/users";
 
 
 function Copyright() {
@@ -228,29 +229,24 @@ export default function Dashboard({match}) {
                     <RouteAuthenticated path="/dashboard/medicalHistory" component={MedicalHistory} />
                     <RouteAuthenticated path="/dashboard/term" component={Term} />
                     <RouteAuthenticated path="/dashboard/appointment" component={Appointment} />
-                    {/*<Switch>*/}
-                    {/*    <Route path="/specialization" component={Specialization}/>*/}
-                    {/*    <Route path="/doctor" component={Doctor}/>*/}
-                    {/*    <Route path="/patient" component={Patient}/>*/}
-                    {/*    <Route path="/medicalHistory" component={MedicalHistory}/>*/}
-                    {/*    <Route path="/term" component={Term}/>*/}
-                    {/*    <Route path="/appointment" component={Appointment}/>*/}
-                    {/*</Switch>*/}
+                    <RouteAuthenticated path="/dashboard/users" component={User} />
+                    <RouteAuthenticated path="/dashboard/specialization" component={Specialization} />
+
                     <Grid container spacing={3}>
                         {adminRole &&
                         <Grid item xs={7}>
-                            <RouteAuthenticated path="/dashboard/adminHome" exact component={AdminDashboard}/>
+                            <RouteAuthenticated path="/dashboard/home" exact component={AdminDashboard}/>
                         </Grid>
                         }
                         {doctorRole &&
                         <Grid item xs={7}>
-                            <RouteAuthenticated path="/dashboard/doctorHome" exact component={DoctorDashboard}/>
+                            <RouteAuthenticated path="/dashboard/home" exact component={DoctorDashboard}/>
                         </Grid>
                         }
 
                         {userRole &&
                         <Grid item xs={7}>
-                            <RouteAuthenticated path="/dashboard/patientHome" exact component={PatientDasboard}/>
+                            <RouteAuthenticated path="/dashboard/home" exact component={PatientDasboard}/>
                         </Grid>
                         }
                         <Grid item xs={12}>

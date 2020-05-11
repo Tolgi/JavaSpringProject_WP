@@ -3,11 +3,13 @@ import SaveIcon from '@material-ui/icons/Save';
 import Button from '@material-ui/core/Button';
 import AuthService from "../../../authentication/axiosAuthRepository";
 import {Divider} from "@material-ui/core";
+import {useHistory} from "react-router-dom";
 
 const DoctorAdd = (props) => {
 
     const [newUser, setNewUser] = useState({});
     const[message, setMessage] = useState('');
+    const history = useHistory();
 
     const onFormSubmit = (e) => {
         e.preventDefault();
@@ -25,7 +27,9 @@ const DoctorAdd = (props) => {
 
                 const succ = response.data.message;
                 setMessage(succ);
-                showSuccessMessage();
+
+                history.push("/dashboard/doctor/list");
+                history.go();
             },
             error => {
                 const resMessage =
@@ -51,13 +55,6 @@ const DoctorAdd = (props) => {
         document.getElementById("error").style.display = "block";
     };
 
-    const showSuccessMessage = () => {
-        document.getElementById("form").style.display = "none";
-        document.getElementById("success").style.display = "block";
-    };
-
-
-
 
     const options = props.specializations.map((specialization) => {
         return(
@@ -72,14 +69,6 @@ const DoctorAdd = (props) => {
             <Divider />
             <br/>
             <div className="card-body" >
-                <div id="success" style={{background:"#1de9b6"}} className="signup-form" style={{display:"none",}}>
-                    <div className={"alert alert-success"}
-                         role="alert"
-                    >
-                        {message}
-                    </div>
-
-                </div>
                 <div id="form" className="card-text">
                     <form onSubmit={onFormSubmit} id="editForm">
                         <div className="form-group col-md-8">
@@ -119,6 +108,10 @@ const DoctorAdd = (props) => {
                             <label>Password</label>
                             <input type="password"  min="8" onChange={handleTermOnChange} name={"password"}  className="form-control" placeholder="Password ..." required="required"/>
                         </div>
+                        <label
+                            style={{display:"none", color:"red"}}
+                            id="error"
+                        >{message}</label>
                         <Button
                             variant="contained"
                             color="primary"

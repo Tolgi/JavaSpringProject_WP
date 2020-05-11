@@ -1,11 +1,22 @@
-import React, {useEffect} from 'react';
-import {Link} from "react-router-dom";
+import React, {useEffect, useState} from 'react';
 import SinglePatient from "../SinglePatient/singlePatient";
 import {Divider} from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 import AddIcon from '@material-ui/icons/Add';
+import AuthService from "../../../authentication/axiosAuthRepository";
 
 const PatientList = (props) => {
+
+
+
+    const [doctorRole, setDoctorRole] = useState(false);
+
+    useEffect(() => {
+        const currentUser = AuthService.getCurrentUser();
+        if(currentUser){
+            setDoctorRole(currentUser.roles.includes("ROLE_DOCTOR"));
+        }
+    }, []);
 
 
     const singlePatient = props.patients.map((patient) => {
@@ -20,14 +31,16 @@ const PatientList = (props) => {
             <h4>MANAGE PATIENT</h4>
             <Divider />
             <br />
-            <Button
-                variant="contained"
-                color="primary"
-                startIcon={<AddIcon>add</AddIcon>}
-                href={"/dashboard/patient/add"}
-            >
-                Add new patient
-            </Button>
+            {doctorRole &&
+                <Button
+                    variant="contained"
+                    color="primary"
+                    startIcon={<AddIcon>add</AddIcon>}
+                    href={"/dashboard/patient/add"}
+                >
+                    Add new patient
+                </Button>
+            }
 
             <div className="table-wrapper">
                 <table className="fl-table">

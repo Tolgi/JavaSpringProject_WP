@@ -24,7 +24,7 @@ const TermAdd = (props) => {
     return (
 
         <div>
-            <h4>ADD NEW TERM</h4>
+            <h4>DOCTOR | ADD NEW TERM</h4>
             <Divider />
             <br />
             <div className="card-body" >

@@ -18,7 +18,7 @@ const SingleSpecialization = (props) => {
         <tr key={props.specialization.id}>
             <td>{props.specialization.id}</td>
             <td>{props.specialization.name}</td>
-            <td>{props.specialization.creationTime}</td>
+            <td>{props.specialization.creationTime.replace('T', ' ').slice(0, 16)}</td>
             <td>
                 <Button
                     variant="contained"

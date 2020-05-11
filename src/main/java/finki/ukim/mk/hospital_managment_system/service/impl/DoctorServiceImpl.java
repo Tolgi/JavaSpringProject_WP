@@ -10,6 +10,7 @@ import finki.ukim.mk.hospital_managment_system.repository.AppointmentRepository;
 import finki.ukim.mk.hospital_managment_system.repository.DoctorRepository;
 import finki.ukim.mk.hospital_managment_system.repository.PatientRepository;
 import finki.ukim.mk.hospital_managment_system.repository.SpecializationRepository;
+import finki.ukim.mk.hospital_managment_system.repository.jpa.JpaUserRepository;
 import finki.ukim.mk.hospital_managment_system.service.AppointmentService;
 import finki.ukim.mk.hospital_managment_system.service.DoctorService;
 import org.springframework.stereotype.Service;
@@ -24,12 +25,15 @@ public class DoctorServiceImpl implements DoctorService {
     private final PatientRepository patientRepository;
     private final SpecializationRepository specializationRepository;
     private final AppointmentService appointmentService;
+    private final JpaUserRepository userRepository;
 
-    public DoctorServiceImpl(DoctorRepository doctorRepository, PatientRepository patientRepository, SpecializationRepository specializationRepository, AppointmentService appointmentService) {
+    public DoctorServiceImpl(DoctorRepository doctorRepository, PatientRepository patientRepository, SpecializationRepository specializationRepository,
+                             AppointmentService appointmentService, JpaUserRepository userRepository) {
         this.doctorRepository = doctorRepository;
         this.patientRepository = patientRepository;
         this.specializationRepository = specializationRepository;
         this.appointmentService = appointmentService;
+        this.userRepository = userRepository;
     }
 
     @Override
@@ -48,6 +52,7 @@ public class DoctorServiceImpl implements DoctorService {
         appointments.forEach(appointment -> appointment.setDoctor(null));
         appointmentService.saveAll(appointments);
         doctorRepository.deleteById(id);
+        userRepository.deleteById(id);
     }
 
     @Override

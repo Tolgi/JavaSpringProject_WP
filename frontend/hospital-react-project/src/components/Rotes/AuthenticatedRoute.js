@@ -9,7 +9,7 @@ const RouteAuthenticated = (props) => {
         return <Redirect to="/login" />;
     }
 
-    return <Route component={props.component} path={props.path} />;
+    return <Route forceRefresh={true} component={props.component} path={props.path} />;
 };
 
 export default RouteAuthenticated;

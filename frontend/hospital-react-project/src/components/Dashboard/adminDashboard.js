@@ -12,6 +12,7 @@ import EventNoteIcon from '@material-ui/icons/EventNote';
 import DoctorService from "../../repository/axiosDoctorRepository";
 import PatientService from "../../repository/axiosPatientRepository";
 import AppointmentService from "../../repository/axiosAppointmentRepository";
+import UserService from "../../repository/axiosUserRepository";
 
 
 
@@ -54,6 +55,8 @@ const AdminDashboard = (props) =>  {
     const [numberDoctors, setNumberDoctors] = useState('');
     const [numberPatients, setNumberPatients] = useState('');
     const [numberAppointments, setNumberAppointments] = useState('');
+    const [numberUsers, setNumberUsers] = useState('');
+
     const classes = useStyles();
     const bull = <span className={classes.bullet}>•</span>;
 
@@ -75,11 +78,18 @@ const AdminDashboard = (props) =>  {
         })
     };
 
+    const getNumberOfUsers = () =>{
+        UserService.getNumberOfUsers().then((response) => {
+            setNumberUsers(response.data);
+        })
+    };
+
 
     useEffect(()=>{
         getNumberOfDoctors();
         getNumberOfPatients();
         getNumberOfAppointments();
+        getNumberOfUsers();
     },[]);
 
     return (
@@ -127,7 +137,7 @@ const AdminDashboard = (props) =>  {
                         </CardContent>
                         <CardActions>
                             <Typography variant={"body1"} color="primary" gutterBottom>
-                                Total Users:
+                                Total Users: {numberUsers}
                             </Typography>
                         </CardActions>
                     </Card>

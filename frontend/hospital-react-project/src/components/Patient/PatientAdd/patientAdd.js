@@ -3,6 +3,7 @@ import SaveIcon from '@material-ui/icons/Save';
 import Button from '@material-ui/core/Button';
 import {Divider} from "@material-ui/core";
 import AuthService from "../../../authentication/axiosAuthRepository";
+import {useHistory} from "react-router-dom";
 
 
 const PatientAdd = (props) => {
@@ -30,7 +31,8 @@ const PatientAdd = (props) => {
 
                 const succ = response.data.message;
                 setMessage(succ);
-                showSuccessMessage();
+               showSuccessMessage();
+
             },
             error => {
                 const resMessage =
@@ -121,9 +123,12 @@ const PatientAdd = (props) => {
                         </div>
                         <div className="form-group  col-md-8">
                             <label>Password</label>
-                            <input type="password"  min="8" onChange={handleTermOnChange} name={"password"}  className="form-control" placeholder="Password ..." required="required"/>
+                            <input type="password"  onChange={handleTermOnChange} name={"password"}  className="form-control" placeholder="Password ..." required="required"/>
                         </div>
-
+                        <label
+                            style={{display:"none", color:"red"}}
+                            id="error"
+                        >{message}</label>
                         <Button
                             variant="contained"
                             color="primary"
