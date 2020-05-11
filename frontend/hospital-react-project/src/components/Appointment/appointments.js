@@ -7,6 +7,7 @@ import AllAppointmentList from "./AppointmentList/allAppointmentsList";
 import SpecializationService from "../../repository/axiosSpecializationRepository";
 import DoctorAdd from "../Doctor/DoctorAdd/doctorAdd";
 import AppointmentAdd from "./AppointmentAdd/appointmentAdd";
+import AuthService from "../../authentication/axiosAuthRepository";
 
 
 
@@ -47,6 +48,8 @@ const Appointment = ({match}) => {
 
           setAppointments(nextState);
       })
+
+        history.push("/dashboard/appointment/patient/"+AuthService.getCurrentUser().id);
     };
 
     const updateStatus = (appointmentId, status, pathId) => {

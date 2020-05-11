@@ -1,9 +1,15 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import EditIcon from '@material-ui/icons/Edit';
 import Button from '@material-ui/core/Button';
 
 
 const PatientEdit = (props) => {
+
+
+    useEffect(() => {
+        props.onLoad(props.match.params.id, "edit");
+    }, []);
+
 
     const onFormSubmit = (e) => {
         e.preventDefault();
@@ -16,8 +22,7 @@ const PatientEdit = (props) => {
             "email": e.target.email.value,
             "address": e.target.address.value,
             "age": e.target.age.value,
-            "contactNo": e.target.contactNo.value,
-            "doctorId": 1 //vo idnina ke bide dinamicno
+            "contactNo": e.target.contactNo.value
         });
 
     };

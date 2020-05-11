@@ -11,7 +11,7 @@ const SingleMedicalHistory = (props) => {
             <td>{props.medicalHistory.bloodSugar}</td>
             <td>{props.medicalHistory.bodyTemperature}</td>
             <td>{props.medicalHistory.medicalPrescription}</td>
-            <td>{props.medicalHistory.visitDate}</td>
+            <td>{props.medicalHistory.visitDate.replace('T', ' ').slice(0, 16)}</td>
         </tr>
     );
 }

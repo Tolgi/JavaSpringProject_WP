@@ -45,7 +45,7 @@ const AuthService = {
         const user = JSON.parse(localStorage.getItem('user'));
 
         if (user && user.accessToken) {
-            return true; // for Spring Boot back-end
+            return true;
         } else {
             return false;
         }

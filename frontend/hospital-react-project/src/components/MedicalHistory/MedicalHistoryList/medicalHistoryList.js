@@ -17,7 +17,7 @@ const MedicalHistoryList = (props) => {
 
     return (
         <div>
-            <h4>Medical history</h4>
+            <h4>MEDICAL HISTORY</h4>
             <Divider />
             <div className="table-wrapper">
                 <table className="fl-table">

@@ -63,7 +63,7 @@ const SignUpPatient = (props) => {
 
     return(
         <div>
-            <div id="success" className="signup-form" style={{display:"none",}}>
+            <div id="success" style={{background:"#1de9b6"}} className="signup-form" style={{display:"none",}}>
                 <div className={"alert alert-success"}
                      role="alert"
                 >
@@ -79,7 +79,7 @@ const SignUpPatient = (props) => {
 
                         <div className="form-group"><input onChange={handleTermOnChange} type="text" className="form-control" name="name"
                                                              placeholder="Name" required="required"/></div>
-                        <div className="form-group"><input onChange={handleTermOnChange} type="text" className="form-control" name="ssn"
+                        <div className="form-group"><input onChange={handleTermOnChange} type="number" min="13" max="13" className="form-control" name="ssn"
                                                              placeholder="SSN" required="required"/></div>
                     <div  className="form-group">
                         <label>Select Gender</label>
@@ -97,7 +97,7 @@ const SignUpPatient = (props) => {
                                placeholder="Age" required="required"/>
                     </div>
                     <div className="form-group">
-                        <input type="text" onChange={handleTermOnChange} className="form-control" name="contactNo"
+                        <input type="number" onChange={handleTermOnChange} className="form-control" name="contactNo"
                                placeholder="Contact No." required="required"/>
                     </div>
                     <p className="hint-text">Enter your account info</p>
@@ -109,7 +109,7 @@ const SignUpPatient = (props) => {
                         <input type="email" onChange={handleTermOnChange} className="form-control" name="email" placeholder="Email" required="required"/>
                     </div>
                     <div className="form-group">
-                        <input type="password" onChange={handleTermOnChange} className="form-control" name="password" placeholder="Password"
+                        <input type="password"  min="8" onChange={handleTermOnChange} className="form-control" name="password" placeholder="Password"
                                required="required"/>
                     </div>
                     <label
@@ -125,7 +125,7 @@ const SignUpPatient = (props) => {
                         <button type="submit" className="btn btn-success btn-lg btn-block">Register Now</button>
                     </div>
                 </form>
-                <div  className="text-center">Already have an account? <Link href="/login">Sign in</Link></div>
+                <div  className="text-center">Already have an account? <Link to={"/login"}>Sign in</Link></div>
             </div>
         </div>
     );

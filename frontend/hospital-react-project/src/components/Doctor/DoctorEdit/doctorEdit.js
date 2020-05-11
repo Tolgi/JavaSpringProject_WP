@@ -1,8 +1,13 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Button from '@material-ui/core/Button';
 import EditIcon from '@material-ui/icons/Edit';
+import {Divider} from "@material-ui/core";
 
 const DoctorEdit = (props) => {
+
+    useEffect(() => {
+        props.onLoad(props.match.params.id);
+    }, []);
 
     const onFormSubmit = (e) => {
         e.preventDefault();
@@ -50,6 +55,8 @@ const DoctorEdit = (props) => {
     return (
 
         <div>
+            <h4>EDIT DOCTOR DETAILS</h4>
+            <Divider />
             <div className="card-body" >
                 <div className="card-text">
                     <form onSubmit={onFormSubmit} id="editForm">

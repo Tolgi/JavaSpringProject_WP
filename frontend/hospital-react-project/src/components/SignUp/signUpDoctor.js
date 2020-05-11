@@ -143,7 +143,7 @@ const SignUpDoctor = (props) => {
                         <button type="submit" className="btn btn-success btn-lg btn-block">Register Now</button>
                     </div>
                 </form>
-                <div className="text-center">Already have an account? <a href="/login">Sign in</a></div>
+                <div className="text-center">Already have an account? <Link to={"/login"}>Sign in</Link></div>
             </div>
         </div>
     );

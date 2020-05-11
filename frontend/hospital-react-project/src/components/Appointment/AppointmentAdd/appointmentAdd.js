@@ -1,18 +1,23 @@
 import React, {useEffect, useState} from 'react';
 import DoctorService from "../../../repository/axiosDoctorRepository";
 import TermService from "../../../repository/axiosTermRepository";
+import {Divider} from "@material-ui/core";
+import AuthService from "../../../authentication/axiosAuthRepository";
 
 const AppointmentAdd = (props) => {
 
     const[doctors, setDoctorsBySpecialization] = useState([]);
     const[termsByDoctor, setTermsByDoctorId] = useState([]);
     const[allDoctors, setAllDoctors] = useState([]);
+    const [anyTerms, setAnyTerms] = useState(false);
 
     const onFormSubmit = (e) => {
+        const currentUser = AuthService.getCurrentUser().id;
+
         e.preventDefault();
 
         props.onAdd({
-            "patientId": 5, //ke bide dinamicno
+            "patientId": currentUser ,
             "status": "active",
             "doctorId": e.target.doctorId.value,
             "termId": e.target.termId.value
@@ -38,6 +43,9 @@ const AppointmentAdd = (props) => {
 
     const getTermsByDoctorId = (doctorId) =>{
         TermService.fetchTermsByDoctorIdAndStatus(doctorId, "free").then((response) => {
+            if(response.data){
+                setAnyTerms(true);
+            }
             setTermsByDoctorId(response.data);
         })
     };
@@ -79,6 +87,9 @@ const AppointmentAdd = (props) => {
     return (
 
         <div>
+            <h4>BOOK APPOINTMENT</h4>
+            <Divider />
+            <br />
             <div className="card-body" >
                 <div className="card-text">
                     <form onSubmit={onFormSubmit} id="editForm">

@@ -1,7 +1,7 @@
 POST http://localhost:8080/api/appointment
 Content-Type: application/x-www-form-urlencoded
 
-patientId=6&status=false&doctorId=9&termId=1
+patientId=9&status=false&doctorId=9&termId=1
 
 > {%
 client.test("Request executed successfully", function() {

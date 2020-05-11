@@ -8,6 +8,7 @@ const Term = ({match}) => {
 
     const [allTerms, setAllTerms] = useState([]);
     const [terms, setTerms] = useState([]);
+    const[message, setMessage] = useState('');
     const history = useHistory();
 
     useEffect(() => {
@@ -24,7 +25,7 @@ const Term = ({match}) => {
     const loadTermsByDoctor = (doctorId) => {
         TermService.fetchTermsByDoctorId(doctorId).then((response) => {
             setTerms(response.data);
-        })
+        });
     };
 
     const loadTermsByDoctorAndStatus = (doctorId, status) => {
@@ -33,11 +34,11 @@ const Term = ({match}) => {
         })
     };
 
-    const deleteTerm = (termId) => {
+    const deleteTerm = (termId, doctorId) => {
         setAllTerms(allTerms.filter(term => term.id !== termId));
         TermService.deleteTerm(termId);
 
-        history.push("/patient/list");
+        window.location.reload();
     };
 
     const addTerm = (newTerm) => {
@@ -45,21 +46,22 @@ const Term = ({match}) => {
           const newTerm = response.data;
           const nextState = [...allTerms, newTerm];
           setAllTerms(nextState);
+          loadTermsByDoctor(newTerm.doctorId);
       });
 
-        history.push("/patient/list");
-        console.log(newTerm);
+
+        history.push("/dashboard/term/doctor/"+newTerm.doctorId);
     };
 
 
     return (
         <div>
-            <Route path={`${match.path}/doctor/:id`} exact render={(props) => <TermsList onClick={loadTermsByDoctor} flag={"byDoctor"} terms={terms} {...props} />}/>
+            <Route path={`${match.path}/doctor/:id`} exact render={(props) => <TermsList onClick={loadTermsByDoctor}  onDelete={deleteTerm} flag={"byDoctor"} terms={terms} {...props} />}/>
             <Route path={`${match.path}/doctor/:id/status/:status`} exact render={(props) => <TermsList onClick={loadTermsByDoctorAndStatus} flag={"byDoctorStatus"} terms={terms} {...props} />}/>
             <Route path={`${match.path}/delete/:id`}  render={(props) => deleteTerm(props.match.params.id)} />
-            <Route path={`${match.path}/add/:id`}  render={(props) => <TermAdd onAdd={addTerm} {...props}/>}/>
+            <Route path={`${match.path}/add/:id`}  render={(props) => <TermAdd onAdd={addTerm}  {...props}/>}/>
         </div>
     );
-}
+};
 
 export default Term;

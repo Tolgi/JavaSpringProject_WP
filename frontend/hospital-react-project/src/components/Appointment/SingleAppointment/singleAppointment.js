@@ -9,7 +9,7 @@ const SingleAppointment = (props) => {
             <td>{props.appointment.patient.name}</td>
             <td>{props.appointment.consultancyFees}</td>
             <td>{props.appointment.date} / {props.appointment.time}</td>
-            <td>{props.appointment.creationDate}</td>
+            <td>{props.appointment.creationDate.replace('T', ' ').slice(0, 16)}</td>
             <td>{props.appointment.status}</td>
 
         </tr>

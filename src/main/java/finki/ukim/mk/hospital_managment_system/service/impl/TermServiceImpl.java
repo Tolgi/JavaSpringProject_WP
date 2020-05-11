@@ -35,7 +35,7 @@ public class TermServiceImpl implements TermService {
         Optional<Term>termOptional = findAllByDoctorId(doctor.getId()).stream().filter(term1 -> term1.getDate().equals(term.getDate()) &&
                                                                                         term1.getTimeOfAdmission().equals(term.getTimeOfAdmission())).findAny();
         if(termOptional.isPresent()){
-            throw new ScheduledTerm();
+            throw new ScheduledTerm("This term is already taken!");
         }
 
         termRepository.save(term);

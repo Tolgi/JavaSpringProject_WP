@@ -23,7 +23,7 @@ const DoctorList = (props) => {
                 variant="contained"
                 color="primary"
                 startIcon={<AddIcon>add</AddIcon>}
-                href={"/doctor/add"}
+                href={"/dashboard/doctor/add"}
             >
                 Add new doctor
             </Button>

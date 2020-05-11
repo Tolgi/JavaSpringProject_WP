@@ -15,7 +15,7 @@ public interface PatientService {
 
     Patient getPatient(Long patientId);
 
-    Patient editPatient(Long patientId, String name, Long ssn, String gender, String email, String address, Integer age, String contactNo, Long doctorId);
+    Patient editPatient(Long patientId, String name, Long ssn, String gender, String email, String address, Integer age, String contactNo);
 
     Integer numbersOfPatients();
 }

@@ -1,7 +1,7 @@
 POST http://localhost:8080/api/term
 Content-Type: application/x-www-form-urlencoded
 
-date=2020-06-20&time=10:40&status=free&doctorId=8
+date=2020-06-20&time=10:40&status=free&doctorId=6
 
 > {%
 client.test("Request executed successfully", function() {
@@ -18,7 +18,7 @@ client.global.set("slotId", response.body["slotId"]);
 POST http://localhost:8080/api/auth/role/add
 Content-Type: application/x-www-form-urlencoded
 
-name=ROLE_DOCTOR
+name=ROLE_ADMIN
 
 > {%
 client.test("Request executed successfully", function() {
@@ -33,12 +33,12 @@ client.global.set("slotId", response.body["slotId"]);
 
 ###
 
-POST http://localhost:8080/api/auth/signup
+POST http://localhost:8080/api/auth/admin/signup
 Content-Type: application/json
 
 {
-    "username": "Adminn",
-    "email": "adminn@gmail.com",
+    "username": "Admin",
+    "email": "admin@gmail.com",
     "role": ["admin"],
     "password": "admin123"
 }

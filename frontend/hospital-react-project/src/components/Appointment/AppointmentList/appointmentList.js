@@ -46,7 +46,7 @@ const AppointmentList = (props) => {
                         <th>Specialization</th>
                         <th>Consultancy Fee</th>
                         <th>Appointment Date/Time</th>
-                        <th>Appointment Creation Time</th>
+                        <th>Appointment Creation Date</th>
                         <th>Current status</th>
                         <th>Action</th>
                     </tr>

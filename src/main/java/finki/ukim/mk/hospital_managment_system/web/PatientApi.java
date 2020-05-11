@@ -51,9 +51,8 @@ public class PatientApi {
                                @RequestParam String email,
                                @RequestParam String address,
                                @RequestParam Integer age,
-                               @RequestParam String contactNo,
-                               @RequestParam Long doctorId){
-        return patientService.editPatient(patientId, name, ssn, gender, email, address, age, contactNo, doctorId);
+                               @RequestParam String contactNo){
+        return patientService.editPatient(patientId, name, ssn, gender, email, address, age, contactNo);
     }
 
     @DeleteMapping("/{patientId}")

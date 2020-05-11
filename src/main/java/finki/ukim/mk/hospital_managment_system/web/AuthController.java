@@ -16,6 +16,7 @@ import finki.ukim.mk.hospital_managment_system.repository.jpa.JpaRoleRepository;
 import finki.ukim.mk.hospital_managment_system.repository.jpa.JpaUserRepository;
 import finki.ukim.mk.hospital_managment_system.security.jwt.JwtUtils;
 import finki.ukim.mk.hospital_managment_system.security.payload.request.LoginRequest;
+import finki.ukim.mk.hospital_managment_system.security.payload.request.SignupRequestAdmin;
 import finki.ukim.mk.hospital_managment_system.security.payload.request.SignupRequestDoctor;
 import finki.ukim.mk.hospital_managment_system.security.payload.request.SignupRequestPatient;
 import finki.ukim.mk.hospital_managment_system.security.payload.response.JwtResponse;
@@ -223,6 +224,51 @@ public class AuthController {
         doctorService.createDoctor(tmpUser.getId(), signUpRequest.getName(), signUpRequest.getAddress(), signUpRequest.getConsultancyFees(),
                 signUpRequest.getContactNo(), signUpRequest.getEmail(), signUpRequest.getSpecializationId());
 
+
+        return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
+    }
+
+    @PostMapping("/admin/signup")
+    public ResponseEntity<?> registerAdmin(@RequestBody SignupRequestAdmin signUpRequest) {
+
+        // Create new user's account
+        ApplicationUser user = new ApplicationUser(signUpRequest.getUsername(),
+                signUpRequest.getEmail(),
+                encoder.encode(signUpRequest.getPassword()));
+
+
+        Set<String> strRoles = signUpRequest.getRole();
+        Set<Role> roles = new HashSet<>();
+
+        if (strRoles == null) {
+            Role userRole = roleRepository.findByName(ERole.ROLE_DOCTOR)
+                    .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+            roles.add(userRole);
+        } else {
+            strRoles.forEach(role -> {
+                switch (role) {
+                    case "admin":
+                        Role adminRole = roleRepository.findByName(ERole.ROLE_ADMIN)
+                                .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+                        roles.add(adminRole);
+
+                        break;
+                    case "doctor":
+                        Role modRole = roleRepository.findByName(ERole.ROLE_DOCTOR)
+                                .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+                        roles.add(modRole);
+
+                        break;
+                    default:
+                        Role userRole = roleRepository.findByName(ERole.ROLE_USER)
+                                .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+                        roles.add(userRole);
+                }
+            });
+        }
+
+        user.setRoles(roles);
+        userRepository.save(user);
 
         return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
     }

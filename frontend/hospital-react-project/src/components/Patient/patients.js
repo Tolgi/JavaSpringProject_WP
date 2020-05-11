@@ -5,11 +5,14 @@ import PatientList from "./PatientList/patientList";
 import PatientAdd from "./PatientAdd/patientAdd";
 import PatientEdit from "./PatientEdit/patientEdit";
 import PatientDetails from "./PatientDetails/patientDetails";
+import DoctorService from "../../repository/axiosDoctorRepository";
+import PatientListByDoctor from "./PatientListByDoctor/patientListByDoctor";
 
 
 const Patient = ({match}) => {
 
     const [patients, setPatients] = useState([]);
+    const [patientsByDoctor, setPatientsByDoctor] = useState([]);
     const [patient, setPatient] = useState({});
     const history = useHistory();
 
@@ -49,8 +52,9 @@ const Patient = ({match}) => {
              return patient;
          });
 
+
          setPatients(nextState);
-         history.push("/patient/list");
+         history.push(`/dashboard/patient/details/${updatedPatient.id}`);
       })
     };
 
@@ -61,18 +65,25 @@ const Patient = ({match}) => {
         });
 
         if(flag === "edit"){
-            history.push("/patient/edit/"+patientId);
+            history.push(`/dashboard/patient/edit/${patient.id}`);
         }else {
-            history.push("/patient/details/"+patientId);
+            history.push(`/dashboard/patient/details/${patient.id}`);
         }
+    };
+
+    const loadPatientByDoctor = (doctorId) => {
+        DoctorService.getPatients(doctorId).then((response) => {
+            setPatientsByDoctor(response.data);
+        })
     };
 
     return (
         <div>
-            <Route path={`${match.path}/list`} exact render={(props) => <PatientList onDetails={loadPatient} onEdit={loadPatient} onDelete={deletePatient} patients={patients}/>}/>
-            <Route path={`${match.path}/edit/:id`} exact render={(props) => <PatientEdit patient={patient} setPatient={setPatient} onEdit={editPatient} {...props} />}/>
+            <Route path={`${match.path}/list`} exact render={(props) => <PatientList  onDetails={loadPatient} onEdit={loadPatient} onDelete={deletePatient} patients={patients} {...props}/>}/>
+            <Route path={`${match.path}/list/doctor/:id`} exact render={(props) => <PatientListByDoctor onLoad={loadPatientByDoctor} onDetails={loadPatient} onEdit={loadPatient} onDelete={deletePatient} patients={patientsByDoctor}  {...props}/>}/>
+            <Route path={`${match.path}/edit/:id`} exact render={(props) => <PatientEdit onLoad={loadPatient} patient={patient} setPatient={setPatient} onEdit={editPatient} {...props} />}/>
             <Route path={`${match.path}/add`} exact render={(props) => <PatientAdd onAdd={addPatient} />}/>
-            <Route path={`${match.path}/details/:id`} exact render={(props) => <PatientDetails  patient={patient} />}/>
+            <Route path={`${match.path}/details/:id`} exact render={(props) => <PatientDetails onLoad={loadPatient} patient={patient} {...props} />}/>
         </div>
     );
 }

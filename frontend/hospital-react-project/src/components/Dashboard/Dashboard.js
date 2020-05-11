@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import {Link} from "react-router-dom";
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -10,18 +11,18 @@ import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
-import Badge from '@material-ui/core/Badge';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-import Link from '@material-ui/core/Link';
+
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import {MainListItems, mainListItems, secondaryListItems} from './listItems';
-
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import PersonIcon from '@material-ui/icons/Person';
 import Doctor from "../Doctor/doctors";
-import {Route, Switch} from "react-router-dom";
+
 import Home from "../Home/home";
 import Specialization from "../Specialization/specializations";
 import Patient from "../Patient/patients";
@@ -34,6 +35,9 @@ import RouteAuthenticated from "../Rotes/AuthenticatedRoute";
 import AuthService from "../../authentication/axiosAuthRepository";
 import DoctorDashboard from "./doctorDashboard";
 import RouteUnauthenticated from "../Rotes/UnauthenticatedRoute";
+import Tooltip from '@material-ui/core/Tooltip';
+import PatientDasboard from "./patientDashboard";
+
 
 function Copyright() {
     return (
@@ -135,14 +139,17 @@ export default function Dashboard({match}) {
     const [userRole, setUserRole] = useState(false);
     const [adminRole, setAdminRole] = useState(false);
     const [doctorRole, setDoctorRole] = useState(false);
+    const [user, setUser]= useState({});
 
     useEffect(() => {
         const currentUser = AuthService.getCurrentUser();
+        setUser(currentUser);
 
         if(currentUser){
             setUserRole(currentUser.roles.includes("ROLE_USER"));
             setAdminRole(currentUser.roles.includes("ROLE_ADMIN"));
             setDoctorRole(currentUser.roles.includes("ROLE_DOCTOR"));
+
         }
     }, []);
 
@@ -173,11 +180,26 @@ export default function Dashboard({match}) {
                     <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
                        Hospital Management System
                     </Typography>
-                    <IconButton color="inherit">
-                        <Badge badgeContent={4} color="secondary">
-                            <NotificationsIcon />
-                        </Badge>
-                    </IconButton>
+                    <Typography component="h1" variant="h6" color="inherit" noWrap>
+                        {userRole &&
+                            <Tooltip title="View Profile">
+                                <IconButton color="inherit" href={`/dashboard/patient/details/${user.id}`}> <PersonIcon
+                                    color="inherit"/></IconButton>
+                            </Tooltip>
+                        }
+                        {doctorRole &&
+                        <Tooltip title="View Profile">
+                            <IconButton color="inherit" href={`/dashboard/doctor/details/${user.id}`}> <PersonIcon
+                                color="inherit"/></IconButton>
+                        </Tooltip>
+                        }
+                        {user.username}
+                    </Typography>
+                    <Tooltip title="Log Out">
+                    <Link to={"/logout"}><IconButton color="inherit">
+                        <ExitToAppIcon color="action"/>
+                    </IconButton></Link>
+                    </Tooltip>
                 </Toolbar>
             </AppBar>
             <Drawer
@@ -223,6 +245,12 @@ export default function Dashboard({match}) {
                         {doctorRole &&
                         <Grid item xs={7}>
                             <RouteAuthenticated path="/dashboard/doctorHome" exact component={DoctorDashboard}/>
+                        </Grid>
+                        }
+
+                        {userRole &&
+                        <Grid item xs={7}>
+                            <RouteAuthenticated path="/dashboard/patientHome" exact component={PatientDasboard}/>
                         </Grid>
                         }
                         <Grid item xs={12}>

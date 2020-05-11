@@ -36,14 +36,15 @@ public class PatientServiceImpl implements PatientService {
     public Patient createPatient(Long id, String name, Long ssn, String gender, String email, String address, Integer age, String contactNo,  Long doctorId) {
         Patient patient = new Patient();
         patient.createPatient(id, name, ssn, gender, email, address, age, contactNo, LocalDateTime.now());
+        patientRepository.save(patient);
 
         if(doctorId != null) {
             Doctor doctor = doctorRepository.findById(doctorId).orElseThrow(InvalidDoctorId::new);
             doctor.follow(patient);
             doctorRepository.save(doctor);
         }
-
         patientRepository.save(patient);
+
         return patient;
     }
 
@@ -71,8 +72,7 @@ public class PatientServiceImpl implements PatientService {
     }
 
     @Override
-    public Patient editPatient(Long patientId, String name, Long ssn, String gender, String email, String address, Integer age, String contactNo, Long doctorId) {
-        Doctor doctor = doctorRepository.findById(doctorId).orElseThrow(InvalidDoctorId::new);
+    public Patient editPatient(Long patientId, String name, Long ssn, String gender, String email, String address, Integer age, String contactNo) {
         Patient patient = patientRepository.findById(patientId).orElseThrow(InvalidPatientId::new);
         patient.setName(name);
         patient.setSsn(ssn);
@@ -81,7 +81,7 @@ public class PatientServiceImpl implements PatientService {
         patient.setEmail(email);
         patient.setGender(gender);
         patient.setContactNo(contactNo);
-        patient.setFamilyDoctors(doctor);
+
         patientRepository.save(patient);
         return patient;
     }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Link} from "react-router-dom";
 import SinglePatient from "../SinglePatient/singlePatient";
 import {Divider} from "@material-ui/core";
@@ -6,6 +6,7 @@ import Button from "@material-ui/core/Button";
 import AddIcon from '@material-ui/icons/Add';
 
 const PatientList = (props) => {
+
 
     const singlePatient = props.patients.map((patient) => {
         return(
@@ -23,7 +24,7 @@ const PatientList = (props) => {
                 variant="contained"
                 color="primary"
                 startIcon={<AddIcon>add</AddIcon>}
-                href={"/patient/add"}
+                href={"/dashboard/patient/add"}
             >
                 Add new patient
             </Button>

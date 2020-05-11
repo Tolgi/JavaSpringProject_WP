@@ -1,7 +1,7 @@
 POST http://localhost:8080/api/specialization
 Content-Type: application/x-www-form-urlencoded
 
-name=Anesthesiology&creationDate=2020-03-20T22:55:52
+name=Anesthesiology
 
 > {%
 client.test("Request executed successfully", function() {
@@ -18,7 +18,7 @@ client.test("Request executed successfully", function() {
 POST http://localhost:8080/api/specialization
 Content-Type: application/x-www-form-urlencoded
 
-name=Dentist&creationDate=2019-04-20T22:55:52
+name=Dentist
 
 > {%
 client.test("Request executed successfully", function() {
@@ -53,7 +53,7 @@ client.test("Request executed successfully", function() {
 POST http://localhost:8080/api/specialization
 Content-Type: application/x-www-form-urlencoded
 
-name=Gynecologist
+name=Orthopaedics
 
 > {%
 client.test("Request executed successfully", function() {

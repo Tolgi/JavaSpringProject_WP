@@ -3,6 +3,7 @@ import { Route, useHistory} from 'react-router-dom';
 import MedicalHistoryService from "../../repository/axiosMedicalHistory";
 import MedicalHistoryList from "./MedicalHistoryList/medicalHistoryList";
 import MedicalHistoryAdd from "./MedicalHistoryAdd/medicalHistoryAdd";
+import AuthService from "../../authentication/axiosAuthRepository";
 
 
 const MedicalHistory = ({match}) => {
@@ -31,7 +32,7 @@ const MedicalHistory = ({match}) => {
           setMedicalHistories(nextState);
       });
 
-        history.push("/patient/list");
+        history.push("/dashboard/patient/list/doctor/"+AuthService.getCurrentUser().id);
 
     };
 

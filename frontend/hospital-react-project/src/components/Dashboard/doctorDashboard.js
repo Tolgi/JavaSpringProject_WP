@@ -8,12 +8,14 @@ import Typography from "@material-ui/core/Typography";
 import CardActions from "@material-ui/core/CardActions";
 import MoodIcon from '@material-ui/icons/Mood';
 import FileCopyIcon from '@material-ui/icons/FileCopy';
+import AuthService from "../../authentication/axiosAuthRepository";
+
 
 const DoctorDashboard = (props) =>  {
 
     const useStyles = makeStyles({
         root: {
-            minWidth: 275,
+            minWidth: 145,
         },
         bullet: {
             display: 'inline-block',
@@ -21,7 +23,8 @@ const DoctorDashboard = (props) =>  {
             transform: 'scale(0.8)',
         },
         title: {
-            fontSize: 30,
+            fontSize: 20,
+            textAlign: "center",
         },
         pos: {
             marginBottom: 12,
@@ -52,15 +55,15 @@ const DoctorDashboard = (props) =>  {
                 <Grid container spacing={10}>
                     <Grid item >
                         <Card className={classes.root} variant="outlined">
-                            <CardContent className={classes.purple}>
+                           <CardContent className={classes.purple}>
                                 <MoodIcon style={{fontSize: '150px'}}></MoodIcon>
                                 <Typography className={classes.title}  color="textSecondary" gutterBottom>
                                     My Profile
                                 </Typography>
-                            </CardContent>
+                           </CardContent>
                             <CardActions>
-                                <Typography variant={"body1"} color="primary" gutterBottom>
-                                    Update profile
+                                <Typography  variant={"body1"} color="primary" gutterBottom>
+                                    <a href={"/dashboard/doctor/edit/" + AuthService.getCurrentUser().id}>Update Profile Here</a>
                                 </Typography>
                             </CardActions>
                         </Card>
@@ -70,12 +73,12 @@ const DoctorDashboard = (props) =>  {
                             <CardContent className={classes.blue}>
                                 <FileCopyIcon style={{fontSize: '150px'}}></FileCopyIcon>
                                 <Typography className={classes.title} color="textSecondary" gutterBottom>
-                                    Manage Patients
+                                    My Appointments
                                 </Typography>
                             </CardContent>
                             <CardActions>
                                 <Typography variant={"body1"} color="primary" gutterBottom>
-                                    View Appointment History
+                                    <a href={"/dashboard/appointment/doctor/" + AuthService.getCurrentUser().id}>View Appointment History</a>
                                 </Typography>
                             </CardActions>
                         </Card>

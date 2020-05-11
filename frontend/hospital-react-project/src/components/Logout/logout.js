@@ -28,7 +28,7 @@ const LogOut = (props) => {
     const useStylesLogout = makeStyles((theme) => ({
         paperLogout: {
             marginTop: theme.spacing(8),
-
+            display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
         },

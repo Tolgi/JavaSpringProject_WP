@@ -11,6 +11,10 @@ import AuthService from "../../authentication/axiosAuthRepository";
 import BorderColorIcon from '@material-ui/icons/BorderColor';
 import DescriptionIcon from '@material-ui/icons/Description';
 import HomeIcon from '@material-ui/icons/Home';
+import ScheduleIcon from '@material-ui/icons/Schedule';
+import AddAlarmIcon from '@material-ui/icons/AddAlarm';
+import MoodIcon from '@material-ui/icons/Mood';
+import AccountBoxIcon from '@material-ui/icons/AccountBox';
 
 export const MainListItems = () => {
 
@@ -33,6 +37,63 @@ export const MainListItems = () => {
     return(
         <div>
             <ListSubheader inset>MAIN NAVIGATION</ListSubheader>
+
+{/*/---------------------------DOCTOR ROLE LIST ITEMS --------------------------------/*/}
+            {doctorRole &&
+            <ListItem button component={Link} to="/dashboard/doctorHome">
+                <ListItemIcon>
+                    <HomeIcon/>
+                </ListItemIcon>
+                <ListItemText primary="Dashboard"/>
+            </ListItem>
+            }
+
+            {doctorRole &&
+            <ListItem button component={Link} to={`/dashboard/doctor/details/${user.id}`}>
+                <ListItemIcon>
+                    <AccountBoxIcon/>
+                </ListItemIcon>
+                <ListItemText primary="View Profile"/>
+            </ListItem>
+            }
+
+            {doctorRole &&
+            <ListItem button component={Link} to={`/dashboard/patient/list/doctor/${user.id}`}>
+                <ListItemIcon>
+                    <PeopleIcon/>
+                </ListItemIcon>
+                <ListItemText primary="Patients"/>
+            </ListItem>
+            }
+
+            {doctorRole &&
+            <ListItem button component={Link} to={`/dashboard/appointment/doctor/${user.id}`}>
+                <ListItemIcon>
+                    <DescriptionIcon/>
+                </ListItemIcon>
+                <ListItemText primary="Appointment History"/>
+            </ListItem>
+            }
+
+            {doctorRole &&
+            <ListItem button component={Link} to={`/dashboard/term/doctor/${user.id}`}>
+                <ListItemIcon>
+                    <ScheduleIcon/>
+                </ListItemIcon>
+                <ListItemText primary="Terms"/>
+            </ListItem>
+            }
+
+            {doctorRole &&
+            <ListItem button component={Link} to={`/dashboard/term/add/${user.id}`}>
+                <ListItemIcon>
+                    <AddAlarmIcon/>
+                </ListItemIcon>
+                <ListItemText primary="Add term"/>
+            </ListItem>
+            }
+
+{/*---------------------------------- ADMIN ROLE LIST ITEMS -------------------------------------------------*/}
             {adminRole &&
             <ListItem button component={Link} to="/dashboard/adminHome">
                 <ListItemIcon>
@@ -42,14 +103,7 @@ export const MainListItems = () => {
             </ListItem>
             }
 
-            {doctorRole &&
-            <ListItem button component={Link} to="/dashboard/doctorHome">
-                <ListItemIcon>
-                    <HomeIcon/>
-                </ListItemIcon>
-                <ListItemText primary="Dashboard"/>
-            </ListItem>
-            }
+
 
             {adminRole &&
             <ListItem button component={Link} to="/dashboard/doctor/list">
@@ -60,7 +114,7 @@ export const MainListItems = () => {
             </ListItem>
             }
 
-            {adminRole || doctorRole &&
+            {adminRole &&
             <ListItem button component={Link} to="/dashboard/patient/list">
                 <ListItemIcon>
                     <PeopleIcon/>
@@ -78,6 +132,25 @@ export const MainListItems = () => {
             </ListItem>
             }
 
+{/*--------------------------- USER ROLE LIST ITEMS -----------------------------------------------*/}
+            {userRole &&
+            <ListItem button component={Link} to="/dashboard/patientHome">
+                <ListItemIcon>
+                    <HomeIcon/>
+                </ListItemIcon>
+                <ListItemText primary="Dashboard"/>
+            </ListItem>
+            }
+
+            {userRole &&
+            <ListItem button component={Link} to={`/dashboard/patient/details/${user.id}`}>
+                <ListItemIcon>
+                    <AccountBoxIcon/>
+                </ListItemIcon>
+                <ListItemText primary="View Profile"/>
+            </ListItem>
+            }
+
             {userRole &&
             <ListItem button component={Link} to="/dashboard/appointment/add">
                 <ListItemIcon>
@@ -88,7 +161,7 @@ export const MainListItems = () => {
             }
 
             {userRole &&
-            <ListItem button component={Link} to="/dashboard/appointment/list">
+            <ListItem button component={Link} to={`/dashboard/appointment/patient/${user.id}`}>
                 <ListItemIcon>
                     <DescriptionIcon/>
                 </ListItemIcon>
@@ -96,17 +169,9 @@ export const MainListItems = () => {
             </ListItem>
             }
 
-            {doctorRole &&
-            <ListItem button component={Link} to={`/dashboard/appointment/doctor/${user.id}`}>
-                <ListItemIcon>
-                    <DescriptionIcon/>
-                </ListItemIcon>
-                <ListItemText primary="Appointment History"/>
-            </ListItem>
-            }
 
             {userRole &&
-            <ListItem button component={Link} to="/dashboard/medicalHistory/list">
+            <ListItem button component={Link} to={`/dashboard/medicalHistory/list/${user.id}`}>
                 <ListItemIcon>
                     <DescriptionIcon/>
                 </ListItemIcon>
