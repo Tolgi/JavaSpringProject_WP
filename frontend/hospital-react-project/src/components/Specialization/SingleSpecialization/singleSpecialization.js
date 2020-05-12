@@ -26,7 +26,7 @@ const SingleSpecialization = (props) => {
                     size="small"
                     className={classes.button}
                     startIcon={<EditIcon>edit</EditIcon>}
-                    href={`/specialization/edit/${props.specialization.id}`}
+                    href={`/dashboard/specialization/edit/${props.specialization.id}`}
                 >
                     Edit
                 </Button>

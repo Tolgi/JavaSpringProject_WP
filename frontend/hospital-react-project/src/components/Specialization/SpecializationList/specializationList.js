@@ -8,6 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import Input from '@material-ui/core/Input';
 import SaveIcon from "@material-ui/icons/Save";
 import Box from '@material-ui/core/Box';
+import {Divider} from "@material-ui/core";
 
 const SpecializationList = (props) => {
 
@@ -25,6 +26,9 @@ const SpecializationList = (props) => {
 
     return (
      <div>
+         <h4>ADMIN | DOCTOR SPECIALIZATION </h4>
+         <Divider />
+         <br />
         <Card  variant="outlined">
             <CardContent>
                 <Typography  color="textSecondary" gutterBottom>

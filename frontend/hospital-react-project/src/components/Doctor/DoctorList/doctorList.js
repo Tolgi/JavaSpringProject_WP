@@ -1,17 +1,57 @@
 import React from 'react';
-import SingleDoctor from "../SingleDoctor/singleDoctor";
 import { Divider } from '@material-ui/core';
 import Button from "@material-ui/core/Button";
 import AddIcon from '@material-ui/icons/Add';
-
+import {MDBBtn, MDBDataTable, MDBIcon} from 'mdbreact';
 
 const DoctorList = (props) => {
 
-    const singleDoctor = props.doctors.map((doctor) => {
-        return(
-            <SingleDoctor onEdit={props.onEdit} onDelete={props.onDelete} doctor={doctor} key={doctor.id}/>
-        );
-    });
+    const data = {
+        columns: [
+            {
+                label: 'ID',
+                field: 'id',
+                sort: 'asc',
+                width: 150
+            },
+            {
+                label: 'Name',
+                field: 'name',
+                sort: 'asc',
+                width: 270
+            },
+            {
+                label: 'Specialization',
+                field: 'specialization',
+                sort: 'asc',
+                width: 200
+            },
+            {
+                label: 'Action',
+                field: 'action',
+                sort: 'asc',
+                width: 100
+            }
+        ],
+        rows: [
+
+            ...props.doctors.map((doctor) => ({
+                    id: doctor.id,
+                    name: doctor.name,
+                specialization: doctor.specialization.name,
+                    action:(
+                        <div>
+                            <MDBBtn id={doctor.id}  onClick={() => props.onEdit(doctor.id)} color="info" outline size="sm"><MDBIcon icon="magic" className="mr-1" />Edit</MDBBtn>
+                            <MDBBtn  onClick={()=>props.onDelete(doctor.id)} color="danger" size="sm"><MDBIcon icon="trash" className="mr-1" />Delete</MDBBtn>
+                        </div>
+                    ),
+
+                })
+
+            )
+        ]
+    };
+
 
 
     return (
@@ -29,19 +69,12 @@ const DoctorList = (props) => {
             </Button>
 
             <div className="table-wrapper">
-                <table className="fl-table">
-                    <thead>
-                    <tr>
-                        <th>#ID</th>
-                        <th>Name</th>
-                        <th>Specialization</th>
-                        <th>Action</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {singleDoctor}
-                    </tbody>
-                </table>
+                <MDBDataTable
+                    responsive
+                    striped
+                    hover
+                    data={data}
+                />
             </div>
         </div>
 

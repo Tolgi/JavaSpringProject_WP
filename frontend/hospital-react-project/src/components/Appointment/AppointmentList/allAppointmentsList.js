@@ -1,18 +1,78 @@
 import React, {useEffect, useState} from 'react';
-import {Link} from "react-router-dom";
-import SingleAppointment from "../SingleAppointment/singleAppointment";
 import {Divider} from "@material-ui/core";
+import {MDBDataTable} from "mdbreact";
 
 
 const AllAppointmentList = (props) => {
 
+    const data = {
+        columns: [
+            {
+                label: 'ID',
+                field: 'id',
+                sort: 'asc',
+                width: 150
+            },
+            {
+                label: 'Doctor Name',
+                field: 'doctorName',
+                sort: 'asc',
+                width: 270
+            },
+            {
+                label: 'Patient Name',
+                field: 'patientName',
+                sort: 'asc',
+                width: 270
+            },
+            {
+                label: 'Specialization',
+                field: 'specialization',
+                sort: 'asc',
+                width: 200
+            },
+            {
+                label: 'Consultancy Fee',
+                field: 'fees',
+                sort: 'asc',
+                width: 200
+            },
+            {
+                label: 'Appointment Date/Time',
+                field: 'date',
+                sort: 'asc',
+                width: 200
+            },
+            {
+                label: 'Appointment Creation Date',
+                field: 'creationDate',
+                sort: 'asc',
+                width: 200
+            },
+            {
+                label: 'Current status',
+                field: 'status',
+                sort: 'asc',
+                width: 200
+            }
 
-    const singleAppointment = props.appointments.map((appointment) => {
+        ],
+        rows: [
 
-        return(
-            <SingleAppointment appointment={appointment} key={appointment.id}/>
-        );
-    });
+            ...props.appointments.map((appointment) => ({
+                    id: appointment.id,
+                    doctorName: appointment.doctorName,
+                    patientName: appointment.patient.name,
+                    specialization: appointment.doctor.specialization.name,
+                    fees: appointment.doctor.consultancyFees,
+                    date: appointment.date + " / " +appointment.time,
+                    creationDate:appointment.creationDate.replace('T', ' ').slice(0, 16),
+                    status: appointment.status,
+                })
+
+            )
+        ]
+    };
 
 
     return (
@@ -20,22 +80,12 @@ const AllAppointmentList = (props) => {
             <h4>APPOINTMENTS</h4>
             <Divider />
             <div className="table-wrapper">
-                <table className="fl-table">
-                    <thead>
-                    <tr>
-                        <th>#ID</th>
-                        <th>Doctor name</th>
-                        <th>Patient name</th>
-                        <th>Consultancy Fee</th>
-                        <th>Appointment Date/Time</th>
-                        <th>Appointment Creation Time</th>
-                        <th>Current status</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {singleAppointment}
-                    </tbody>
-                </table>
+                <MDBDataTable
+                    responsive
+                    striped
+                    hover
+                    data={data}
+                />
             </div>
         </div>
 

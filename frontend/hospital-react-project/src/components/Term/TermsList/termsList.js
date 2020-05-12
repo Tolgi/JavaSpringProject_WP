@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
-import SingleTerm from "../SingleTerm/singleTerm";
 import {Divider} from "@material-ui/core";
+import {MDBBtn, MDBDataTable, MDBIcon} from "mdbreact";
+
 
 
 const TermsList = (props) => {
@@ -20,12 +21,57 @@ const TermsList = (props) => {
 
 
 
-    const singleTerm = props.terms.map((term) => {
-        return(
-            <SingleTerm  term={term} onDelete={props.onDelete} doctorId={props.match.params.id} key={term.id}/>
-        );
-    });
+    const data = {
+        columns: [
+            {
+                label: 'ID',
+                field: 'id',
+                sort: 'asc',
+                width: 150
+            },
+            {
+                label: 'Date',
+                field: 'date',
+                sort: 'asc',
+                width: 270
+            },
+            {
+                label: 'Time of Admission',
+                field: 'time',
+                sort: 'asc',
+                width: 200
+            },
+            {
+                label: 'Status',
+                field: 'status',
+                sort: 'asc',
+                width: 270
+            },
+            {
+                label: 'Action',
+                field: 'action',
+                sort: 'asc',
+                width: 100
+            }
+        ],
+        rows: [
 
+            ...props.terms.map((term) => ({
+                    id: term.id,
+                    date: term.date,
+                    time: term.timeOfAdmission,
+                    status: term.status,
+                    action:(
+                        <div>
+                            <MDBBtn  onClick={()=>props.onDelete(term.id, props.match.params.id)} color="danger" size="sm"><MDBIcon icon="trash" className="mr-1" />Delete</MDBBtn>
+                        </div>
+                    ),
+
+                })
+
+            )
+        ]
+    };
 
     return (
         <div>
@@ -34,20 +80,12 @@ const TermsList = (props) => {
             <br />
 
             <div className="table-wrapper">
-                <table className="fl-table">
-                    <thead>
-                    <tr>
-                        <th>#ID</th>
-                        <th>Date</th>
-                        <th>Time of Admission</th>
-                        <th>Status</th>
-                        <th>Action</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {singleTerm}
-                    </tbody>
-                </table>
+                <MDBDataTable
+                    responsive
+                    striped
+                    hover
+                    data={data}
+                />
             </div>
         </div>
 

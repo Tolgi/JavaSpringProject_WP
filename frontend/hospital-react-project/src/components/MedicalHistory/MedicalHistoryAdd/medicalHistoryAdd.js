@@ -1,6 +1,7 @@
 import React from 'react';
 import SaveIcon from "@material-ui/icons/Save";
 import Button from "@material-ui/core/Button";
+import {Divider} from "@material-ui/core";
 
 const MedicalHistoryAdd = (props) => {
 
@@ -21,6 +22,9 @@ const MedicalHistoryAdd = (props) => {
     return (
 
         <div>
+            <h4>ADD MEDICAL HISTORY</h4>
+            <Divider />
+            <br />
             <div className="card-body" >
                 <div className="card-text">
                     <form onSubmit={onFormSubmit} id="editForm">

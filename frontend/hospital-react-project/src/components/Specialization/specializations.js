@@ -39,7 +39,7 @@ const Specialization = ({match}) => {
             });
 
             setSpecializations(nextState);
-            history.push("/specialization/list");
+            history.push("/dashboard/specialization/list");
 
             // const nextState = specializations.map((s) => s.id === newSpecialization.id ? {...s, name: newSpecialization.name} : s);
         })
@@ -60,8 +60,6 @@ const Specialization = ({match}) => {
             setSpecializations(nextState);
         });
     };
-
-
 
 
 

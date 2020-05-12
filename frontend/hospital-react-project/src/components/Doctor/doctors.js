@@ -88,7 +88,7 @@ const Doctor = ({match}) => {
             setDoctors(nextState);
         });
 
-        history.push("/doctor/list");
+        history.push("/dashboard/doctor/list");
     };
 
 

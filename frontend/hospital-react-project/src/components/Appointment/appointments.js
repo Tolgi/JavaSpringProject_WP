@@ -50,6 +50,7 @@ const Appointment = ({match}) => {
       })
 
         history.push("/dashboard/appointment/patient/"+AuthService.getCurrentUser().id);
+        history.go();
     };
 
     const updateStatus = (appointmentId, status, pathId) => {

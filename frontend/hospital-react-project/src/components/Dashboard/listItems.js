@@ -3,7 +3,6 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListSubheader from '@material-ui/core/ListSubheader';
-import DashboardIcon from '@material-ui/icons/Dashboard';
 import PeopleIcon from '@material-ui/icons/People';
 import AssignmentIcon from '@material-ui/icons/Assignment';
 import {Link} from "react-router-dom";
@@ -13,7 +12,7 @@ import DescriptionIcon from '@material-ui/icons/Description';
 import HomeIcon from '@material-ui/icons/Home';
 import ScheduleIcon from '@material-ui/icons/Schedule';
 import AddAlarmIcon from '@material-ui/icons/AddAlarm';
-import MoodIcon from '@material-ui/icons/Mood';
+import EventNoteIcon from '@material-ui/icons/EventNote';
 import AccountBoxIcon from '@material-ui/icons/AccountBox';
 import RecentActorsIcon from '@material-ui/icons/RecentActors';
 
@@ -72,7 +71,7 @@ export const MainListItems = () => {
                 <ListItemIcon>
                     <DescriptionIcon/>
                 </ListItemIcon>
-                <ListItemText primary="Appointment History"/>
+                <ListItemText primary="Appointments"/>
             </ListItem>
             }
 
@@ -104,8 +103,6 @@ export const MainListItems = () => {
             </ListItem>
             }
 
-
-
             {adminRole &&
             <ListItem button component={Link}  to="/dashboard/doctor/list" >
                 <ListItemIcon>
@@ -130,6 +127,15 @@ export const MainListItems = () => {
                     <PeopleIcon/>
                 </ListItemIcon>
                 <ListItemText primary="Users"/>
+            </ListItem>
+            }
+
+            {adminRole &&
+            <ListItem button component={Link} to="/dashboard/appointment/list">
+                <ListItemIcon>
+                    <EventNoteIcon/>
+                </ListItemIcon>
+                <ListItemText primary="All Appointments"/>
             </ListItem>
             }
 
@@ -175,7 +181,7 @@ export const MainListItems = () => {
                 <ListItemIcon>
                     <DescriptionIcon/>
                 </ListItemIcon>
-                <ListItemText primary="Appointment History"/>
+                <ListItemText primary="Appointments"/>
             </ListItem>
             }
 
@@ -196,12 +202,6 @@ export const MainListItems = () => {
 export const secondaryListItems = (
     <div>
         <ListSubheader inset>Logs / reports</ListSubheader>
-        <ListItem button>
-            <ListItemIcon>
-                <AssignmentIcon />
-            </ListItemIcon>
-            <ListItemText primary="Doctor Session Logs" />
-        </ListItem>
         <ListItem button>
             <ListItemIcon>
                 <AssignmentIcon />

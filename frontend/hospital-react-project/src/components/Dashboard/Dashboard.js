@@ -216,9 +216,12 @@ export default function Dashboard({match}) {
                     </IconButton>
                 </div>
                 <Divider />
+
                 <List><MainListItems/></List>
                 <Divider />
+                {adminRole &&
                 <List>{secondaryListItems}</List>
+                }
             </Drawer>
             <main className={classes.content}>
                 <div className={classes.appBarSpacer} />

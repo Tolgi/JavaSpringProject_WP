@@ -1,14 +1,43 @@
 import React from 'react';
 import { Divider } from '@material-ui/core';
-import SingleUser from "../SingleUser/singleUser";
+import {MDBBtn, MDBDataTable, MDBIcon} from "mdbreact";
 
 const UserList = (props) => {
 
-    const singleUser = props.users.map((user) => {
-        return(
-            <SingleUser user={user} key={user.id}/>
-        );
-    });
+    const data = {
+        columns: [
+            {
+                label: 'ID',
+                field: 'id',
+                sort: 'asc',
+                width: 150
+            },
+            {
+                label: 'Username',
+                field: 'username',
+                sort: 'asc',
+                width: 270
+            },
+            {
+                label: 'Email',
+                field: 'email',
+                sort: 'asc',
+                width: 200
+            },
+
+        ],
+        rows: [
+
+            ...props.users.map((user) => ({
+                id: user.id,
+                username: user.username,
+                email: user.email,
+                })
+
+            )
+        ]
+    };
+
 
 
     return (
@@ -17,19 +46,14 @@ const UserList = (props) => {
             <Divider />
             <br />
 
+
             <div className="table-wrapper">
-                <table className="fl-table">
-                    <thead>
-                    <tr>
-                        <th>#ID</th>
-                        <th>Username</th>
-                        <th>Email</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {singleUser}
-                    </tbody>
-                </table>
+                <MDBDataTable
+                    responsive
+                    striped
+                    hover
+                    data={data}
+                />
             </div>
         </div>
 
