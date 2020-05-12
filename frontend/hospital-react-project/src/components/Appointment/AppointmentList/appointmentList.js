@@ -77,7 +77,7 @@ const AppointmentList = (props) => {
 
             ...props.appointments.map((appointment) => ({
                     id: appointment.id,
-                    flag: `${isDoctor ? appointment.doctorName : appointment.patient.name}`,
+                    flag: `${isDoctor ? appointment.patient.name : appointment.doctorName}`,
                     specialization: appointment.doctor.specialization.name,
                     fees: appointment.doctor.consultancyFees,
                     date: appointment.date + " / " +appointment.time,

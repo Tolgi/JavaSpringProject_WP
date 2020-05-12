@@ -1604,6 +1604,7 @@ sequence|table|16853|16855|1
     </sequence>
     <table id="35" parent="15" name="application_user">
       <ObjectId>16771</ObjectId>
+      <Outdated>1</Outdated>
       <Owner>wp</Owner>
       <StateNumber>1119</StateNumber>
     </table>
@@ -1644,11 +1645,13 @@ sequence|table|16853|16855|1
     </table>
     <table id="43" parent="15" name="role">
       <ObjectId>16839</ObjectId>
+      <Outdated>1</Outdated>
       <Owner>wp</Owner>
       <StateNumber>1118</StateNumber>
     </table>
     <table id="44" parent="15" name="specialization">
       <ObjectId>16847</ObjectId>
+      <Outdated>1</Outdated>
       <Owner>wp</Owner>
       <StateNumber>1122</StateNumber>
     </table>

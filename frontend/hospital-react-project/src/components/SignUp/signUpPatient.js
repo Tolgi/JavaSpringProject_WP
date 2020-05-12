@@ -79,7 +79,7 @@ const SignUpPatient = (props) => {
 
                         <div className="form-group"><input onChange={handleTermOnChange} type="text" className="form-control" name="name"
                                                              placeholder="Name" required="required"/></div>
-                        <div className="form-group"><input onChange={handleTermOnChange} type="number" min="13" max="13" className="form-control" name="ssn"
+                        <div className="form-group"><input onChange={handleTermOnChange} type="number"  className="form-control" name="ssn"
                                                              placeholder="SSN" required="required"/></div>
                     <div  className="form-group">
                         <label>Select Gender</label>

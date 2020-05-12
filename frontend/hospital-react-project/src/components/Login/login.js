@@ -150,7 +150,7 @@ const LogIn = (props) => {
                             </Link>
                         </Grid>
                         <Grid item>
-                            <Link href="/signUp" variant="body2">
+                            <Link href="/signUpPatient" variant="body2">
                                 {"Don't have an account? Sign Up"}
                             </Link>
                         </Grid>

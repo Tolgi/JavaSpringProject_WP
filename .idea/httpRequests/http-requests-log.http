@@ -8,6 +8,47 @@ Content-Type: application/json
     "password": "admin123"
 }
 
+<> 2020-05-12T101932.200.json
+
+###
+
+POST http://localhost:8080/api/auth/role/add
+Content-Type: application/x-www-form-urlencoded
+
+name=ROLE_USER
+
+<> 2020-05-12T101907.200.json
+
+###
+
+POST http://localhost:8080/api/auth/role/add
+Content-Type: application/x-www-form-urlencoded
+
+name=ROLE_DOCTOR
+
+<> 2020-05-12T101859.200.json
+
+###
+
+POST http://localhost:8080/api/auth/role/add
+Content-Type: application/x-www-form-urlencoded
+
+name=ROLE_ADMIN
+
+<> 2020-05-12T101846.200.json
+
+###
+
+POST http://localhost:8080/api/auth/admin/signup
+Content-Type: application/json
+
+{
+    "username": "Admin",
+    "email": "admin@gmail.com",
+    "role": ["admin"],
+    "password": "admin123"
+}
+
 <> 2020-05-12T075855.200.json
 
 ###
@@ -611,52 +652,6 @@ Content-Type: application/x-www-form-urlencoded
 name=Gynecologist
 
 <> 2020-05-10T034318.200.json
-
-###
-
-POST http://localhost:8080/api/specialization
-Content-Type: application/x-www-form-urlencoded
-
-name=Dermatologist
-
-<> 2020-05-10T034313.200.json
-
-###
-
-POST http://localhost:8080/api/specialization
-Content-Type: application/x-www-form-urlencoded
-
-name=Dentist
-
-<> 2020-05-10T034307.200.json
-
-###
-
-POST http://localhost:8080/api/specialization
-Content-Type: application/x-www-form-urlencoded
-
-name=Anesthesiology
-
-<> 2020-05-10T034239.200.json
-
-###
-
-POST http://localhost:8080/api/auth/doctor/signup
-Content-Type: application/json
-
-{
-  "username": "Doctor",
-  "email": "doctor@gmail.com",
-  "role": ["doctor"],
-  "password": "doctor123",
-  "name": "Philip C. Hoffmanman",
-  "address": "UChicago Medicine",
-  "consultancyFees": 430,
-  "contactNo": "070-472-932",
-  "specializationId": 3
-}
-
-<> 2020-05-09T114424.200.json
 
 ###
 
