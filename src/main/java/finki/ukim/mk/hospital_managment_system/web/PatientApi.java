@@ -3,6 +3,7 @@ package finki.ukim.mk.hospital_managment_system.web;
 import finki.ukim.mk.hospital_managment_system.model.Patient;
 import finki.ukim.mk.hospital_managment_system.service.PatientService;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.util.MimeTypeUtils;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,6 +22,7 @@ public class PatientApi {
     }
 
     @PostMapping
+    @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_DOCTOR') or hasRole('ROLE_ADMIN')")
     public Patient createPatient(@RequestParam Long id,
                                  @RequestParam String name,
                                  @RequestParam Long ssn,
@@ -34,16 +36,19 @@ public class PatientApi {
     }
 
     @GetMapping
+    @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_DOCTOR') or hasRole('ROLE_ADMIN')")
     public List<Patient> getAllPatients(){
         return patientService.findAll();
     }
 
     @GetMapping(params = "patientId")
+    @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_DOCTOR') or hasRole('ROLE_ADMIN')")
     public Patient getPatient(@RequestParam Long patientId) {
         return patientService.getPatient(patientId);
     }
 
     @PatchMapping("/edit/{patientId}")
+    @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
     public Patient editPatient(@PathVariable Long patientId,
                                @RequestParam String name,
                                @RequestParam Long ssn,
@@ -56,11 +61,13 @@ public class PatientApi {
     }
 
     @DeleteMapping("/{patientId}")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public void deletePatient(@PathVariable Long patientId){
         patientService.deleteById(patientId);
     }
 
     @GetMapping("/number")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public Integer numberOfPatients(){
         return patientService.numbersOfPatients();
     }

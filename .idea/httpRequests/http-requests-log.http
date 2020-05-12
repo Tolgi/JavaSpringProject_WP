@@ -1,3 +1,58 @@
+POST http://localhost:8080/api/auth/admin/signup
+Content-Type: application/json
+
+{
+    "username": "Admin",
+    "email": "admin@gmail.com",
+    "role": ["admin"],
+    "password": "admin123"
+}
+
+<> 2020-05-12T075855.200.json
+
+###
+
+POST http://localhost:8080/api/auth/role/add
+Content-Type: application/x-www-form-urlencoded
+
+name=ROLE_USER
+
+<> 2020-05-12T075850.200.json
+
+###
+
+POST http://localhost:8080/api/auth/role/add
+Content-Type: application/x-www-form-urlencoded
+
+name=ROLE_DOCTOR
+
+<> 2020-05-12T075840.200.json
+
+###
+
+POST http://localhost:8080/api/auth/role/add
+Content-Type: application/x-www-form-urlencoded
+
+name=ROLE_ADMIN
+
+<> 2020-05-12T075832.200.json
+
+###
+
+POST http://localhost:8080/api/auth/admin/signup
+Content-Type: application/json
+
+{
+    "username": "Admin",
+    "email": "admin@gmail.com",
+    "role": ["admin"],
+    "password": "admin123"
+}
+
+<> 2020-05-12T075820.500.json
+
+###
+
 GET http://localhost:8080/api/user
 
 <> 2020-05-11T103740.401.json
@@ -602,104 +657,6 @@ Content-Type: application/json
 }
 
 <> 2020-05-09T114424.200.json
-
-###
-
-POST http://localhost:8080/api/auth/patient/signup
-Content-Type: application/json
-
-{
-  "username": "Patientbyown",
-  "email": "patientbtown@gmail.com",
-  "role": ["user"],
-  "password": "patient123",
-  "name": "ALone",
-  "ssn": 29129974950,
-  "gender": "female",
-  "address": "UChicago Medicine",
-  "age": 22,
-  "contactNo": "070-470-930",
-  "doctorId": null
-}
-
-<> 2020-05-09T112744.200.json
-
-###
-
-POST http://localhost:8080/api/auth/patient/signup
-Content-Type: application/json
-
-{
-  "username": "Patient",
-  "email": "patient@gmail.com",
-  "role": ["user"],
-  "password": "patient123",
-  "name": "Vikktorija",
-  "ssn": 29129974950,
-  "gender": "female",
-  "address": "UChicago Medicine",
-  "age": 22,
-  "contactNo": "070-470-930",
-  "doctorId": 9
-}
-
-<> 2020-05-09T112444.200.json
-
-###
-
-POST http://localhost:8080/api/auth/patient/signup
-Content-Type: application/json
-
-{
-  "username": "Patient",
-  "email": "patient@gmail.com",
-  "role": ["user"],
-  "password": "patient123",
-  "name": "Vikktorija",
-  "ssn": 29129974950,
-  "gender": "female",
-  "address": "UChicago Medicine",
-  "age": 22,
-  "contactNo": "070-470-930",
-  "doctorId": 9
-}
-
-<> 2020-05-09T111449.500.json
-
-###
-
-POST http://localhost:8080/api/auth/patient/signup
-Content-Type: application/json
-
-{
-  "username": "Patient",
-  "email": "patient@gmail.com",
-  "role": ["user"],
-  "password": "patient123",
-  "name": "Vikktorija",
-  "ssn": 29129974950,
-  "gender": "female",
-  "address": "UChicago Medicine",
-  "age": 22,
-  "contactNo": "070-470-930",
-  "doctorId": 9
-}
-
-<> 2020-05-09T111143.500.json
-
-###
-
-POST http://localhost:8080/api/auth/signup
-Content-Type: application/json
-
-{
-    "username": "Adminn",
-    "email": "adminn@gmail.com",
-    "role": ["admin"],
-    "password": "admin123"
-}
-
-<> 2020-05-09T100344.200.json
 
 ###
 

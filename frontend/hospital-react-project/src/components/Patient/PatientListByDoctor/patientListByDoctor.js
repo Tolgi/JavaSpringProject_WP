@@ -1,6 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import {Link} from "react-router-dom";
-import SinglePatient from "../SinglePatient/singlePatient";
 import {Divider} from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 import AddIcon from '@material-ui/icons/Add';

@@ -1,17 +1,18 @@
 package finki.ukim.mk.hospital_managment_system.web;
 
 import java.time.LocalDateTime;
+import java.time.Month;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
-import finki.ukim.mk.hospital_managment_system.exceptions.InvalidDoctorId;
 import finki.ukim.mk.hospital_managment_system.model.*;
-import finki.ukim.mk.hospital_managment_system.repository.DoctorRepository;
-import finki.ukim.mk.hospital_managment_system.repository.PatientRepository;
 import finki.ukim.mk.hospital_managment_system.repository.jpa.JpaRoleRepository;
 import finki.ukim.mk.hospital_managment_system.repository.jpa.JpaUserRepository;
 import finki.ukim.mk.hospital_managment_system.security.jwt.JwtUtils;
@@ -22,22 +23,18 @@ import finki.ukim.mk.hospital_managment_system.security.payload.request.SignupRe
 import finki.ukim.mk.hospital_managment_system.security.payload.response.JwtResponse;
 import finki.ukim.mk.hospital_managment_system.security.payload.response.MessageResponse;
 import finki.ukim.mk.hospital_managment_system.service.DoctorService;
+import finki.ukim.mk.hospital_managment_system.service.LogService;
 import finki.ukim.mk.hospital_managment_system.service.PatientService;
 import finki.ukim.mk.hospital_managment_system.service.impl.UserDetailsImpl;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-
+import org.springframework.web.bind.annotation.*;
 
 
 @RestController
@@ -52,9 +49,10 @@ public class AuthController {
     private JwtUtils jwtUtils;
     private final DoctorService doctorService;
     private final PatientService patientService;
+    private final LogService logService;
 
     public AuthController(AuthenticationManager authenticationManager, JpaUserRepository userRepository, JpaRoleRepository roleRepository,
-                          PasswordEncoder encoder, JwtUtils jwtUtils, DoctorService doctorService, PatientService patientService) {
+                          PasswordEncoder encoder, JwtUtils jwtUtils, DoctorService doctorService, PatientService patientService, LogService logService) {
         this.authenticationManager = authenticationManager;
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
@@ -62,10 +60,16 @@ public class AuthController {
         this.jwtUtils = jwtUtils;
         this.doctorService = doctorService;
         this.patientService = patientService;
+        this.logService = logService;
+    }
+
+    public Log catchSignInAttempt(String jwt, String username, String role, String ipAddress, LocalDateTime from, boolean isSuccess) {
+        DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+        return logService.createLog(jwt, role, username, ipAddress, isSuccess, from.format(format), null, 0.0);
     }
 
     @PostMapping("/signin")
-    public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
+    public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest, HttpServletRequest request) {
 
         Authentication authentication = null;
 
@@ -73,6 +77,8 @@ public class AuthController {
             authentication = authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));
         }catch (Exception e){
+            String ipAddress = request.getRemoteAddr();
+            catchSignInAttempt(null, loginRequest.getUsername(), null, ipAddress, LocalDateTime.now(), false);
             return ResponseEntity
                     .badRequest()
                     .body(new MessageResponse("Bad credentials, please try again!"));
@@ -85,13 +91,31 @@ public class AuthController {
                 .map(item -> item.getAuthority())
                 .collect(Collectors.toList());
 
+        String ipAddress = request.getRemoteAddr();
+        Log log = catchSignInAttempt(jwt, userDetails.getUsername(), roles.get(0), ipAddress, LocalDateTime.now(), true);
         return ResponseEntity.ok(new JwtResponse(jwt,
                 userDetails.getId(),
                 userDetails.getUsername(),
                 userDetails.getEmail(),
-                roles));
+                roles, log.getId()));
     }
 
+    @PostMapping("/logout")
+    public void logoutUser(@RequestHeader Long logId){
+        Log log = logService.findById(logId);
+
+        DateTimeFormatter format1 = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+        DateTimeFormatter format2 = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+
+        String timeTo = LocalDateTime.now().format(format1);
+        LocalDateTime timeFrom = LocalDateTime.parse(log.getFromTime(), format2);
+
+        double totalHours = ChronoUnit.MINUTES.between(timeFrom, LocalDateTime.of(2020, Month.MAY, 13, 22, 10,10));
+
+        log.setTotalHours(totalHours);
+        log.setToTime(timeTo);
+        logService.update(log);
+    }
 
 
     @PostMapping("/patient/signup")

@@ -3,6 +3,7 @@ package finki.ukim.mk.hospital_managment_system.web;
 import finki.ukim.mk.hospital_managment_system.model.ApplicationUser;
 import finki.ukim.mk.hospital_managment_system.model.Doctor;
 import finki.ukim.mk.hospital_managment_system.repository.jpa.JpaUserRepository;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,6 +27,7 @@ public class UserApi {
     }
 
     @GetMapping("/number")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public Integer numbersOfUsers() {
         List<ApplicationUser> users = userRepository.findAll();
         Integer number = users.size();

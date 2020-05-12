@@ -5,7 +5,7 @@ import AuthService from "../../authentication/axiosAuthRepository";
 
 const RouteUnauthenticated = (props) => {
     if (AuthService.isAuthenticated()) {
-        return <Redirect to="/dashboard" />;
+        return <Redirect to="/dashboard/home" />;
     }
 
     return <Route component={props.component} path={props.path} />;

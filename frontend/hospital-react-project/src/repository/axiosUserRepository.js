@@ -9,6 +9,10 @@ const UserService = {
 
     getNumberOfUsers: () => {
         return axios.get("/api/user/number");
+    },
+
+    fetchLogs: ()=> {
+        return axios.get("logs");
     }
 
 };

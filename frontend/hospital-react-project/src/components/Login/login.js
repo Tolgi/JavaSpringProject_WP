@@ -63,11 +63,9 @@ const LogIn = (props) => {
 
         AuthService.login(user.username, user.password,
         ).then(response => {
-            if (response.data.accessToken) {
-                localStorage.setItem("user", JSON.stringify(response.data));
-            }
-
-            history.push("/dashboard/home");
+           // console.log(response.data);
+            localStorage.setItem("user", JSON.stringify(response.data));
+            history.push("/dashboard");
             history.go();
 
         },error => {

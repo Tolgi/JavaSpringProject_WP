@@ -48,7 +48,8 @@ const LogOut = (props) => {
     const classes = useStylesLogout();
 
     useEffect(() => {
-       AuthService.logout();
+        var logId = AuthService.getCurrentUser().logId;
+       AuthService.logout(logId);
     },[]);
 
 

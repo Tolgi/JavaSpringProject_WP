@@ -6,6 +6,7 @@ import finki.ukim.mk.hospital_managment_system.model.Specialization;
 import finki.ukim.mk.hospital_managment_system.service.DoctorService;
 import finki.ukim.mk.hospital_managment_system.service.SpecializationService;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.util.MimeTypeUtils;
 import org.springframework.web.bind.annotation.*;
 
@@ -39,37 +40,44 @@ public class DoctorApi {
 //    }
 
     @DeleteMapping("/{doctorId}")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public void deleteDoctor(@PathVariable Long doctorId){
         doctorService.deleteById(doctorId);
     }
 
     @GetMapping(params = "specializationName")
+    @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_DOCTOR') or hasRole('ROLE_ADMIN')")
     public List<Doctor> getAllDoctorsBySpecialization(@RequestParam String specializationName){
         return doctorService.findAllBySpecializationName(specializationName);
     }
 
     @GetMapping("/{doctorId}/patients")
+    @PreAuthorize("hasRole('ROLE_DOCTOR') or hasRole('ROLE_ADMIN')")
     public List<Patient> getPatients(@PathVariable Long doctorId){
         return doctorService.findPatientsByDoctorId(doctorId);
     }
 
     @GetMapping("/search/{doctorName}")
+    @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_DOCTOR') or hasRole('ROLE_ADMIN')")
     public List<Doctor> searchDoctor(@PathVariable String doctorName){
         return doctorService.searchAllByName(doctorName);
     }
 
     @GetMapping
+    @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_DOCTOR') or hasRole('ROLE_ADMIN')")
     public List<Doctor> getAllDoctors(){
         return doctorService.findAll();
     }
 
     @GetMapping(params = "doctorId")
+    @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_DOCTOR') or hasRole('ROLE_ADMIN')")
     public Doctor getDoctor(@RequestParam Long doctorId){
         return doctorService.findById(doctorId);
     }
 
 
     @PatchMapping("/edit/{doctorId}")
+    @PreAuthorize("hasRole('ROLE_DOCTOR') or hasRole('ROLE_ADMIN')")
     public Doctor editDoctor(@PathVariable Long doctorId,
                                @RequestParam String name,
                                @RequestParam String address,
@@ -83,6 +91,7 @@ public class DoctorApi {
     }
 
     @GetMapping("/number")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public Integer numberOfDoctors(){
         return doctorService.numbersOfDoctors();
     }

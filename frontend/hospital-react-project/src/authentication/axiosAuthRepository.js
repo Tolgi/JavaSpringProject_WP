@@ -33,9 +33,15 @@ const AuthService = {
             });
     },
 
-    logout() {
-        localStorage.removeItem("user");
-    },
+        logout: (logId) => {
+            localStorage.removeItem("user");
+            return axios.post("/api/auth/logout",{}, {
+                headers : {
+                    'logId': logId
+                }
+            })
+        },
+
 
     getCurrentUser() {
         return JSON.parse(localStorage.getItem('user'));;
@@ -44,7 +50,7 @@ const AuthService = {
     isAuthenticated() {
         const user = JSON.parse(localStorage.getItem('user'));
 
-        if (user && user.accessToken) {
+        if (user && user.token) {
             return true;
         } else {
             return false;

@@ -202,7 +202,7 @@ export const MainListItems = () => {
 export const secondaryListItems = (
     <div>
         <ListSubheader inset>Logs / reports</ListSubheader>
-        <ListItem button>
+        <ListItem button component={Link} to={"/dashboard/logs"}>
             <ListItemIcon>
                 <AssignmentIcon />
             </ListItemIcon>

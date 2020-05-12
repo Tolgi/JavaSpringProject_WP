@@ -38,6 +38,7 @@ import RouteUnauthenticated from "../Rotes/UnauthenticatedRoute";
 import Tooltip from '@material-ui/core/Tooltip';
 import PatientDasboard from "./patientDashboard";
 import User from "../User/users";
+import SystemLogs from "../SystemLogs/systemLogs";
 
 
 function Copyright() {
@@ -234,6 +235,7 @@ export default function Dashboard({match}) {
                     <RouteAuthenticated path="/dashboard/appointment" component={Appointment} />
                     <RouteAuthenticated path="/dashboard/users" component={User} />
                     <RouteAuthenticated path="/dashboard/specialization" component={Specialization} />
+                    <RouteAuthenticated path="/dashboard/logs" component={SystemLogs} />
 
                     <Grid container spacing={3}>
                         {adminRole &&
