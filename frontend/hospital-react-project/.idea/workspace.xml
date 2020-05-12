@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c9a49e0b-fa78-4cdd-a5ba-815ed5709e05" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../.idea/dataSources/5cdffb0d-7ae1-44de-bb7e-3a8e6d79151f.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/dataSources/5cdffb0d-7ae1-44de-bb7e-3a8e6d79151f.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.idea/httpRequests/2020-05-09T114424.200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.idea/httpRequests/2020-05-10T034239.200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.idea/httpRequests/2020-05-10T034307.200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.idea/httpRequests/2020-05-10T034313.200.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/httpRequests/http-requests-log.http" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Appointment/AppointmentList/appointmentList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Appointment/AppointmentList/appointmentList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Login/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Login/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SignUp/signUpPatient.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SignUp/signUpPatient.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../target/classes/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -101,7 +92,7 @@
       <workItem from="1589037493850" duration="17043000" />
       <workItem from="1589108919616" duration="37602000" />
       <workItem from="1589206491107" duration="32181000" />
-      <workItem from="1589303585358" duration="8307000" />
+      <workItem from="1589303585358" duration="9592000" />
     </task>
     <servers />
   </component>

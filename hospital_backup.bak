@@ -1,0 +1,810 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 12.2 (Debian 12.2-2.pgdg100+1)
+-- Dumped by pg_dump version 12.2 (Debian 12.2-2.pgdg100+1)
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+SET default_tablespace = '';
+
+SET default_table_access_method = heap;
+
+--
+-- Name: application_user; Type: TABLE; Schema: public; Owner: wp
+--
+
+CREATE TABLE public.application_user (
+    user_id bigint NOT NULL,
+    user_email character varying(255),
+    user_password character varying(255),
+    username character varying(255)
+);
+
+
+ALTER TABLE public.application_user OWNER TO wp;
+
+--
+-- Name: application_user_role; Type: TABLE; Schema: public; Owner: wp
+--
+
+CREATE TABLE public.application_user_role (
+    application_user_user_id bigint NOT NULL,
+    roles_role_id bigint NOT NULL
+);
+
+
+ALTER TABLE public.application_user_role OWNER TO wp;
+
+--
+-- Name: application_user_user_id_seq; Type: SEQUENCE; Schema: public; Owner: wp
+--
+
+CREATE SEQUENCE public.application_user_user_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.application_user_user_id_seq OWNER TO wp;
+
+--
+-- Name: application_user_user_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: wp
+--
+
+ALTER SEQUENCE public.application_user_user_id_seq OWNED BY public.application_user.user_id;
+
+
+--
+-- Name: appointment; Type: TABLE; Schema: public; Owner: wp
+--
+
+CREATE TABLE public.appointment (
+    appointment_id bigint NOT NULL,
+    appointment_fees integer,
+    creation_date timestamp without time zone,
+    appointment_date date,
+    doctor_name character varying(255),
+    patient_ssn bigint,
+    appointment_status character varying(255),
+    appointment_time time without time zone,
+    doctor_doctor_id bigint,
+    patient_patient_id bigint
+);
+
+
+ALTER TABLE public.appointment OWNER TO wp;
+
+--
+-- Name: appointment_appointment_id_seq; Type: SEQUENCE; Schema: public; Owner: wp
+--
+
+CREATE SEQUENCE public.appointment_appointment_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.appointment_appointment_id_seq OWNER TO wp;
+
+--
+-- Name: appointment_appointment_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: wp
+--
+
+ALTER SEQUENCE public.appointment_appointment_id_seq OWNED BY public.appointment.appointment_id;
+
+
+--
+-- Name: doctor; Type: TABLE; Schema: public; Owner: wp
+--
+
+CREATE TABLE public.doctor (
+    doctor_id bigint NOT NULL,
+    doctor_address character varying(255),
+    doctor_fees integer,
+    doctor_number character varying(255),
+    doctor_email character varying(255),
+    doctor_name character varying(255),
+    specialization_specialization_id bigint
+);
+
+
+ALTER TABLE public.doctor OWNER TO wp;
+
+--
+-- Name: doctor_patient; Type: TABLE; Schema: public; Owner: wp
+--
+
+CREATE TABLE public.doctor_patient (
+    family_doctors_doctor_id bigint NOT NULL,
+    patients_patient_id bigint NOT NULL
+);
+
+
+ALTER TABLE public.doctor_patient OWNER TO wp;
+
+--
+-- Name: log; Type: TABLE; Schema: public; Owner: wp
+--
+
+CREATE TABLE public.log (
+    id bigint NOT NULL,
+    from_time character varying(255),
+    ip_address character varying(255),
+    is_success boolean NOT NULL,
+    user_roll character varying(255),
+    session_id character varying(255),
+    to_time character varying(255),
+    total_hours double precision NOT NULL,
+    user_name character varying(255)
+);
+
+
+ALTER TABLE public.log OWNER TO wp;
+
+--
+-- Name: log_id_seq; Type: SEQUENCE; Schema: public; Owner: wp
+--
+
+CREATE SEQUENCE public.log_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.log_id_seq OWNER TO wp;
+
+--
+-- Name: log_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: wp
+--
+
+ALTER SEQUENCE public.log_id_seq OWNED BY public.log.id;
+
+
+--
+-- Name: medicalhistory; Type: TABLE; Schema: public; Owner: wp
+--
+
+CREATE TABLE public.medicalhistory (
+    history_id bigint NOT NULL,
+    blood_pressure character varying(255),
+    blood_sugar integer,
+    body_temperature character varying(255),
+    medical_prescription character varying(255),
+    patient_name character varying(255),
+    patient_ssn bigint,
+    visit_date timestamp without time zone,
+    weight integer,
+    patient_patient_id bigint
+);
+
+
+ALTER TABLE public.medicalhistory OWNER TO wp;
+
+--
+-- Name: medicalhistory_history_id_seq; Type: SEQUENCE; Schema: public; Owner: wp
+--
+
+CREATE SEQUENCE public.medicalhistory_history_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.medicalhistory_history_id_seq OWNER TO wp;
+
+--
+-- Name: medicalhistory_history_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: wp
+--
+
+ALTER SEQUENCE public.medicalhistory_history_id_seq OWNED BY public.medicalhistory.history_id;
+
+
+--
+-- Name: patient; Type: TABLE; Schema: public; Owner: wp
+--
+
+CREATE TABLE public.patient (
+    patient_id bigint NOT NULL,
+    patient_address character varying(255),
+    patient_age integer,
+    patient_number character varying(255),
+    patient_creation_date timestamp without time zone,
+    patient_email character varying(255),
+    patient_gender character varying(255),
+    patient_name character varying(255),
+    patient_ssn bigint
+);
+
+
+ALTER TABLE public.patient OWNER TO wp;
+
+--
+-- Name: role; Type: TABLE; Schema: public; Owner: wp
+--
+
+CREATE TABLE public.role (
+    role_id bigint NOT NULL,
+    name character varying(20)
+);
+
+
+ALTER TABLE public.role OWNER TO wp;
+
+--
+-- Name: role_role_id_seq; Type: SEQUENCE; Schema: public; Owner: wp
+--
+
+CREATE SEQUENCE public.role_role_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.role_role_id_seq OWNER TO wp;
+
+--
+-- Name: role_role_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: wp
+--
+
+ALTER SEQUENCE public.role_role_id_seq OWNED BY public.role.role_id;
+
+
+--
+-- Name: specialization; Type: TABLE; Schema: public; Owner: wp
+--
+
+CREATE TABLE public.specialization (
+    specialization_id bigint NOT NULL,
+    specialization_creationtime timestamp without time zone,
+    specialization_name character varying(255)
+);
+
+
+ALTER TABLE public.specialization OWNER TO wp;
+
+--
+-- Name: specialization_specialization_id_seq; Type: SEQUENCE; Schema: public; Owner: wp
+--
+
+CREATE SEQUENCE public.specialization_specialization_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.specialization_specialization_id_seq OWNER TO wp;
+
+--
+-- Name: specialization_specialization_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: wp
+--
+
+ALTER SEQUENCE public.specialization_specialization_id_seq OWNED BY public.specialization.specialization_id;
+
+
+--
+-- Name: term; Type: TABLE; Schema: public; Owner: wp
+--
+
+CREATE TABLE public.term (
+    term_id bigint NOT NULL,
+    term_date date,
+    term_status character varying(255),
+    time_of_admission time without time zone,
+    doctor_doctor_id bigint
+);
+
+
+ALTER TABLE public.term OWNER TO wp;
+
+--
+-- Name: term_term_id_seq; Type: SEQUENCE; Schema: public; Owner: wp
+--
+
+CREATE SEQUENCE public.term_term_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.term_term_id_seq OWNER TO wp;
+
+--
+-- Name: term_term_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: wp
+--
+
+ALTER SEQUENCE public.term_term_id_seq OWNED BY public.term.term_id;
+
+
+--
+-- Name: application_user user_id; Type: DEFAULT; Schema: public; Owner: wp
+--
+
+ALTER TABLE ONLY public.application_user ALTER COLUMN user_id SET DEFAULT nextval('public.application_user_user_id_seq'::regclass);
+
+
+--
+-- Name: appointment appointment_id; Type: DEFAULT; Schema: public; Owner: wp
+--
+
+ALTER TABLE ONLY public.appointment ALTER COLUMN appointment_id SET DEFAULT nextval('public.appointment_appointment_id_seq'::regclass);
+
+
+--
+-- Name: log id; Type: DEFAULT; Schema: public; Owner: wp
+--
+
+ALTER TABLE ONLY public.log ALTER COLUMN id SET DEFAULT nextval('public.log_id_seq'::regclass);
+
+
+--
+-- Name: medicalhistory history_id; Type: DEFAULT; Schema: public; Owner: wp
+--
+
+ALTER TABLE ONLY public.medicalhistory ALTER COLUMN history_id SET DEFAULT nextval('public.medicalhistory_history_id_seq'::regclass);
+
+
+--
+-- Name: role role_id; Type: DEFAULT; Schema: public; Owner: wp
+--
+
+ALTER TABLE ONLY public.role ALTER COLUMN role_id SET DEFAULT nextval('public.role_role_id_seq'::regclass);
+
+
+--
+-- Name: specialization specialization_id; Type: DEFAULT; Schema: public; Owner: wp
+--
+
+ALTER TABLE ONLY public.specialization ALTER COLUMN specialization_id SET DEFAULT nextval('public.specialization_specialization_id_seq'::regclass);
+
+
+--
+-- Name: term term_id; Type: DEFAULT; Schema: public; Owner: wp
+--
+
+ALTER TABLE ONLY public.term ALTER COLUMN term_id SET DEFAULT nextval('public.term_term_id_seq'::regclass);
+
+
+--
+-- Data for Name: application_user; Type: TABLE DATA; Schema: public; Owner: wp
+--
+
+COPY public.application_user (user_id, user_email, user_password, username) FROM stdin;
+1	admin@gmail.com	$2a$10$mk41WtTahoB2oSw920H8puu7pSadFqZJF73NqTUgXzrDXWxxRfGwK	Admin
+2	philip@gmail.com	$2a$10$x3UiOKllsC.1ilbBv5R1GOdnYDwss0nlLNOHjGjzDkcZ9Ws9TT.OS	philip
+3	john@gmail.com	$2a$10$I/YWrtml6.YbHtVqB8Fzde7xMwXTRuKSa2MD4UVX/L3CMURXPvDju	john
+4	gustavo@gmail.com	$2a$10$1jKMmfPEgDz.NUOnft06.eu4ZIbMZWpgbErQGUSdstX4SPbI.iY7e	gustavo
+5	michael@gmail.com	$2a$10$mTVQPDo4Wa3Qd6d.jE77suwZVKRHX6M2wtzhGNC5AD0XBkTVzT1/u	michael
+6	david@gmail.com	$2a$10$g1quyLHGKRbT71DZhgCmXOpImxMRCzje80Zkem9cs0iCFu/wnx8Ue	david
+7	gloria@gmail.com	$2a$10$w4Oj44/6oHKDtGUYXTwIo.HuRV.c0.ph3W/Tr14rzoQqkH.xxDoJq	gloria
+8	petre@gmail.com	$2a$10$vPIZJ3aJ2S.0BNhKpHXN0OGX6cd1tGR6o38fJVmvhqiRc8gtdyNT2	petre
+9	aleksandar@gmail.com	$2a$10$YajEBNIXl2bHOg5kVGJfgOLiuJlZqIXimCpTCaF4mZ860afP6BXtO	aleksandar
+10	viktorija@gmail.com	$2a$10$QlNKV7MzRh6gjJ4S.WB3yuUSgrmOnpA4.SKVU/n4ICtpdtR.NI4qu	viktorija
+11	danielle@gmail.com	$2a$10$qrWH8Sx247.atOc4qkkMROxOOhPqpibKu1WOO1ZTMVZ0owgBNClIm	danielle
+12	gorgi@gmail.com	$2a$10$f/gARcqsBUwSBC9BA4/lju78Qi0XUvXFKDzIBzn5Tc9nSEeNtieWa	gorgi
+13	sonja@gmail.com	$2a$10$UlpRN6phwT53oU2Xv4nWxelKr7OM.fltX1Ncltf51qkRVczFJHsNG	sonja
+14	dime@gmail.com	$2a$10$mz6jhfpamrBXMlWCNqW7ielQeqQRUWNnNGHhN9MG6WXyIA9MPE8fa	dimce
+\.
+
+
+--
+-- Data for Name: application_user_role; Type: TABLE DATA; Schema: public; Owner: wp
+--
+
+COPY public.application_user_role (application_user_user_id, roles_role_id) FROM stdin;
+1	1
+2	2
+3	2
+4	2
+5	2
+6	2
+7	2
+8	3
+9	3
+10	3
+11	3
+12	3
+13	3
+14	3
+\.
+
+
+--
+-- Data for Name: appointment; Type: TABLE DATA; Schema: public; Owner: wp
+--
+
+COPY public.appointment (appointment_id, appointment_fees, creation_date, appointment_date, doctor_name, patient_ssn, appointment_status, appointment_time, doctor_doctor_id, patient_patient_id) FROM stdin;
+2	650	2020-05-12 22:33:05.675964	2020-05-25	Philip C. Hoffman	2912997495027	active	09:00:00	2	8
+3	650	2020-05-12 22:37:09.896806	2020-05-26	Philip C. Hoffman	2912997495027	active	10:20:00	2	10
+1	650	2020-05-12 22:32:33.746933	2020-05-25	Philip C. Hoffman	2912997495027	Cancel by Patient	08:30:00	2	8
+4	650	2020-05-12 22:43:43.756209	2020-05-26	Philip C. Hoffman	1509995478502	Cancel by Doctor	00:15:00	2	12
+5	650	2020-05-12 22:48:02.71611	2020-05-29	Philip C. Hoffman	2912997495027	active	14:45:00	2	8
+6	570	2020-05-12 22:52:07.228869	2020-05-14	John.R.Lurain	2004993459612	active	09:30:00	3	14
+7	650	2020-05-12 22:52:23.066141	2020-06-01	Philip C. Hoffman	2004993459612	Cancel by Doctor	15:30:00	2	14
+8	780	2020-05-12 22:57:36.750397	2020-06-05	Gustavo C. Rodriguez	2912997495027	active	09:30:00	4	8
+9	900	2020-05-12 22:57:48.569646	2020-12-01	Gloria Kim	2912997495027	Cancel by Patient	15:00:00	7	8
+\.
+
+
+--
+-- Data for Name: doctor; Type: TABLE DATA; Schema: public; Owner: wp
+--
+
+COPY public.doctor (doctor_id, doctor_address, doctor_fees, doctor_number, doctor_email, doctor_name, specialization_specialization_id) FROM stdin;
+2	UChicago Medicine	650	773-702-8222	philip@gmail.com	Philip C. Hoffman	1
+3	Northwestern Memorial	570	312-695-0990	john@gmail.com	John.R.Lurain	3
+4	NorthShore University HealthSystem	780	847-570-2639	gustavo@gmail.com	Gustavo C. Rodriguez	5
+5	Palos Hospital	500	708-873-7775	michael@gmail.com	Michael A. Brusca	2
+6	Advocate Good Shepherd Hospital	870	847-382-7330	david@gmail.com	David Crandall	1
+7	Advocate Good Samaritan Hospital, Downers Grove	900	630-968-2144	gloria@gmail.com	Gloria Kim	6
+\.
+
+
+--
+-- Data for Name: doctor_patient; Type: TABLE DATA; Schema: public; Owner: wp
+--
+
+COPY public.doctor_patient (family_doctors_doctor_id, patients_patient_id) FROM stdin;
+3	13
+3	14
+2	8
+2	9
+2	10
+2	11
+2	12
+2	14
+4	8
+7	8
+\.
+
+
+--
+-- Data for Name: log; Type: TABLE DATA; Schema: public; Owner: wp
+--
+
+COPY public.log (id, from_time, ip_address, is_success, user_roll, session_id, to_time, total_hours, user_name) FROM stdin;
+1	12-05-2020 22:19:59	0:0:0:0:0:0:0:1	t	ROLE_ADMIN	eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBZG1pbiIsImlhdCI6MTU4OTMxNDc5OSwiZXhwIjoxNTkwMTc4Nzk5fQ.V_l_z_ZhmcBuwMzEtssNGKShj5LylyKTTKIoinhnI3VfuxfRg2zxdNeGm4eIqM6apFf1rTgxui1WmRgunL3m1g	12-05-2020 22:20:17	1430	Admin
+2	12-05-2020 22:20:24	0:0:0:0:0:0:0:1	t	ROLE_ADMIN	eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBZG1pbiIsImlhdCI6MTU4OTMxNDgyNCwiZXhwIjoxNTkwMTc4ODI0fQ.23fWM0QQCO4FCxr5Uy4sK4fqGs4t3AcgFvn1tu0n-lJhqkV2HDqfyVIREfxNiryoqNsrcjNoW2nho9WmZeKvNg	12-05-2020 22:27:53	1429	Admin
+3	12-05-2020 22:28:00	0:0:0:0:0:0:0:1	t	ROLE_DOCTOR	eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwaGlsaXAiLCJpYXQiOjE1ODkzMTUyODAsImV4cCI6MTU5MDE3OTI4MH0.dAN-9pMDPS7XHst0nEqVnHiynKA3b9LL0KS6-qht2EnPXr_fM5OkUyYOde5gZBKP9Iui7aqJXS7uVOrjm2ub-g	12-05-2020 22:31:55	1422	philip
+4	12-05-2020 22:32:08	0:0:0:0:0:0:0:1	t	ROLE_USER	eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwZXRyZSIsImlhdCI6MTU4OTMxNTUyOCwiZXhwIjoxNTkwMTc5NTI4fQ.HnqGJTWARCR2kh5SLyFllZtL4Y3narYGabXYLo0Lpz7jj9ZZV4FFW8d_98z0-HrQVfnE4FcbDk9pjt0iXcNYcQ	12-05-2020 22:33:19	1418	petre
+5	12-05-2020 22:36:47	0:0:0:0:0:0:0:1	t	ROLE_USER	eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ2aWt0b3JpamEiLCJpYXQiOjE1ODkzMTU4MDcsImV4cCI6MTU5MDE3OTgwN30.E2ysPm3aH-RYAZnd3L98M0eeZsZNiXLN8UDn_a0aLeaSHb8Y3axD9DaW1munrgFINCJyYeDMIH34HlLl1Tm0JQ	12-05-2020 22:37:33	1413	viktorija
+6	12-05-2020 22:37:43	0:0:0:0:0:0:0:1	t	ROLE_DOCTOR	eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwaGlsaXAiLCJpYXQiOjE1ODkzMTU4NjMsImV4cCI6MTU5MDE3OTg2M30.M_RF1p63BtkswvKo77Cmdxg-NDtFkB9lfP1HZjgpjII3HNDogfOONn_bsCePFCpmbLi4rALq2KR1XelRUeNn1w	12-05-2020 22:38:03	1412	philip
+7	12-05-2020 22:38:26	0:0:0:0:0:0:0:1	t	ROLE_USER	eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwZXRyZSIsImlhdCI6MTU4OTMxNTkwNiwiZXhwIjoxNTkwMTc5OTA2fQ.ByMY2v34wCGW7-p2a9wuww-Cuq4p8IeSUUkUkdnfZ17K57OtQed5e_RQgNzYKLx-FcFTYZAJURsqb8Dqh1jsnQ	12-05-2020 22:40:48	1411	petre
+8	12-05-2020 22:41:01	0:0:0:0:0:0:0:1	t	ROLE_DOCTOR	eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwaGlsaXAiLCJpYXQiOjE1ODkzMTYwNjEsImV4cCI6MTU5MDE4MDA2MX0.pCWGoxRGvbzp4CuToVDHDoyydYUlguoQ6ofXjWHj7fCJcI3yVFNGy6Zg_uvJpaINjW3MpMd-D5IX1shY7d6BEg	12-05-2020 22:42:37	1409	philip
+9	12-05-2020 22:43:30	0:0:0:0:0:0:0:1	t	ROLE_USER	eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJnb3JnaSIsImlhdCI6MTU4OTMxNjIxMCwiZXhwIjoxNTkwMTgwMjEwfQ.G48VQD6WMxdQI3g5cmbYcKwCtgfecb_wLGKQYEQxCxxN2OOazPSTftGwMUXihIUlgkdRmfUsPsCFyVMCVsT2JA	12-05-2020 22:43:47	1406	gorgi
+10	12-05-2020 22:43:59	0:0:0:0:0:0:0:1	t	ROLE_DOCTOR	eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwaGlsaXAiLCJpYXQiOjE1ODkzMTYyMzksImV4cCI6MTU5MDE4MDIzOX0.SucpwGPZ4Cd70xr2P2BU170SLcRscmlk1SDDqetCaQrZeVni6mQyZytGejiev3YqnL-290Joi93dQHNgpNI4YQ	12-05-2020 22:47:01	1406	philip
+11	12-05-2020 22:47:21	0:0:0:0:0:0:0:1	t	ROLE_USER	eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwZXRyZSIsImlhdCI6MTU4OTMxNjQ0MSwiZXhwIjoxNTkwMTgwNDQxfQ.-yZ243htv4Pqov3oE-rKO2qZ1wCW5Dx_8SP873u5yo921EyTn_wLH6x0ItJg8U9jdyMvbOE67nf72Hp0fmVc_w	12-05-2020 22:48:07	1402	petre
+12	12-05-2020 22:48:48	0:0:0:0:0:0:0:1	t	ROLE_DOCTOR	eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqb2huIiwiaWF0IjoxNTg5MzE2NTI4LCJleHAiOjE1OTAxODA1Mjh9.rF8PCLkKxrJMCQbeM7XjEYE2dECewOUh1INYsaM4XUCtVJMzvEgfPkovQY5dTfb9OuLymo5X4INvw6xP4vgv9w	12-05-2020 22:51:39	1401	john
+13	12-05-2020 22:51:47	0:0:0:0:0:0:0:1	f	\N	\N	\N	0	dime
+14	12-05-2020 22:51:57	0:0:0:0:0:0:0:1	t	ROLE_USER	eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJkaW1jZSIsImlhdCI6MTU4OTMxNjcxNywiZXhwIjoxNTkwMTgwNzE3fQ.J9s3SWPvo73GUA8irqn1j9yVzR2k9oCvS3Mqn3l_3v3O0Pqo3vb_1Wxq6zhUPOmVrQyZZ_wH2vJTMPT-jg8taw	12-05-2020 22:52:26	1398	dimce
+15	12-05-2020 22:52:38	0:0:0:0:0:0:0:1	t	ROLE_DOCTOR	eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwaGlsaXAiLCJpYXQiOjE1ODkzMTY3NTgsImV4cCI6MTU5MDE4MDc1OH0.dVBCfFpOtr4xbF3GxKpBZYl2cXurzbUFMHvtdgSK9PzHcFshHoeqwo-YIeujpW5qisgwvRy2Hi2HMIX6EARbWg	12-05-2020 22:53:18	1397	philip
+16	12-05-2020 22:53:30	0:0:0:0:0:0:0:1	t	ROLE_DOCTOR	eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJndXN0YXZvIiwiaWF0IjoxNTg5MzE2ODEwLCJleHAiOjE1OTAxODA4MTB9.ghjiHPYnnaVXoiIU7sbglZDCf3zodxcl52Fg-N1fbj1EuLXAa_meCHL1QmqcF09loV4Z77FVcf5vTqfsf9yNQw	12-05-2020 22:54:15	1396	gustavo
+17	12-05-2020 22:54:32	0:0:0:0:0:0:0:1	t	ROLE_DOCTOR	eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJtaWNoYWVsIiwiaWF0IjoxNTg5MzE2ODcyLCJleHAiOjE1OTAxODA4NzJ9.KbMEFWK_IhNy1nAb57meCSeFdKjTxlJ1pXSic3PzSfinNqL8G4NjPCERxQd8kcXhasxGQFGNoUJhaJHgK-16-A	12-05-2020 22:55:17	1395	michael
+18	12-05-2020 22:55:28	0:0:0:0:0:0:0:1	t	ROLE_DOCTOR	eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJkYXZpZCIsImlhdCI6MTU4OTMxNjkyOCwiZXhwIjoxNTkwMTgwOTI4fQ.ndzNWoWrZYTc1Ex7o_bTn7x5sHnWz3_2LqSWFpgiGW4BfhmPrWUMYVRiGAR7EPv4G3QoN6PpSgPTj9azawJyUw	12-05-2020 22:56:08	1394	david
+19	12-05-2020 22:56:18	0:0:0:0:0:0:0:1	f	\N	\N	\N	0	gloaria
+20	12-05-2020 22:56:25	0:0:0:0:0:0:0:1	t	ROLE_DOCTOR	eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJnbG9yaWEiLCJpYXQiOjE1ODkzMTY5ODUsImV4cCI6MTU5MDE4MDk4NX0.QQoqZJLOYBze2nECIf5Wibym5BalD8n7GkMKq8eRO8UWVyAqZnpMwZ-FcqE85boTCKjr8-MdFEeuwHCjY-1VIQ	12-05-2020 22:57:06	1393	gloria
+21	12-05-2020 22:57:19	0:0:0:0:0:0:0:1	t	ROLE_USER	eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwZXRyZSIsImlhdCI6MTU4OTMxNzAzOSwiZXhwIjoxNTkwMTgxMDM5fQ.nHdiCZ3g3L7Q7_ANm2UU4TZzErSz_VsuDfD1dfwLqdFvQrK6s4_g8ndyEYX62Hjpy3OGDBZ6rP9JXIGe7AdkyA	12-05-2020 22:58:03	1392	petre
+22	12-05-2020 22:58:14	0:0:0:0:0:0:0:1	t	ROLE_ADMIN	eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBZG1pbiIsImlhdCI6MTU4OTMxNzA5NCwiZXhwIjoxNTkwMTgxMDk0fQ.PkRsfUQrtFkV8ACyiTterdj7qOSOxKZHUGUUoiHUt3og2MOIPHno5lBqihhOsavEwWyJiNTSZykwPx_hV7HxkA	12-05-2020 22:59:04	1391	Admin
+23	12-05-2020 22:59:10	0:0:0:0:0:0:0:1	f	\N	\N	\N	0	petre
+24	12-05-2020 22:59:17	0:0:0:0:0:0:0:1	f	\N	\N	\N	0	philip
+25	12-05-2020 22:59:48	0:0:0:0:0:0:0:1	t	ROLE_DOCTOR	eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwaGlsaXAiLCJpYXQiOjE1ODkzMTcxODgsImV4cCI6MTU5MDE4MTE4OH0.NRg6BzSrRGist7k7k-teTIuDSQO8uARB_bL1JBdlMOKM9brxVqh8wd5GZvSpsyjBnguOhwLKcFqaDkXutUBOxQ	12-05-2020 23:00:29	1390	philip
+26	12-05-2020 23:18:39	0:0:0:0:0:0:0:1	f	\N	\N	\N	0	Admin
+27	12-05-2020 23:18:44	0:0:0:0:0:0:0:1	t	ROLE_ADMIN	eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBZG1pbiIsImlhdCI6MTU4OTMxODMyNCwiZXhwIjoxNTkwMTgyMzI0fQ.t9qXaicwSz_ygAhH4apNq3J3S8bpW6O4VT32jOUlMk6uDlYJ2m6lnbNn7PTC78RAlX97H3HLYSw_WkS0my4ztw	\N	0	Admin
+\.
+
+
+--
+-- Data for Name: medicalhistory; Type: TABLE DATA; Schema: public; Owner: wp
+--
+
+COPY public.medicalhistory (history_id, blood_pressure, blood_sugar, body_temperature, medical_prescription, patient_name, patient_ssn, visit_date, weight, patient_patient_id) FROM stdin;
+1	120	5	37	Abc.tab xyz Syrup	Petre Petrov	2912997495027	2020-05-12 22:45:41.030939	85	8
+2	120	6	36.6	Abc.tab xyz Syrup	Viktorija Stojanova	2912997495027	2020-05-12 22:46:02.780943	58	10
+3	125/90	6	36.8	Abc.tab xyz Syrup Amosgky	Petre Petrov	2912997495027	2020-05-12 22:46:57.432002	83	8
+\.
+
+
+--
+-- Data for Name: patient; Type: TABLE DATA; Schema: public; Owner: wp
+--
+
+COPY public.patient (patient_id, patient_address, patient_age, patient_number, patient_creation_date, patient_email, patient_gender, patient_name, patient_ssn) FROM stdin;
+8	Skopje, Macedonia	25	071258963	2020-05-12 22:29:08.320981	petre@gmail.com	Male	Petre Petrov	2912997495027
+9	Bitola, Macedonia	35	070396458	2020-05-12 22:30:08.642142	aleksandar@gmail.com	Male	Aleksandar Jovanov	2512997485069
+10	Skopje, Macedonia	22	070470930	2020-05-12 22:36:36.540713	viktorija@gmail.com	Female	Viktorija Stojanova	2912997495027
+11	Boston, MA, USA	27	0708569369	2020-05-12 22:42:16.63073	danielle@gmail.com	Female	Danielle Aniston	1528995482578
+12	Kumanovo, Macedonia	30	070487325	2020-05-12 22:43:17.055882	gorgi@gmail.com	Male	Gorgi Stojanov	1509995478502
+13	Bitola, Macedonia	47	078563258	2020-05-12 22:50:37.244487	sonja@gmail.com	Female	Sonja Koceva	25955478565
+14	Radovish, Macedonia	50	071333865	2020-05-12 22:51:37.190247	dime@gmail.com	Male	Dimce Dimevski	2004993459612
+\.
+
+
+--
+-- Data for Name: role; Type: TABLE DATA; Schema: public; Owner: wp
+--
+
+COPY public.role (role_id, name) FROM stdin;
+1	ROLE_ADMIN
+2	ROLE_DOCTOR
+3	ROLE_USER
+\.
+
+
+--
+-- Data for Name: specialization; Type: TABLE DATA; Schema: public; Owner: wp
+--
+
+COPY public.specialization (specialization_id, specialization_creationtime, specialization_name) FROM stdin;
+1	2020-05-12 22:20:36.644422	Dentist
+2	2020-05-12 22:20:45.298968	Dermatologist
+3	2020-05-12 22:20:50.467143	Gynecologist
+4	2020-05-12 22:20:57.020439	Anesthesiology
+5	2020-05-12 22:21:01.857187	Neurology
+6	2020-05-12 22:21:06.754142	Pediatrics
+7	2020-05-12 22:21:11.758495	Surgery
+8	2020-05-12 22:21:16.63724	Cardiology
+9	2020-05-12 22:21:22.06287	Orthopaedics
+\.
+
+
+--
+-- Data for Name: term; Type: TABLE DATA; Schema: public; Owner: wp
+--
+
+COPY public.term (term_id, term_date, term_status, time_of_admission, doctor_doctor_id) FROM stdin;
+1	2020-05-25	busy	08:30:00	2
+2	2020-05-25	busy	09:00:00	2
+3	2020-05-26	busy	10:20:00	2
+4	2020-05-26	busy	00:15:00	2
+6	2020-05-29	free	10:50:00	2
+5	2020-05-29	busy	14:45:00	2
+9	2020-05-14	free	02:01:00	3
+10	2020-05-28	free	15:25:00	3
+11	2020-06-03	free	15:55:00	3
+8	2020-05-14	busy	09:30:00	3
+7	2020-06-01	busy	15:30:00	2
+13	2020-06-04	free	08:09:00	4
+14	2020-06-06	free	15:30:00	4
+15	2020-07-04	free	15:15:00	5
+16	2020-07-17	free	18:30:00	5
+17	2020-05-30	free	14:50:00	5
+18	2020-07-18	free	11:45:00	5
+19	2020-07-13	free	10:50:00	6
+20	2020-07-18	free	14:35:00	6
+21	2020-07-25	free	15:50:00	6
+22	2020-09-18	free	08:30:00	7
+23	2020-06-06	free	15:30:00	7
+12	2020-06-05	busy	09:30:00	4
+24	2020-12-01	busy	15:00:00	7
+\.
+
+
+--
+-- Name: application_user_user_id_seq; Type: SEQUENCE SET; Schema: public; Owner: wp
+--
+
+SELECT pg_catalog.setval('public.application_user_user_id_seq', 14, true);
+
+
+--
+-- Name: appointment_appointment_id_seq; Type: SEQUENCE SET; Schema: public; Owner: wp
+--
+
+SELECT pg_catalog.setval('public.appointment_appointment_id_seq', 9, true);
+
+
+--
+-- Name: log_id_seq; Type: SEQUENCE SET; Schema: public; Owner: wp
+--
+
+SELECT pg_catalog.setval('public.log_id_seq', 27, true);
+
+
+--
+-- Name: medicalhistory_history_id_seq; Type: SEQUENCE SET; Schema: public; Owner: wp
+--
+
+SELECT pg_catalog.setval('public.medicalhistory_history_id_seq', 3, true);
+
+
+--
+-- Name: role_role_id_seq; Type: SEQUENCE SET; Schema: public; Owner: wp
+--
+
+SELECT pg_catalog.setval('public.role_role_id_seq', 3, true);
+
+
+--
+-- Name: specialization_specialization_id_seq; Type: SEQUENCE SET; Schema: public; Owner: wp
+--
+
+SELECT pg_catalog.setval('public.specialization_specialization_id_seq', 9, true);
+
+
+--
+-- Name: term_term_id_seq; Type: SEQUENCE SET; Schema: public; Owner: wp
+--
+
+SELECT pg_catalog.setval('public.term_term_id_seq', 24, true);
+
+
+--
+-- Name: application_user application_user_pkey; Type: CONSTRAINT; Schema: public; Owner: wp
+--
+
+ALTER TABLE ONLY public.application_user
+    ADD CONSTRAINT application_user_pkey PRIMARY KEY (user_id);
+
+
+--
+-- Name: application_user_role application_user_role_pkey; Type: CONSTRAINT; Schema: public; Owner: wp
+--
+
+ALTER TABLE ONLY public.application_user_role
+    ADD CONSTRAINT application_user_role_pkey PRIMARY KEY (application_user_user_id, roles_role_id);
+
+
+--
+-- Name: appointment appointment_pkey; Type: CONSTRAINT; Schema: public; Owner: wp
+--
+
+ALTER TABLE ONLY public.appointment
+    ADD CONSTRAINT appointment_pkey PRIMARY KEY (appointment_id);
+
+
+--
+-- Name: doctor doctor_pkey; Type: CONSTRAINT; Schema: public; Owner: wp
+--
+
+ALTER TABLE ONLY public.doctor
+    ADD CONSTRAINT doctor_pkey PRIMARY KEY (doctor_id);
+
+
+--
+-- Name: log log_pkey; Type: CONSTRAINT; Schema: public; Owner: wp
+--
+
+ALTER TABLE ONLY public.log
+    ADD CONSTRAINT log_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: medicalhistory medicalhistory_pkey; Type: CONSTRAINT; Schema: public; Owner: wp
+--
+
+ALTER TABLE ONLY public.medicalhistory
+    ADD CONSTRAINT medicalhistory_pkey PRIMARY KEY (history_id);
+
+
+--
+-- Name: patient patient_pkey; Type: CONSTRAINT; Schema: public; Owner: wp
+--
+
+ALTER TABLE ONLY public.patient
+    ADD CONSTRAINT patient_pkey PRIMARY KEY (patient_id);
+
+
+--
+-- Name: role role_pkey; Type: CONSTRAINT; Schema: public; Owner: wp
+--
+
+ALTER TABLE ONLY public.role
+    ADD CONSTRAINT role_pkey PRIMARY KEY (role_id);
+
+
+--
+-- Name: specialization specialization_pkey; Type: CONSTRAINT; Schema: public; Owner: wp
+--
+
+ALTER TABLE ONLY public.specialization
+    ADD CONSTRAINT specialization_pkey PRIMARY KEY (specialization_id);
+
+
+--
+-- Name: term term_pkey; Type: CONSTRAINT; Schema: public; Owner: wp
+--
+
+ALTER TABLE ONLY public.term
+    ADD CONSTRAINT term_pkey PRIMARY KEY (term_id);
+
+
+--
+-- Name: term fk1a122x0qx4vs0otywcp3hn05u; Type: FK CONSTRAINT; Schema: public; Owner: wp
+--
+
+ALTER TABLE ONLY public.term
+    ADD CONSTRAINT fk1a122x0qx4vs0otywcp3hn05u FOREIGN KEY (doctor_doctor_id) REFERENCES public.doctor(doctor_id) ON DELETE CASCADE;
+
+
+--
+-- Name: appointment fk2vlah44v7jbr62swnit3835kr; Type: FK CONSTRAINT; Schema: public; Owner: wp
+--
+
+ALTER TABLE ONLY public.appointment
+    ADD CONSTRAINT fk2vlah44v7jbr62swnit3835kr FOREIGN KEY (patient_patient_id) REFERENCES public.patient(patient_id);
+
+
+--
+-- Name: application_user_role fk3y2pkjaotbaayn395obswec3o; Type: FK CONSTRAINT; Schema: public; Owner: wp
+--
+
+ALTER TABLE ONLY public.application_user_role
+    ADD CONSTRAINT fk3y2pkjaotbaayn395obswec3o FOREIGN KEY (roles_role_id) REFERENCES public.role(role_id);
+
+
+--
+-- Name: doctor fk4d13vmoxsqme117i9i560pwte; Type: FK CONSTRAINT; Schema: public; Owner: wp
+--
+
+ALTER TABLE ONLY public.doctor
+    ADD CONSTRAINT fk4d13vmoxsqme117i9i560pwte FOREIGN KEY (specialization_specialization_id) REFERENCES public.specialization(specialization_id);
+
+
+--
+-- Name: application_user_role fk91jjqi6jmkiu2liqhkvfhl79s; Type: FK CONSTRAINT; Schema: public; Owner: wp
+--
+
+ALTER TABLE ONLY public.application_user_role
+    ADD CONSTRAINT fk91jjqi6jmkiu2liqhkvfhl79s FOREIGN KEY (application_user_user_id) REFERENCES public.application_user(user_id);
+
+
+--
+-- Name: appointment fke2h5w13mux4dqv9ef26idj12e; Type: FK CONSTRAINT; Schema: public; Owner: wp
+--
+
+ALTER TABLE ONLY public.appointment
+    ADD CONSTRAINT fke2h5w13mux4dqv9ef26idj12e FOREIGN KEY (doctor_doctor_id) REFERENCES public.doctor(doctor_id);
+
+
+--
+-- Name: doctor_patient fkhnuww8c5cky2wgtjpgi8ikfcx; Type: FK CONSTRAINT; Schema: public; Owner: wp
+--
+
+ALTER TABLE ONLY public.doctor_patient
+    ADD CONSTRAINT fkhnuww8c5cky2wgtjpgi8ikfcx FOREIGN KEY (patients_patient_id) REFERENCES public.patient(patient_id);
+
+
+--
+-- Name: medicalhistory fkmoeamml80qom536jy9lf1fuw4; Type: FK CONSTRAINT; Schema: public; Owner: wp
+--
+
+ALTER TABLE ONLY public.medicalhistory
+    ADD CONSTRAINT fkmoeamml80qom536jy9lf1fuw4 FOREIGN KEY (patient_patient_id) REFERENCES public.patient(patient_id);
+
+
+--
+-- Name: doctor_patient fksmh4qkuskxad3k8uqoupq5ii5; Type: FK CONSTRAINT; Schema: public; Owner: wp
+--
+
+ALTER TABLE ONLY public.doctor_patient
+    ADD CONSTRAINT fksmh4qkuskxad3k8uqoupq5ii5 FOREIGN KEY (family_doctors_doctor_id) REFERENCES public.doctor(doctor_id);
+
+
+--
+-- PostgreSQL database dump complete
+--
+
