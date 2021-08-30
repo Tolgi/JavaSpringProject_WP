@@ -6,12 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.NotFound;
 import org.hibernate.annotations.NotFoundAction;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
-
 import javax.persistence.*;
-import javax.print.Doc;
-import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -50,7 +45,6 @@ public class Patient {
     @Column(name = "patient_creation_date")
     private LocalDateTime creationDate;
 
-
     @JsonIgnore
     @ManyToMany(fetch = FetchType.EAGER, mappedBy = "patients")
     @NotFound(action = NotFoundAction.IGNORE)
@@ -71,11 +65,10 @@ public class Patient {
 
     @PreRemove
     private void removeDoctors(){
-        for (Doctor d: familyDoctors) {
+        for (Doctor d : familyDoctors) {
             d.getPatients().remove(this);
         }
     }
-
 
     public void setFamilyDoctors(Doctor familyDoctor) {
         this.familyDoctors.add(familyDoctor);

@@ -4,7 +4,6 @@ import finki.ukim.mk.hospital_managment_system.model.MedicalHistory;
 import finki.ukim.mk.hospital_managment_system.repository.MedicalHistoryRepository;
 import finki.ukim.mk.hospital_managment_system.repository.jpa.JpaMedicalHistoryRepository;
 import org.springframework.stereotype.Repository;
-
 import java.util.List;
 import java.util.Optional;
 

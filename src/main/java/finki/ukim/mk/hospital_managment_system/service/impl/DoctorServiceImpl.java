@@ -6,7 +6,6 @@ import finki.ukim.mk.hospital_managment_system.model.Appointment;
 import finki.ukim.mk.hospital_managment_system.model.Doctor;
 import finki.ukim.mk.hospital_managment_system.model.Patient;
 import finki.ukim.mk.hospital_managment_system.model.Specialization;
-import finki.ukim.mk.hospital_managment_system.repository.AppointmentRepository;
 import finki.ukim.mk.hospital_managment_system.repository.DoctorRepository;
 import finki.ukim.mk.hospital_managment_system.repository.PatientRepository;
 import finki.ukim.mk.hospital_managment_system.repository.SpecializationRepository;
@@ -14,9 +13,7 @@ import finki.ukim.mk.hospital_managment_system.repository.jpa.JpaUserRepository;
 import finki.ukim.mk.hospital_managment_system.service.AppointmentService;
 import finki.ukim.mk.hospital_managment_system.service.DoctorService;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class DoctorServiceImpl implements DoctorService {
@@ -106,6 +103,4 @@ public class DoctorServiceImpl implements DoctorService {
         Integer number = doctors.size();
         return number;
     }
-
-
 }

@@ -4,7 +4,6 @@ import finki.ukim.mk.hospital_managment_system.model.Appointment;
 import finki.ukim.mk.hospital_managment_system.repository.AppointmentRepository;
 import finki.ukim.mk.hospital_managment_system.repository.jpa.JpaAppointmentRepository;
 import org.springframework.stereotype.Repository;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -16,7 +15,6 @@ public class AppointmentRepositoryImpl implements AppointmentRepository {
     public AppointmentRepositoryImpl(JpaAppointmentRepository jpaAppointmentRepository) {
         this.jpaAppointmentRepository = jpaAppointmentRepository;
     }
-
 
     @Override
     public Optional<Appointment> findById(Long appointmentId) {
@@ -52,5 +50,4 @@ public class AppointmentRepositoryImpl implements AppointmentRepository {
     public List<Appointment> findAll() {
         return jpaAppointmentRepository.findAll();
     }
-
 }

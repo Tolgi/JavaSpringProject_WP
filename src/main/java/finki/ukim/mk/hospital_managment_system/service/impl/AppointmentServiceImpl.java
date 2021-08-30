@@ -11,7 +11,6 @@ import finki.ukim.mk.hospital_managment_system.repository.PatientRepository;
 import finki.ukim.mk.hospital_managment_system.repository.TermRepository;
 import finki.ukim.mk.hospital_managment_system.service.AppointmentService;
 import org.springframework.stereotype.Service;
-
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -53,7 +52,6 @@ public class AppointmentServiceImpl implements AppointmentService {
 //        }
         term.setStatus("busy");
         termRepository.save(term);
-
 
         LocalDate date = term.getDate();
         LocalTime time = term.getTimeOfAdmission();

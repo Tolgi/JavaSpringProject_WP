@@ -8,7 +8,6 @@ import finki.ukim.mk.hospital_managment_system.repository.DoctorRepository;
 import finki.ukim.mk.hospital_managment_system.repository.TermRepository;
 import finki.ukim.mk.hospital_managment_system.service.TermService;
 import org.springframework.stereotype.Service;
-
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
@@ -31,9 +30,12 @@ public class TermServiceImpl implements TermService {
         Doctor doctor = doctorRepository.findById(doctorId).orElseThrow(InvalidDoctorId::new);
         term.createTerm(date, time, status, doctor);
 
+        Optional<Term>termOptional = findAllByDoctorId(doctor.getId())
+                .stream()
+                .filter(term1 -> term1.getDate().equals(term.getDate()) &&
+                        term1.getTimeOfAdmission().equals(term.getTimeOfAdmission()))
+                .findAny();
 
-        Optional<Term>termOptional = findAllByDoctorId(doctor.getId()).stream().filter(term1 -> term1.getDate().equals(term.getDate()) &&
-                                                                                        term1.getTimeOfAdmission().equals(term.getTimeOfAdmission())).findAny();
         if(termOptional.isPresent()){
             throw new ScheduledTerm("This term is already taken!");
         }

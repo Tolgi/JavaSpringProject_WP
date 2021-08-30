@@ -2,15 +2,11 @@ package finki.ukim.mk.hospital_managment_system.web;
 
 import finki.ukim.mk.hospital_managment_system.model.Doctor;
 import finki.ukim.mk.hospital_managment_system.model.Patient;
-import finki.ukim.mk.hospital_managment_system.model.Specialization;
 import finki.ukim.mk.hospital_managment_system.service.DoctorService;
 import finki.ukim.mk.hospital_managment_system.service.SpecializationService;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.util.MimeTypeUtils;
 import org.springframework.web.bind.annotation.*;
-
-import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -25,7 +21,6 @@ public class DoctorApi {
         this.doctorService = doctorService;
         this.specializationService = specializationService;
     }
-
 
 //    @PostMapping
 //    public Doctor createDoctor(@RequestParam String name,
@@ -74,7 +69,6 @@ public class DoctorApi {
     public Doctor getDoctor(@RequestParam Long doctorId){
         return doctorService.findById(doctorId);
     }
-
 
     @PatchMapping("/edit/{doctorId}")
     @PreAuthorize("hasRole('ROLE_DOCTOR') or hasRole('ROLE_ADMIN')")

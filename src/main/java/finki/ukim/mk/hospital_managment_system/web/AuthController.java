@@ -8,10 +8,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-
 import finki.ukim.mk.hospital_managment_system.model.*;
 import finki.ukim.mk.hospital_managment_system.repository.jpa.JpaRoleRepository;
 import finki.ukim.mk.hospital_managment_system.repository.jpa.JpaUserRepository;
@@ -27,7 +25,6 @@ import finki.ukim.mk.hospital_managment_system.service.LogService;
 import finki.ukim.mk.hospital_managment_system.service.PatientService;
 import finki.ukim.mk.hospital_managment_system.service.impl.UserDetailsImpl;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -35,7 +32,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
-
 
 @RestController
 @RequestMapping("/api/auth")
@@ -174,17 +170,13 @@ public class AuthController {
         ApplicationUser tmpUser = userRepository.findByUsername(signUpRequest.getUsername())
                 .orElseThrow(() -> new UsernameNotFoundException("User not found with username: " + signUpRequest.getUsername()));
 
-
-
         //Create new patient object
        patientService.createPatient(tmpUser.getId(), signUpRequest.getName(), signUpRequest.getSsn(), signUpRequest.getGender(),
                signUpRequest.getEmail(), signUpRequest.getAddress(), signUpRequest.getAge(), signUpRequest.getContactNo(),
                signUpRequest.getDoctorId());
 
-
         return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
     }
-
 
     @PostMapping("/doctor/signup")
     public ResponseEntity<?> registerDoctorUser(@RequestBody SignupRequestDoctor signUpRequest) {
@@ -204,7 +196,6 @@ public class AuthController {
         ApplicationUser user = new ApplicationUser(signUpRequest.getUsername(),
                 signUpRequest.getEmail(),
                 encoder.encode(signUpRequest.getPassword()));
-
 
         Set<String> strRoles = signUpRequest.getRole();
         Set<Role> roles = new HashSet<>();
@@ -242,12 +233,9 @@ public class AuthController {
         ApplicationUser tmpUser = userRepository.findByUsername(signUpRequest.getUsername())
                 .orElseThrow(() -> new UsernameNotFoundException("User not found with username: " + signUpRequest.getUsername()));
 
-
-
         //Create new doctor object
         doctorService.createDoctor(tmpUser.getId(), signUpRequest.getName(), signUpRequest.getAddress(), signUpRequest.getConsultancyFees(),
                 signUpRequest.getContactNo(), signUpRequest.getEmail(), signUpRequest.getSpecializationId());
-
 
         return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
     }
@@ -259,7 +247,6 @@ public class AuthController {
         ApplicationUser user = new ApplicationUser(signUpRequest.getUsername(),
                 signUpRequest.getEmail(),
                 encoder.encode(signUpRequest.getPassword()));
-
 
         Set<String> strRoles = signUpRequest.getRole();
         Set<Role> roles = new HashSet<>();
@@ -293,7 +280,6 @@ public class AuthController {
 
         user.setRoles(roles);
         userRepository.save(user);
-
         return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
     }
 }

@@ -11,5 +11,4 @@ public interface LogService {
     List<Log> getAllLogs();
 
     void update(Log log);
-
 }

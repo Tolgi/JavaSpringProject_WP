@@ -1,7 +1,6 @@
 package finki.ukim.mk.hospital_managment_system.repository;
 
 import finki.ukim.mk.hospital_managment_system.model.Patient;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -14,7 +13,4 @@ public interface PatientRepository {
     void deleteById(Long patientId);
 
     List<Patient> findAll();
-
-
-
 }

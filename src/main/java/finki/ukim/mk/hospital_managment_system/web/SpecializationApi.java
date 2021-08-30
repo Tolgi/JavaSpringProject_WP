@@ -2,11 +2,8 @@ package finki.ukim.mk.hospital_managment_system.web;
 
 import finki.ukim.mk.hospital_managment_system.model.Specialization;
 import finki.ukim.mk.hospital_managment_system.service.SpecializationService;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
-
-import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController

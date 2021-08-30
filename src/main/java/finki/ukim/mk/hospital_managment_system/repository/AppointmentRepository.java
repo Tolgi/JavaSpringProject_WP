@@ -1,8 +1,6 @@
 package finki.ukim.mk.hospital_managment_system.repository;
 
 import finki.ukim.mk.hospital_managment_system.model.Appointment;
-
-
 import java.util.List;
 import java.util.Optional;
 
@@ -21,5 +19,4 @@ public interface AppointmentRepository {
     List<Appointment> findAllByDoctorId(Long doctorId);
 
     List<Appointment> findAll();
-
 }

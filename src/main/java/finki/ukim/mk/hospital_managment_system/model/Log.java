@@ -3,11 +3,7 @@ package finki.ukim.mk.hospital_managment_system.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import javax.persistence.*;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
 
 @Entity
 @AllArgsConstructor
@@ -18,15 +14,22 @@ public class Log {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String sessionId;
 
     @Column(name = "user_roll")
     private String roll;
+
     private String userName;
+
     private String ipAddress;
+
     private String fromTime;
+
     private String toTime;
+
     private double totalHours;
+
     private boolean isSuccess;
 
     public void createLog(String sessionId, String roll, String userName, String ipAddress, boolean isSuccess,String from, String to, double totalHours){

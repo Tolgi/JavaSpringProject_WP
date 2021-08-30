@@ -7,7 +7,6 @@ import finki.ukim.mk.hospital_managment_system.repository.MedicalHistoryReposito
 import finki.ukim.mk.hospital_managment_system.repository.PatientRepository;
 import finki.ukim.mk.hospital_managment_system.service.MedicalHistoryService;
 import org.springframework.stereotype.Service;
-
 import java.time.LocalDateTime;
 import java.util.List;
 

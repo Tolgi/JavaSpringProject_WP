@@ -2,16 +2,9 @@ package finki.ukim.mk.hospital_managment_system.web;
 
 import finki.ukim.mk.hospital_managment_system.model.Appointment;
 import finki.ukim.mk.hospital_managment_system.service.AppointmentService;
-import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.util.MimeTypeUtils;
 import org.springframework.web.bind.annotation.*;
-
-
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.util.List;
 
 @RestController
@@ -24,7 +17,6 @@ public class AppointmentApi {
     public AppointmentApi(AppointmentService appointmentService) {
         this.appointmentService = appointmentService;
     }
-
 
     @GetMapping
     @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_DOCTOR') or hasRole('ROLE_ADMIN')")
@@ -44,13 +36,11 @@ public class AppointmentApi {
         return appointmentService.findAllByPatientId(patientId);
     }
 
-
     @GetMapping(params = "doctorId")
     @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_DOCTOR')")
     public List<Appointment> getAllAppointmentsByDoctorId(@RequestParam Long doctorId){
         return appointmentService.findAllByDoctorId(doctorId);
     }
-
 
     @PostMapping
     @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_DOCTOR')")
@@ -61,7 +51,6 @@ public class AppointmentApi {
 
         Appointment appointment = appointmentService.createAppointment(status, patientId, doctorId, termId);
         return appointment;
-
     }
 
     @DeleteMapping("/{appointmentId}")
@@ -81,5 +70,4 @@ public class AppointmentApi {
     public Integer numberOfAppointments(){
         return appointmentService.numberOfAppointments();
     }
-
 }
