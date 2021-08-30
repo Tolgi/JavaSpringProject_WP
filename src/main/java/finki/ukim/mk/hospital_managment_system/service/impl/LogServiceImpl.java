@@ -5,7 +5,6 @@ import finki.ukim.mk.hospital_managment_system.model.Log;
 import finki.ukim.mk.hospital_managment_system.repository.jpa.JpaLogRepository;
 import finki.ukim.mk.hospital_managment_system.service.LogService;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service
@@ -24,10 +23,8 @@ public class LogServiceImpl implements LogService {
 
     @Override
     public Log createLog(String sessionId, String roll, String userName, String ipAddress, boolean isSuccess, String signUpTime, String logOutTime, double totalHours) {
-
         Log log = new Log();
         log.createLog(sessionId, roll, userName, ipAddress, isSuccess, signUpTime, logOutTime, totalHours);
-
         return logRepository.save(log);
     }
 

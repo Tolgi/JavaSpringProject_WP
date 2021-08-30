@@ -1,1 +1,0 @@
-{"timestamp":"2020-05-10T18:43:17.396+0000","status":500,"error":"Internal Server Error","exception":"finki.ukim.mk.hospital_managment_system.exceptions.InvalidDoctorId","message":"No message available","path":"/api/auth/patient/signup"}

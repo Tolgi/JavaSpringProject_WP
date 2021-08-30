@@ -1,8 +1,6 @@
 package finki.ukim.mk.hospital_managment_system.service;
 
 import finki.ukim.mk.hospital_managment_system.model.MedicalHistory;
-
-import java.time.LocalDateTime;
 import java.util.List;
 
 public interface MedicalHistoryService {
@@ -14,5 +12,4 @@ public interface MedicalHistoryService {
     List<MedicalHistory> findAllByPatientId(Long patientId);
 
     List<MedicalHistory> saveAll(List<MedicalHistory> medicalHistories);
-
 }

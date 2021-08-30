@@ -1,10 +1,6 @@
 package finki.ukim.mk.hospital_managment_system.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
-
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -36,7 +32,6 @@ public class Doctor {
 
     @ManyToOne
     private Specialization specialization;
-
 
     @ManyToMany(fetch = FetchType.EAGER)
     private List<Patient> patients;

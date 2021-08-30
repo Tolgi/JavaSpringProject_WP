@@ -1,15 +1,10 @@
 package finki.ukim.mk.hospital_managment_system.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
-
 import javax.persistence.*;
 import java.time.LocalDateTime;
-
 
 @Entity
 @AllArgsConstructor
@@ -22,7 +17,6 @@ public class MedicalHistory {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "history_id")
     private Long id;
-
     private String bloodPressure;
     private Integer weight;
     private Integer bloodSugar;
@@ -46,5 +40,4 @@ public class MedicalHistory {
         this.patientName = patient.getName();
         this.patientSsn = patient.getSsn();
     }
-
 }

@@ -1,8 +1,6 @@
 package finki.ukim.mk.hospital_managment_system.service;
 
 import finki.ukim.mk.hospital_managment_system.model.Patient;
-
-import java.time.LocalDateTime;
 import java.util.List;
 
 public interface PatientService {

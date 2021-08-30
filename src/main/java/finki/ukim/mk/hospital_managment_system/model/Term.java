@@ -1,12 +1,10 @@
 package finki.ukim.mk.hospital_managment_system.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
-
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -24,6 +22,7 @@ public class Term {
 
    @Column(name = "term_date")
    private LocalDate date;
+
    private LocalTime timeOfAdmission;
 
    @Column(name = "term_status")
@@ -39,5 +38,4 @@ public class Term {
       this.status = status;
       this.doctor = doctor;
    }
-
 }

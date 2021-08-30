@@ -6,7 +6,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.util.MimeTypeUtils;
 import org.springframework.web.bind.annotation.*;
-
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
@@ -21,7 +20,6 @@ public class TermApi {
     public TermApi(TermService termService) {
         this.termService = termService;
     }
-
 
     @PostMapping
     @PreAuthorize("hasRole('ROLE_DOCTOR')")

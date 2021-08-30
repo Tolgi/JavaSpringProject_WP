@@ -1,7 +1,6 @@
 package finki.ukim.mk.hospital_managment_system.model;
 
 import lombok.*;
-
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -30,18 +29,14 @@ public class Appointment {
     @Column(name = "appointment_time")
     private LocalTime time;
 
-
     private LocalDateTime creationDate;
 
     private String doctorName;
 
-
     private Long patientSsn;
-
 
     @ManyToOne
     private Patient patient;
-
 
     @ManyToOne
     private Doctor doctor;
@@ -58,5 +53,4 @@ public class Appointment {
         this.consultancyFees = doctor.getConsultancyFees();
 
     }
-
 }

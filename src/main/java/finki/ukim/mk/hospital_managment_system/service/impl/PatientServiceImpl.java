@@ -13,8 +13,6 @@ import finki.ukim.mk.hospital_managment_system.service.AppointmentService;
 import finki.ukim.mk.hospital_managment_system.service.MedicalHistoryService;
 import finki.ukim.mk.hospital_managment_system.service.PatientService;
 import org.springframework.stereotype.Service;
-
-import javax.print.Doc;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -48,7 +46,6 @@ public class PatientServiceImpl implements PatientService {
             doctorRepository.save(doctor);
         }
         patientRepository.save(patient);
-
         return patient;
     }
 
@@ -86,7 +83,6 @@ public class PatientServiceImpl implements PatientService {
         patient.setEmail(email);
         patient.setGender(gender);
         patient.setContactNo(contactNo);
-
         patientRepository.save(patient);
         return patient;
     }

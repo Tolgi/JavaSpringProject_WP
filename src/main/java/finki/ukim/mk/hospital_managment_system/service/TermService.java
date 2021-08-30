@@ -1,7 +1,6 @@
 package finki.ukim.mk.hospital_managment_system.service;
 
 import finki.ukim.mk.hospital_managment_system.model.Term;
-
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;

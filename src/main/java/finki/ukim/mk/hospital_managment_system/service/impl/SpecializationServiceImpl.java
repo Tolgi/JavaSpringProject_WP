@@ -7,7 +7,6 @@ import finki.ukim.mk.hospital_managment_system.repository.SpecializationReposito
 import finki.ukim.mk.hospital_managment_system.service.DoctorService;
 import finki.ukim.mk.hospital_managment_system.service.SpecializationService;
 import org.springframework.stereotype.Service;
-
 import java.time.LocalDateTime;
 import java.util.List;
 

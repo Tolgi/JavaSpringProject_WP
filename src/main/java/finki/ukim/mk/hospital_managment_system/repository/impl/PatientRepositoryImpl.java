@@ -4,7 +4,6 @@ import finki.ukim.mk.hospital_managment_system.model.Patient;
 import finki.ukim.mk.hospital_managment_system.repository.PatientRepository;
 import finki.ukim.mk.hospital_managment_system.repository.jpa.JpaPatientRepository;
 import org.springframework.stereotype.Repository;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -36,6 +35,4 @@ public class PatientRepositoryImpl implements PatientRepository {
     public List<Patient> findAll() {
         return jpaPatientRepository.findAll();
     }
-
-
 }
