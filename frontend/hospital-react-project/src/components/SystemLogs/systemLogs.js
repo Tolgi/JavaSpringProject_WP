@@ -102,8 +102,6 @@ const SystemLogs = (props) => {
     return(
         <div id="dasReservations" className="app" >
             <h2 className="text-center" style={{color: "rgb(60,64,68)"}}>А complete list of <b>logs within the system</b>!</h2>
-            <p className="text-center" id="car-paragraph" style={{color: "rgb(112,120,128)"}}>The lgos that are
-                listed down are some text just to look nice.<br/>Same here, no idea!</p>
             <div id="ccc1">
                 {console.log(logs)}
                 <MDBDataTable
