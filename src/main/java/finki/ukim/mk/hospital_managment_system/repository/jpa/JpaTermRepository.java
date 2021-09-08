@@ -9,11 +9,11 @@ import java.util.List;
 
 public interface JpaTermRepository extends JpaRepository<Term, Long> {
 
-    List<Term> findTermsByDoctor_IdAndAndStatus(Long doctorId, String status);
+    List<Term> findTermsByDoctor_IdAndAndStatusOrderByDateDesc(Long doctorId, String status);
     List<Term> findTermsByStatusLike(String status);
 
     @Query("select t from Term t " +
-            "WHERE t.doctor.id = :doctorId")
+            "WHERE t.doctor.id = :doctorId " +
+            "ORDER BY t.date DESC")
     List<Term> findTermsByDoctor(@Param("doctorId") Long doctorId);
-
 }

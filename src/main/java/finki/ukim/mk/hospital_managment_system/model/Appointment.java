@@ -51,6 +51,5 @@ public class Appointment {
         this.doctorName = doctor.getName();
         this.patientSsn = patient.getSsn();
         this.consultancyFees = doctor.getConsultancyFees();
-
     }
 }

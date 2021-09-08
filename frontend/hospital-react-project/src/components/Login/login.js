@@ -65,7 +65,7 @@ const LogIn = (props) => {
         ).then(response => {
            // console.log(response.data);
             localStorage.setItem("user", JSON.stringify(response.data));
-            history.push("/dashboard");
+            history.push("/dashboard/home");
             history.go();
 
         },error => {

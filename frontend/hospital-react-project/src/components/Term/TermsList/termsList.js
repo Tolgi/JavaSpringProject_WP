@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Divider} from "@material-ui/core";
 import {MDBBtn, MDBDataTable, MDBIcon} from "mdbreact";
+import TermService from "../../../repository/axiosTermRepository";
 
 
 
@@ -9,6 +10,7 @@ const TermsList = (props) => {
    const[terms, setTerms] = useState([]);
 
     useEffect(() => {
+
         if(props.flag === "byDoctor") {
             props.onClick(props.match.params.id);
         }
@@ -18,7 +20,6 @@ const TermsList = (props) => {
 
         setTerms(props.terms);
     }, []);
-
 
 
     const data = {
@@ -63,7 +64,7 @@ const TermsList = (props) => {
                     status: term.status,
                     action:(
                         <div>
-                            <MDBBtn  onClick={()=>props.onDelete(term.id, props.match.params.id)} color="danger" size="sm"><MDBIcon icon="trash" className="mr-1" />Delete</MDBBtn>
+                            <MDBBtn  onClick={() => { if (window.confirm('Are you sure you wish to delete this term?')) props.onDelete(term.id, props.match.params.id) }} color="danger" size="sm"><MDBIcon icon="trash" className="mr-1" />Delete</MDBBtn>
                         </div>
                     ),
 

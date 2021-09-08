@@ -38,8 +38,10 @@ public class AppointmentServiceImpl implements AppointmentService {
         Appointment appointment = new Appointment();
         Patient patient = patientRepository.findById(patientId).orElseThrow(InvalidPatientId::new);
         Doctor doctor = doctorRepository.findById(doctorId).orElseThrow(InvalidDoctorId::new);
+        Optional<Patient> p1 = doctor.getPatients()
+                .stream()
+                .filter(patient1 -> patient1.getId().equals(patient.getId())).findAny();
 
-        Optional<Patient> p1 = doctor.getPatients().stream().filter(patient1 -> patient1.getId().equals(patient.getId())).findAny();
         if(p1.isEmpty()){
           doctor.follow(patient);
           patientRepository.save(patient);
@@ -47,9 +49,6 @@ public class AppointmentServiceImpl implements AppointmentService {
         }
 
         Term term = termRepository.findById(termId).orElseThrow(InvalidTermId::new);
-//        if(term.getStatus().equals("busy")){
-//            throw new ScheduledTerm();
-//        }
         term.setStatus("busy");
         termRepository.save(term);
 
@@ -103,7 +102,6 @@ public class AppointmentServiceImpl implements AppointmentService {
     @Override
     public Integer numberOfAppointments() {
         List<Appointment> appointments = appointmentRepository.findAll();
-        Integer number = appointments.size();
-        return number;
+        return appointments.size();
     }
 }

@@ -38,12 +38,12 @@ public class AppointmentRepositoryImpl implements AppointmentRepository {
 
     @Override
     public List<Appointment> findAllByPatientId(Long patientId) {
-        return jpaAppointmentRepository.findAppointmentsByPatient_Id(patientId);
+        return jpaAppointmentRepository.findAppointmentsByPatient_IdOrderByDate(patientId);
     }
 
     @Override
     public List<Appointment> findAllByDoctorId(Long doctorId) {
-        return jpaAppointmentRepository.findAppointmentsByDoctor_Id(doctorId);
+        return jpaAppointmentRepository.findAppointmentsByDoctor_IdOrderByDate(doctorId);
     }
 
     @Override
