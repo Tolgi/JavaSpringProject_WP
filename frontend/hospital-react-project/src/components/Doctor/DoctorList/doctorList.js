@@ -42,7 +42,7 @@ const DoctorList = (props) => {
                     action:(
                         <div>
                             <MDBBtn id={doctor.id}  onClick={() => props.onEdit(doctor.id)} color="info" outline size="sm"><MDBIcon icon="magic" className="mr-1" />Edit</MDBBtn>
-                            <MDBBtn  onClick={()=>props.onDelete(doctor.id)} color="danger" size="sm"><MDBIcon icon="trash" className="mr-1" />Delete</MDBBtn>
+                            <MDBBtn  onClick={() => {if (window.confirm('Are you sure you want to delete this doctor?')) props.onDelete(doctor.id)}} color="danger" size="sm"><MDBIcon icon="trash" className="mr-1" />Delete</MDBBtn>
                         </div>
                     ),
 

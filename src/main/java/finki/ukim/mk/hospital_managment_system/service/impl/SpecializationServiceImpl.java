@@ -1,6 +1,7 @@
 package finki.ukim.mk.hospital_managment_system.service.impl;
 
 import finki.ukim.mk.hospital_managment_system.exceptions.InvalidSpecializationId;
+import finki.ukim.mk.hospital_managment_system.exceptions.SpecializationIdIsNull;
 import finki.ukim.mk.hospital_managment_system.model.Doctor;
 import finki.ukim.mk.hospital_managment_system.model.Specialization;
 import finki.ukim.mk.hospital_managment_system.repository.SpecializationRepository;
@@ -9,6 +10,7 @@ import finki.ukim.mk.hospital_managment_system.service.SpecializationService;
 import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class SpecializationServiceImpl implements SpecializationService {
@@ -30,7 +32,11 @@ public class SpecializationServiceImpl implements SpecializationService {
     }
 
     @Override
-    public void deleteById(Long specializationId) {
+    public void deleteById(Long specializationId) throws SpecializationIdIsNull {
+
+        if (Objects.isNull(specializationId)) {
+            throw new SpecializationIdIsNull("Specialization ID is NULL!");
+        }
         List<Doctor> doctors = doctorService.findAllBySpecializationId(specializationId);
         doctors.forEach(doctor -> doctorService.deleteById(doctor.getId()));
         specializationRepository.deleteById(specializationId);

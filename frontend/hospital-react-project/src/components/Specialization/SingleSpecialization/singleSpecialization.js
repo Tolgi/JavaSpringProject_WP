@@ -36,7 +36,7 @@ const SingleSpecialization = (props) => {
                     color="secondary"
                     size="small"
                     startIcon={<DeleteIcon />}
-                    onClick={()=>props.onDelete(props.specialization.id)}
+                    onClick={() => { if (window.confirm('Are you sure you wish to delete this specialization?')) props.onDelete(props.specialization.id)}}
                 >
                     Delete
                 </Button>

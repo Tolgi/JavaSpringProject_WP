@@ -1,7 +1,10 @@
 package finki.ukim.mk.hospital_managment_system.web;
 
+import finki.ukim.mk.hospital_managment_system.exceptions.SpecializationIdIsNull;
 import finki.ukim.mk.hospital_managment_system.model.Specialization;
 import finki.ukim.mk.hospital_managment_system.service.SpecializationService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -11,6 +14,7 @@ import java.util.List;
 @RequestMapping("/api/specialization")
 public class SpecializationApi {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(SpecializationApi.class);
     private final SpecializationService specializationService;
 
     public SpecializationApi(SpecializationService specializationService) {
@@ -39,7 +43,11 @@ public class SpecializationApi {
     @DeleteMapping("/{specializationId}")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public void deleteSpecialization(@PathVariable Long specializationId){
-        specializationService.deleteById(specializationId);
+        try {
+            specializationService.deleteById(specializationId);
+        } catch (SpecializationIdIsNull ex) {
+            LOGGER.error(ex.getMessage());
+        }
     }
 
     @PatchMapping("/edit/{specializationId}")
