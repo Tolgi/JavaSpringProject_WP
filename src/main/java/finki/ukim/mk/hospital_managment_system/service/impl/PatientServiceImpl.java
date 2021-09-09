@@ -54,7 +54,7 @@ public class PatientServiceImpl implements PatientService {
     }
 
     @Override
-    public void deleteById(Long patientId) {
+    public void deleteById(Long patientId) throws PatientIdIsNull {
         List<Appointment> appointments = appointmentService.findAllByPatientId(patientId);
         appointments.forEach(appointment -> appointment.setPatient(null));
         appointmentService.saveAll(appointments);

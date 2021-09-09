@@ -75,11 +75,12 @@ public class PatientApi {
     @DeleteMapping("/{patientId}")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public void deletePatient(@PathVariable Long patientId){
-        if (Objects.isNull(patientId)) {
+        try {
+            patientService.deleteById(patientId);
+        } catch (PatientIdIsNull ex) {
             LOGGER.error("Patient ID is null!");
             return;
         }
-        patientService.deleteById(patientId);
     }
 
     @GetMapping("/number")

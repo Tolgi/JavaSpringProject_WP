@@ -51,6 +51,7 @@ public class SpecializationApi {
             specializationService.deleteById(specializationId);
         } catch (SpecializationIdIsNull ex) {
             LOGGER.error(ex.getMessage());
+            return;
         }
     }
 

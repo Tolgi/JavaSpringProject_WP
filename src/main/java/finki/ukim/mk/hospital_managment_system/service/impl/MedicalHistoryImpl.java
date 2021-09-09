@@ -1,6 +1,8 @@
 package finki.ukim.mk.hospital_managment_system.service.impl;
 
 import finki.ukim.mk.hospital_managment_system.exceptions.InvalidPatientId;
+import finki.ukim.mk.hospital_managment_system.exceptions.MedicationHistoryIdIsNull;
+import finki.ukim.mk.hospital_managment_system.exceptions.PatientIdIsNull;
 import finki.ukim.mk.hospital_managment_system.model.MedicalHistory;
 import finki.ukim.mk.hospital_managment_system.model.Patient;
 import finki.ukim.mk.hospital_managment_system.repository.MedicalHistoryRepository;
@@ -9,6 +11,8 @@ import finki.ukim.mk.hospital_managment_system.service.MedicalHistoryService;
 import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
 
 @Service
 public class MedicalHistoryImpl implements MedicalHistoryService {
@@ -22,21 +26,34 @@ public class MedicalHistoryImpl implements MedicalHistoryService {
     }
 
     @Override
-    public MedicalHistory createMedicalHistory(String bloodPressure, Integer weight, Integer bloodSugar, String bodyTemperature, String medicalPerscription,  Long patientId) {
+    public MedicalHistory createMedicalHistory(String bloodPressure, Integer weight, Integer bloodSugar, String bodyTemperature, String medicalPerscription,  Long patientId) throws PatientIdIsNull {
+        if (Objects.isNull(patientId)) {
+            throw new PatientIdIsNull("Patient ID is null!");
+        }
+
         MedicalHistory medicalHistory = new MedicalHistory();
-        Patient patient = patientRepository.findById(patientId).orElseThrow(InvalidPatientId::new);
-        medicalHistory.createMedicalHistory(bloodPressure, weight, bloodSugar, bodyTemperature, medicalPerscription, LocalDateTime.now(), patient);
-        medicalHistoryRepository.save(medicalHistory);
+        Optional<Patient> patient = patientRepository.findById(patientId);
+        if (patient.isPresent()) {
+            medicalHistory.createMedicalHistory(bloodPressure, weight, bloodSugar, bodyTemperature, medicalPerscription, LocalDateTime.now(), patient.get());
+            medicalHistoryRepository.save(medicalHistory);
+        }
+
         return medicalHistory;
     }
 
     @Override
-    public void deleteById(Long medicalHistoryId) {
+    public void deleteById(Long medicalHistoryId) throws MedicationHistoryIdIsNull {
+        if (Objects.isNull(medicalHistoryId)) {
+            throw new MedicationHistoryIdIsNull("Medical history ID is null!");
+        }
         medicalHistoryRepository.deleteById(medicalHistoryId);
     }
 
     @Override
-    public List<MedicalHistory> findAllByPatientId(Long patientId) {
+    public List<MedicalHistory> findAllByPatientId(Long patientId) throws PatientIdIsNull {
+        if (Objects.isNull(patientId)) {
+            throw new PatientIdIsNull("Patient ID is null!");
+        }
         return medicalHistoryRepository.findAllByPatientId(patientId);
     }
 

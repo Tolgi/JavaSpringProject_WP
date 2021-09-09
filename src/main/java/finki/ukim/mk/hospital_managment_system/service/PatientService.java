@@ -9,7 +9,7 @@ public interface PatientService {
 
     Patient createPatient(Long id, String name, Long ssn, String gender, String email, String address, Integer age, String contactNo, Long doctorId);
 
-    void deleteById(Long patientId);
+    void deleteById(Long patientId) throws PatientIdIsNull;
 
     List<Patient> findAll();
 
