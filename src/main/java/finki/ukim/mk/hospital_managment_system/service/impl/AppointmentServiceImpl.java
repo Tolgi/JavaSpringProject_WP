@@ -15,6 +15,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -33,36 +34,59 @@ public class AppointmentServiceImpl implements AppointmentService {
     }
 
     @Override
-    public Appointment createAppointment(String status, Long patientId, Long doctorId, Long termId) {
+    public Appointment createAppointment(String status, Long patientId, Long doctorId, Long termId)
+            throws PatientIdIsNull, DoctorIdIsNull, TermIdIsNull, ComponentException {
+
+        if (Objects.isNull(patientId)) {
+            throw new PatientIdIsNull("Patient ID can not be null!");
+        }
+        if (Objects.isNull(doctorId)) {
+            throw new DoctorIdIsNull("Doctor ID can not be null!");
+        }
+        if (Objects.isNull(termId)) {
+            throw new TermIdIsNull("Term ID can not be null!");
+        }
 
         Appointment appointment = new Appointment();
-        Patient patient = patientRepository.findById(patientId).orElseThrow(InvalidPatientId::new);
-        Doctor doctor = doctorRepository.findById(doctorId).orElseThrow(InvalidDoctorId::new);
+        Optional<Patient> patientOptional = patientRepository.findById(patientId);
+        Optional<Doctor> doctorOptional = doctorRepository.findById(doctorId);
+        Optional<Term> termOptional = termRepository.findById(termId);
+
+        if (patientOptional.isEmpty() || doctorOptional.isEmpty() || termOptional.isEmpty()) {
+            throw new ComponentException(String.format("Can not find patient with id: %d or doctor with id: %d or term with id: %d",
+                    patientId, doctorId, termId));
+        }
+
+        Patient patient = patientOptional.get();
+        Doctor doctor = doctorOptional.get();
+        Term term = termOptional.get();
+
+        // check if patient is doctor's patient
         Optional<Patient> p1 = doctor.getPatients()
                 .stream()
                 .filter(patient1 -> patient1.getId().equals(patient.getId())).findAny();
-
         if(p1.isEmpty()){
           doctor.follow(patient);
           patientRepository.save(patient);
           doctorRepository.save(doctor);
         }
 
-        Term term = termRepository.findById(termId).orElseThrow(InvalidTermId::new);
+        //set status to busy
         term.setStatus("busy");
         termRepository.save(term);
-
         LocalDate date = term.getDate();
         LocalTime time = term.getTimeOfAdmission();
 
         appointment.createAppointment(status, date, time, LocalDateTime.now(), patient, doctor);
         appointmentRepository.save(appointment);
-
         return appointment;
     }
 
     @Override
-    public void deleteById(Long appointmentId) {
+    public void deleteById(Long appointmentId) throws AppointmentIdIsNull {
+        if (Objects.isNull(appointmentId)) {
+            throw new AppointmentIdIsNull("Appointment ID can not be null!");
+        }
         appointmentRepository.deleteById(appointmentId);
     }
 
@@ -77,25 +101,42 @@ public class AppointmentServiceImpl implements AppointmentService {
     }
 
     @Override
-    public List<Appointment> findAllByPatientId(Long patientId) {
+    public List<Appointment> findAllByPatientId(Long patientId) throws PatientIdIsNull {
+        if (Objects.isNull(patientId)) {
+            throw new PatientIdIsNull("Patient ID can not be null!");
+        }
         return appointmentRepository.findAllByPatientId(patientId);
     }
 
     @Override
-    public List<Appointment> findAllByDoctorId(Long doctorId) {
+    public List<Appointment> findAllByDoctorId(Long doctorId) throws DoctorIdIsNull {
+        if (Objects.isNull(doctorId)) {
+            throw new DoctorIdIsNull("Doctor ID can not be null!");
+        }
         return appointmentRepository.findAllByDoctorId(doctorId);
     }
 
     @Override
-    public Appointment findById(Long appointmentId) {
-        return appointmentRepository.findById(appointmentId).orElseThrow(InvalidAppointmentId::new);
+    public Appointment findById(Long appointmentId) throws AppointmentIdIsNull {
+        if (Objects.isNull(appointmentId)) {
+            throw new AppointmentIdIsNull("Appointment ID can not be null!");
+        }
+        Optional<Appointment> appointment = appointmentRepository.findById(appointmentId);
+        return appointment.orElse(null);
     }
 
     @Override
-    public Appointment updateStatus(Long appointmentId, String status) {
-        Appointment appointment = appointmentRepository.findById(appointmentId).orElseThrow(InvalidAppointmentId::new);
-        appointment.setStatus(status);
-        appointmentRepository.save(appointment);
+    public Appointment updateStatus(Long appointmentId, String status) throws AppointmentIdIsNull {
+        if (Objects.isNull(appointmentId)) {
+            throw new AppointmentIdIsNull("Appointment ID can not be null!");
+        }
+        Optional<Appointment> appointmentOptional = appointmentRepository.findById(appointmentId);
+        Appointment appointment = new Appointment();
+        if (appointmentOptional.isPresent()) {
+            appointment = appointmentOptional.get();
+            appointment.setStatus(status);
+            appointmentRepository.save(appointment);
+        }
         return appointment;
     }
 

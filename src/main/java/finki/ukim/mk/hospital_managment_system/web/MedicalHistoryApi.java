@@ -14,7 +14,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
-    @RequestMapping(path = "/api/medicalHistory", produces = MimeTypeUtils.APPLICATION_JSON_VALUE)
+@RequestMapping(path = "/api/medicalHistory", produces = MimeTypeUtils.APPLICATION_JSON_VALUE)
 public class MedicalHistoryApi {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(MedicalHistoryApi.class);
@@ -32,7 +32,6 @@ public class MedicalHistoryApi {
                                                @RequestParam String bodyTemperature,
                                                @RequestParam String medicalPrescription,
                                                @RequestParam Long patientId){
-
         try {
             return ResponseEntity.ok(medicalHistoryService.createMedicalHistory(bloodPressure, weight, bloodSugar, bodyTemperature, medicalPrescription, patientId));
         } catch (PatientIdIsNull ex) {

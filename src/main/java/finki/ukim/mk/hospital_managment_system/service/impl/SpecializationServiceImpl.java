@@ -1,5 +1,6 @@
 package finki.ukim.mk.hospital_managment_system.service.impl;
 
+import finki.ukim.mk.hospital_managment_system.exceptions.DoctorIdIsNull;
 import finki.ukim.mk.hospital_managment_system.exceptions.InvalidSpecializationId;
 import finki.ukim.mk.hospital_managment_system.exceptions.SpecializationIdIsNull;
 import finki.ukim.mk.hospital_managment_system.model.Doctor;
@@ -7,6 +8,9 @@ import finki.ukim.mk.hospital_managment_system.model.Specialization;
 import finki.ukim.mk.hospital_managment_system.repository.SpecializationRepository;
 import finki.ukim.mk.hospital_managment_system.service.DoctorService;
 import finki.ukim.mk.hospital_managment_system.service.SpecializationService;
+import finki.ukim.mk.hospital_managment_system.web.DoctorApi;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import javax.swing.text.html.Option;
@@ -18,6 +22,7 @@ import java.util.Optional;
 @Service
 public class SpecializationServiceImpl implements SpecializationService {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(SpecializationServiceImpl.class);
     private final SpecializationRepository specializationRepository;
     private final DoctorService doctorService;
 
@@ -41,7 +46,13 @@ public class SpecializationServiceImpl implements SpecializationService {
             throw new SpecializationIdIsNull("Specialization ID is NULL!");
         }
         List<Doctor> doctors = doctorService.findAllBySpecializationId(specializationId);
-        doctors.forEach(doctor -> doctorService.deleteById(doctor.getId()));
+        doctors.forEach(doctor -> {
+            try {
+                doctorService.deleteById(doctor.getId());
+            } catch (DoctorIdIsNull ex) {
+                LOGGER.error(ex.getMessage());
+            }
+        });
         specializationRepository.deleteById(specializationId);
     }
 

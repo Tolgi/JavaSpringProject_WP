@@ -42,11 +42,12 @@ public class DoctorApi {
     @DeleteMapping("/{doctorId}")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public void deleteDoctor(@PathVariable Long doctorId){
-        if (Objects.isNull(doctorId)) {
-            LOGGER.error("Doctor id is null!");
+        try {
+            doctorService.deleteById(doctorId);
+        } catch (DoctorIdIsNull ex) {
+            LOGGER.error(ex.getMessage());
             return;
         }
-        doctorService.deleteById(doctorId);
     }
 
     @GetMapping(params = "specializationName")

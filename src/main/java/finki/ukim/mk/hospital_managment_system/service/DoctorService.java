@@ -9,7 +9,7 @@ public interface DoctorService {
 
     Doctor createDoctor(Long id, String name, String address, Integer consultancyFees, String contactNo, String email, Long specializationId);
 
-    void deleteById(Long id);
+    void deleteById(Long id) throws DoctorIdIsNull;
 
     List<Doctor> findAllBySpecializationName(String specializationName) throws SpecializationNameIsNullOrEmpty;
 

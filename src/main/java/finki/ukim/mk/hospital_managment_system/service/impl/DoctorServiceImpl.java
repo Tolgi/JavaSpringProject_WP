@@ -45,7 +45,7 @@ public class DoctorServiceImpl implements DoctorService {
     }
 
     @Override
-    public void deleteById(Long id) {
+    public void deleteById(Long id) throws DoctorIdIsNull {
         List<Appointment> appointments = appointmentService.findAllByDoctorId(id);
         appointments.forEach(appointment -> appointment.setDoctor(null));
         appointmentService.saveAll(appointments);
