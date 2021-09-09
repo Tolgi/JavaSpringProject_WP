@@ -29,7 +29,6 @@ public class UserApi {
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public Integer numbersOfUsers() {
         List<ApplicationUser> users = userRepository.findAll();
-        Integer number = users.size();
-        return number;
+        return users.size();
     }
 }

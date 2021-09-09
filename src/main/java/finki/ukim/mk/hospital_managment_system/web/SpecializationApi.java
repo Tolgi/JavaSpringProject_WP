@@ -5,6 +5,7 @@ import finki.ukim.mk.hospital_managment_system.model.Specialization;
 import finki.ukim.mk.hospital_managment_system.service.SpecializationService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -23,21 +24,24 @@ public class SpecializationApi {
 
     @GetMapping("/{specializationId}")
     @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_DOCTOR') or hasRole('ROLE_ADMIN')")
-    public Specialization getSpecialization(@PathVariable Long specializationId) {
-        return specializationService.findById(specializationId);
+    public ResponseEntity<?> getSpecialization(@PathVariable Long specializationId) {
+        try {
+            return ResponseEntity.ok().body(specializationService.findById(specializationId));
+        } catch (SpecializationIdIsNull ex) {
+            return ResponseEntity.badRequest().body(ex);
+        }
     }
 
     @PostMapping
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public Specialization createSpecialization(@RequestParam String name){
-        Specialization specialization = specializationService.createSpecialization(name);
-        return specialization;
+        return specializationService.createSpecialization(name);
     }
 
     @GetMapping
     @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_DOCTOR') or hasRole('ROLE_ADMIN')")
-    public List<Specialization> getAllSpecializations(){
-        return specializationService.findAll();
+    public ResponseEntity<List<Specialization>> getAllSpecializations(){
+        return ResponseEntity.ok(specializationService.findAll());
     }
 
     @DeleteMapping("/{specializationId}")
@@ -52,8 +56,11 @@ public class SpecializationApi {
 
     @PatchMapping("/edit/{specializationId}")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
-    public Specialization editSpecialization(@PathVariable Long specializationId, @RequestParam String name){
-        Specialization specialization = specializationService.editSpecialization(specializationId, name);
-        return specialization;
+    public ResponseEntity<?> editSpecialization(@PathVariable Long specializationId, @RequestParam String name){
+        try {
+            return ResponseEntity.ok(specializationService.editSpecialization(specializationId, name));
+        } catch (SpecializationIdIsNull ex) {
+            return ResponseEntity.badRequest().body(ex);
+        }
     }
 }

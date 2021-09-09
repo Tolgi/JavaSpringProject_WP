@@ -1,17 +1,24 @@
 package finki.ukim.mk.hospital_managment_system.web;
 
+import finki.ukim.mk.hospital_managment_system.exceptions.InvalidPatient_ID;
+import finki.ukim.mk.hospital_managment_system.exceptions.PatientIdIsNull;
 import finki.ukim.mk.hospital_managment_system.model.Patient;
 import finki.ukim.mk.hospital_managment_system.service.PatientService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.util.MimeTypeUtils;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+import java.util.Objects;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping(path = "/api/patient", produces = MimeTypeUtils.APPLICATION_JSON_VALUE)
 public class PatientApi {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(PatientApi.class);
     private final PatientService patientService;
 
     public PatientApi(PatientService patientService) {
@@ -34,19 +41,23 @@ public class PatientApi {
 
     @GetMapping
     @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_DOCTOR') or hasRole('ROLE_ADMIN')")
-    public List<Patient> getAllPatients(){
-        return patientService.findAll();
+    public ResponseEntity<List<Patient>> getAllPatients(){
+        return ResponseEntity.ok().body(patientService.findAll());
     }
 
     @GetMapping(params = "patientId")
     @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_DOCTOR') or hasRole('ROLE_ADMIN')")
-    public Patient getPatient(@RequestParam Long patientId) {
-        return patientService.getPatient(patientId);
+    public ResponseEntity<?> getPatient(@RequestParam Long patientId) {
+        try {
+            return ResponseEntity.ok().body(patientService.getPatient(patientId));
+        } catch (PatientIdIsNull | InvalidPatient_ID ex) {
+            return ResponseEntity.badRequest().body(ex);
+        }
     }
 
     @PatchMapping("/edit/{patientId}")
     @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
-    public Patient editPatient(@PathVariable Long patientId,
+    public ResponseEntity<?> editPatient(@PathVariable Long patientId,
                                @RequestParam String name,
                                @RequestParam Long ssn,
                                @RequestParam String gender,
@@ -54,12 +65,20 @@ public class PatientApi {
                                @RequestParam String address,
                                @RequestParam Integer age,
                                @RequestParam String contactNo){
-        return patientService.editPatient(patientId, name, ssn, gender, email, address, age, contactNo);
+        try {
+            return ResponseEntity.ok().body(patientService.editPatient(patientId, name, ssn, gender, email, address, age, contactNo));
+        } catch (PatientIdIsNull ex) {
+            return ResponseEntity.badRequest().body(ex);
+        }
     }
 
     @DeleteMapping("/{patientId}")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public void deletePatient(@PathVariable Long patientId){
+        if (Objects.isNull(patientId)) {
+            LOGGER.error("Patient ID is null!");
+            return;
+        }
         patientService.deleteById(patientId);
     }
 

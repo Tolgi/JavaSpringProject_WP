@@ -8,9 +8,12 @@ import finki.ukim.mk.hospital_managment_system.repository.SpecializationReposito
 import finki.ukim.mk.hospital_managment_system.service.DoctorService;
 import finki.ukim.mk.hospital_managment_system.service.SpecializationService;
 import org.springframework.stereotype.Service;
+
+import javax.swing.text.html.Option;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 @Service
 public class SpecializationServiceImpl implements SpecializationService {
@@ -48,15 +51,26 @@ public class SpecializationServiceImpl implements SpecializationService {
     }
 
     @Override
-    public Specialization editSpecialization(Long id, String name) {
-        Specialization specialization = specializationRepository.findById(id).orElseThrow(InvalidSpecializationId::new);
-        specialization.setName(name);
-        specializationRepository.save(specialization);
+    public Specialization editSpecialization(Long id, String name) throws SpecializationIdIsNull {
+        if (Objects.isNull(id)) {
+            throw new SpecializationIdIsNull("Specialization ID is null!");
+        }
+        Optional<Specialization> optionalSpecialization = specializationRepository.findById(id);
+        Specialization specialization = new Specialization();
+
+        if (optionalSpecialization.isPresent()) {
+            specialization = optionalSpecialization.get();
+            specialization.setName(name);
+            specializationRepository.save(specialization);
+        }
         return specialization;
     }
 
     @Override
-    public Specialization findById(Long id) {
+    public Specialization findById(Long id) throws SpecializationIdIsNull {
+        if (Objects.isNull(id)) {
+            throw new SpecializationIdIsNull("Specialization ID is null!");
+        }
         return specializationRepository.findById(id).orElseThrow(InvalidSpecializationId::new);
     }
 }

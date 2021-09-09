@@ -97,7 +97,7 @@ public class DoctorServiceImpl implements DoctorService {
 
         Optional<Doctor> doctor = doctorRepository.findById(doctorId);
         if (doctor.isEmpty()) {
-            throw new InvalidDoctor_ID("Doctor ID is invalid!");
+            throw new InvalidDoctor_ID(String.format("Can not find doctor with id: %s", doctorId));
         }
 
         return doctor.get();

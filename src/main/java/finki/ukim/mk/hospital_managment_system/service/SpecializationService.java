@@ -12,7 +12,7 @@ public interface SpecializationService {
 
     List<Specialization> findAll();
 
-    Specialization editSpecialization(Long id, String name);
+    Specialization editSpecialization(Long id, String name) throws SpecializationIdIsNull;
 
-    Specialization findById(Long id);
+    Specialization findById(Long id) throws SpecializationIdIsNull;
 }

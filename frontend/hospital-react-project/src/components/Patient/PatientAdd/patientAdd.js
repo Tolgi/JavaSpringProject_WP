@@ -3,8 +3,6 @@ import SaveIcon from '@material-ui/icons/Save';
 import Button from '@material-ui/core/Button';
 import {Divider} from "@material-ui/core";
 import AuthService from "../../../authentication/axiosAuthRepository";
-import {useHistory} from "react-router-dom";
-
 
 const PatientAdd = (props) => {
 

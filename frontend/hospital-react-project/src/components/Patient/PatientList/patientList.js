@@ -94,7 +94,7 @@ const PatientList = (props) => {
                                 color="secondary"
                                 size="small"
                                 startIcon={<DeleteIcon />}
-                                onClick={()=>props.onDelete(patient.id)}
+                                onClick={() => {if (window.confirm('Are you sure you want to delete this patient?')) props.onDelete(patient.id)}}
                             >
                                 Delete
                             </Button>

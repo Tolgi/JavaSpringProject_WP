@@ -1,5 +1,7 @@
 package finki.ukim.mk.hospital_managment_system.service;
 
+import finki.ukim.mk.hospital_managment_system.exceptions.InvalidPatient_ID;
+import finki.ukim.mk.hospital_managment_system.exceptions.PatientIdIsNull;
 import finki.ukim.mk.hospital_managment_system.model.Patient;
 import java.util.List;
 
@@ -11,9 +13,9 @@ public interface PatientService {
 
     List<Patient> findAll();
 
-    Patient getPatient(Long patientId);
+    Patient getPatient(Long patientId) throws PatientIdIsNull, InvalidPatient_ID;
 
-    Patient editPatient(Long patientId, String name, Long ssn, String gender, String email, String address, Integer age, String contactNo);
+    Patient editPatient(Long patientId, String name, Long ssn, String gender, String email, String address, Integer age, String contactNo) throws PatientIdIsNull;
 
     Integer numbersOfPatients();
 }

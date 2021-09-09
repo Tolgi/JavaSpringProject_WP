@@ -2,6 +2,8 @@ package finki.ukim.mk.hospital_managment_system.service.impl;
 
 import finki.ukim.mk.hospital_managment_system.exceptions.InvalidDoctorId;
 import finki.ukim.mk.hospital_managment_system.exceptions.InvalidPatientId;
+import finki.ukim.mk.hospital_managment_system.exceptions.InvalidPatient_ID;
+import finki.ukim.mk.hospital_managment_system.exceptions.PatientIdIsNull;
 import finki.ukim.mk.hospital_managment_system.model.Appointment;
 import finki.ukim.mk.hospital_managment_system.model.Doctor;
 import finki.ukim.mk.hospital_managment_system.model.MedicalHistory;
@@ -15,6 +17,8 @@ import finki.ukim.mk.hospital_managment_system.service.PatientService;
 import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
 
 @Service
 public class PatientServiceImpl implements PatientService {
@@ -69,28 +73,42 @@ public class PatientServiceImpl implements PatientService {
     }
 
     @Override
-    public Patient getPatient(Long patientId) {
-        return patientRepository.findById(patientId).orElseThrow(InvalidPatientId::new);
+    public Patient getPatient(Long patientId) throws PatientIdIsNull, InvalidPatient_ID {
+        if (Objects.isNull(patientId)) {
+            throw new PatientIdIsNull("Patient ID is null!");
+        }
+        Optional<Patient> optionalPatient = patientRepository.findById(patientId);
+        if (!optionalPatient.isPresent()) {
+            throw new InvalidPatient_ID(String.format("Can not find patient with id: %s", patientId));
+        }
+
+        return optionalPatient.get();
     }
 
     @Override
-    public Patient editPatient(Long patientId, String name, Long ssn, String gender, String email, String address, Integer age, String contactNo) {
-        Patient patient = patientRepository.findById(patientId).orElseThrow(InvalidPatientId::new);
-        patient.setName(name);
-        patient.setSsn(ssn);
-        patient.setAddress(address);
-        patient.setAge(age);
-        patient.setEmail(email);
-        patient.setGender(gender);
-        patient.setContactNo(contactNo);
-        patientRepository.save(patient);
+    public Patient editPatient(Long patientId, String name, Long ssn, String gender, String email, String address, Integer age, String contactNo) throws PatientIdIsNull {
+        if (Objects.isNull(patientId)) {
+            throw new PatientIdIsNull("Patient ID is null!");
+        }
+        Optional<Patient> optionalPatient = patientRepository.findById(patientId);
+        Patient patient = new Patient();
+        if (optionalPatient.isPresent()) {
+            patient = optionalPatient.get();
+            patient.setName(name);
+            patient.setSsn(ssn);
+            patient.setAddress(address);
+            patient.setAge(age);
+            patient.setEmail(email);
+            patient.setGender(gender);
+            patient.setContactNo(contactNo);
+            patientRepository.save(patient);
+        }
         return patient;
     }
 
     @Override
     public Integer numbersOfPatients() {
         List<Patient> patients = patientRepository.findAll();
-        Integer number = patients.size();
-        return number;
+        return patients.size();
     }
 }
